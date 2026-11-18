@@ -1,0 +1,160 @@
+{
+  "id": "functions",
+  "title": "JavaScript Functions",
+  "concepts": [
+    {
+      "id": "function-types",
+      "title": "Function Types",
+      "questions": [
+        {
+          "id": "declaration-expression",
+          "title": "What is the difference between function declarations and expressions?",
+          "answer": "A function declaration defines a named function and can generally be called before its declaration in the same scope. A function expression creates a function as part of an expression and follows the initialization rules of its variable binding.",
+          "underTheHood": "Function declarations are initialized during environment setup. Function expressions are evaluated when execution reaches their expression.",
+          "code": "greet();\n\nfunction greet() {\n  return 'Hello';\n}\n\nconst sayHello = function () {\n  return 'Hello';\n};",
+          "pitfalls": [
+            "Function expressions assigned to const cannot be accessed before initialization.",
+            "Function declarations and expressions have different initialization behavior."
+          ],
+          "followUps": [
+            "What is hoisting?",
+            "What is an anonymous function?"
+          ]
+        },
+        {
+          "id": "arrow-functions",
+          "title": "How do arrow functions differ from regular functions?",
+          "answer": "Arrow functions use lexical this, do not have their own arguments object, and cannot be used as constructors. Regular functions have their own this binding determined by how they are called.",
+          "underTheHood": "An arrow function captures this from its surrounding lexical environment rather than creating a new this binding during invocation.",
+          "code": "const user = {\n  name: 'Alex',\n  regular() {\n    return this.name;\n  },\n  arrow: () => this.name\n};\n\nconsole.log(user.regular()); // 'Alex'",
+          "pitfalls": [
+            "Arrow functions are usually unsuitable as object methods that need dynamic this.",
+            "Arrow functions cannot be called with new.",
+            "call(), apply() and bind() cannot change an arrow function's lexical this."
+          ],
+          "followUps": [
+            "What is lexical this?",
+            "Why can arrow functions not be constructors?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parameters",
+      "title": "Parameters & Arguments",
+      "questions": [
+        {
+          "id": "rest-parameters",
+          "title": "What are rest parameters?",
+          "answer": "Rest parameters collect remaining arguments into a real array. They allow functions to accept a variable number of arguments.",
+          "underTheHood": "The rest parameter collects arguments not assigned to earlier parameters.",
+          "code": "function sum(...numbers) {\n  return numbers.reduce((a, b) => a + b, 0);\n}\n\nconsole.log(sum(1, 2, 3)); // 6",
+          "pitfalls": [
+            "Rest parameters must be the final parameter.",
+            "Rest parameters and spread syntax have different purposes."
+          ],
+          "followUps": [
+            "What is the arguments object?",
+            "How does rest differ from spread?"
+          ]
+        },
+        {
+          "id": "default-parameters",
+          "title": "How do default parameters work?",
+          "answer": "Default parameters provide fallback values when an argument is missing or explicitly undefined.",
+          "underTheHood": "Default parameter expressions are evaluated when the corresponding argument is undefined.",
+          "code": "function greet(name = 'Guest') {\n  return `Hello ${name}`;\n}\n\nconsole.log(greet()); // Hello Guest\nconsole.log(greet(null)); // Hello null",
+          "pitfalls": [
+            "null does not activate a default parameter.",
+            "Default expressions can reference earlier parameters."
+          ],
+          "followUps": [
+            "How are parameters initialized?",
+            "What happens when undefined is passed explicitly?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "this-binding",
+      "title": "this Binding",
+      "questions": [
+        {
+          "id": "this-keyword",
+          "title": "What is the this keyword?",
+          "answer": "this is a value available during function execution. In ordinary functions, its value depends on how the function is called. Arrow functions inherit this lexically.",
+          "underTheHood": "Ordinary function calls establish a this binding according to the call form and strict-mode rules.",
+          "code": "const user = {\n  name: 'Alex',\n  greet() {\n    return this.name;\n  }\n};\n\nconsole.log(user.greet()); // Alex",
+          "pitfalls": [
+            "this does not necessarily refer to the function's lexical scope.",
+            "Extracting a method can lose its original receiver.",
+            "Arrow functions do not create their own this binding."
+          ],
+          "followUps": [
+            "What are the this binding rules?",
+            "How does strict mode affect this?"
+          ]
+        },
+        {
+          "id": "call-apply-bind",
+          "title": "What is the difference between call(), apply() and bind()?",
+          "answer": "call() invokes a function with an explicit this value and individual arguments. apply() invokes it with arguments supplied as an array-like object. bind() creates a new function with a bound this value and optional preset arguments.",
+          "underTheHood": "call() and apply() invoke immediately. bind() returns a bound function that can be invoked later.",
+          "code": "function greet(message) {\n  return `${message}, ${this.name}`;\n}\n\nconst user = { name: 'Alex' };\n\ngreet.call(user, 'Hi');\ngreet.apply(user, ['Hi']);\n\nconst bound = greet.bind(user);\nbound('Hi');",
+          "pitfalls": [
+            "bind() does not immediately invoke the function.",
+            "call() and apply() differ in argument passing.",
+            "Arrow functions ignore attempts to rebind lexical this."
+          ],
+          "followUps": [
+            "What is explicit binding?",
+            "What happens when a bound function is used with new?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "higher-order-functions",
+      "title": "Higher-Order Functions & Callbacks",
+      "questions": [
+        {
+          "id": "higher-order",
+          "title": "What is a higher-order function?",
+          "answer": "A higher-order function accepts another function as an argument, returns a function, or both.",
+          "underTheHood": "JavaScript treats functions as first-class values, allowing them to be stored, passed and returned.",
+          "code": "function multiplyBy(factor) {\n  return (number) => number * factor;\n}\n\nconst double = multiplyBy(2);\nconsole.log(double(5)); // 10",
+          "pitfalls": [
+            "A callback is a function passed to another function.",
+            "Higher-order functions do not have to be asynchronous."
+          ],
+          "followUps": [
+            "What is a callback?",
+            "How do closures support higher-order functions?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "recursion",
+      "title": "Recursion",
+      "questions": [
+        {
+          "id": "recursion-definition",
+          "title": "What is recursion?",
+          "answer": "Recursion occurs when a function calls itself, directly or indirectly, to solve smaller instances of a problem.",
+          "underTheHood": "Recursive calls create additional active function executions. Without an appropriate stopping condition, recursion can exhaust the call stack.",
+          "code": "function factorial(n) {\n  if (n <= 1) return 1;\n  return n * factorial(n - 1);\n}\n\nconsole.log(factorial(5)); // 120",
+          "pitfalls": [
+            "Recursion requires a base case.",
+            "Deep recursion may cause stack overflow.",
+            "Recursive solutions can have additional stack-space costs."
+          ],
+          "followUps": [
+            "What is tail recursion?",
+            "How does recursion compare with iteration?"
+          ]
+        }
+      ]
+    }
+  ]
+}

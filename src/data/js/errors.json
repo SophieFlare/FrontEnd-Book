@@ -1,0 +1,38 @@
+﻿{
+  "id": "errors",
+  "title": "Error Handling & Debugging",
+  "concepts": [
+    {
+      "id": "error-types",
+      "title": "Error Types",
+      "questions": [
+        { "id": "syntax-error", "title": "What is a SyntaxError?" },
+        { "id": "type-error", "title": "What is a TypeError?" },
+        { "id": "reference-error", "title": "What is a ReferenceError?" },
+        { "id": "range-error", "title": "What is a RangeError?" },
+        { "id": "custom-errors", "title": "How do you create custom Error classes?" }
+      ]
+    },
+    {
+      "id": "exception-handling",
+      "title": "Exception Handling",
+      "questions": [
+        { "id": "try-catch", "title": "How does try/catch work?" },
+        { "id": "finally", "title": "When does finally execute?" },
+        { "id": "throw", "title": "How does throw work?" },
+        { "id": "async-errors", "title": "How do you handle asynchronous errors?" },
+        { "id": "promise-rejection", "title": "What is an unhandled promise rejection?" }
+      ]
+    },
+    {
+      "id": "debugging",
+      "title": "Debugging",
+      "questions": [
+        { "id": "debugger", "title": "How does the debugger statement work?" },
+        { "id": "breakpoints", "title": "What are breakpoints?" },
+        { "id": "stack-traces", "title": "How do you interpret a stack trace?" },
+        { "id": "source-maps", "title": "What are source maps?" }
+      ]
+    }
+  ]
+}

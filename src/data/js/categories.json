@@ -1,0 +1,87 @@
+{
+  "id": "javascript",
+  "title": "JavaScript",
+  "description": "Complete JavaScript final interview preparation, from language fundamentals to advanced internals.",
+  "categories": [
+    {
+      "id": "fundamentals",
+      "title": "01. Fundamentals",
+      "description": "Variables, data types, coercion, operators and control flow."
+    },
+    {
+      "id": "execution",
+      "title": "02. Execution & Scope",
+      "description": "Execution contexts, call stack, hoisting, lexical scope and closures."
+    },
+    {
+      "id": "functions",
+      "title": "03. Functions",
+      "description": "Function declarations, expressions, this, callbacks and higher-order functions."
+    },
+    {
+      "id": "objects",
+      "title": "04. Objects & Prototypes",
+      "description": "Object creation, properties, copying and prototypal inheritance."
+    },
+    {
+      "id": "classes",
+      "title": "05. Classes & OOP",
+      "description": "Constructors, classes, inheritance, encapsulation and polymorphism."
+    },
+    {
+      "id": "collections",
+      "title": "06. Arrays & Collections",
+      "description": "Array methods, Map, Set, WeakMap, WeakSet and typed arrays."
+    },
+    {
+      "id": "asynchronous",
+      "title": "07. Asynchronous JavaScript",
+      "description": "Callbacks, promises, async/await, concurrency and the event loop."
+    },
+    {
+      "id": "iterators",
+      "title": "08. Iterators & Generators",
+      "description": "Iteration protocols, generators and asynchronous iteration."
+    },
+    {
+      "id": "modules",
+      "title": "09. Modules",
+      "description": "ES modules, CommonJS, imports, exports and dynamic loading."
+    },
+    {
+      "id": "dom",
+      "title": "10. DOM & Events",
+      "description": "DOM manipulation, event propagation and event delegation."
+    },
+    {
+      "id": "browser",
+      "title": "11. Browser APIs",
+      "description": "Storage, HTTP, Fetch API, workers and browser rendering."
+    },
+    {
+      "id": "memory",
+      "title": "12. Memory Management",
+      "description": "Memory allocation, garbage collection, reachability and memory leaks."
+    },
+    {
+      "id": "functional",
+      "title": "13. Functional Programming",
+      "description": "Pure functions, immutability, composition and functional patterns."
+    },
+    {
+      "id": "errors",
+      "title": "14. Error Handling & Debugging",
+      "description": "Error types, exception handling, custom errors and debugging."
+    },
+    {
+      "id": "performance",
+      "title": "15. Performance & Optimization",
+      "description": "Complexity, debounce, throttle, memoization and optimization."
+    },
+    {
+      "id": "advanced",
+      "title": "16. Advanced JavaScript",
+      "description": "Proxy, Reflect, Symbols, design patterns and advanced internals."
+    }
+  ]
+}

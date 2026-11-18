@@ -1,0 +1,60 @@
+﻿{
+  "id": "collections",
+  "title": "Arrays & Collections",
+  "concepts": [
+    {
+      "id": "array-basics",
+      "title": "Array Fundamentals",
+      "questions": [
+        { "id": "array-definition", "title": "What is an array in JavaScript?" },
+        { "id": "array-creation", "title": "How can arrays be created?" },
+        { "id": "array-reference", "title": "How are arrays compared and copied?" },
+        { "id": "array-destructuring", "title": "How does array destructuring work?" }
+      ]
+    },
+    {
+      "id": "array-methods",
+      "title": "Array Methods",
+      "questions": [
+        { "id": "map", "title": "How does map() work?" },
+        { "id": "filter", "title": "How does filter() work?" },
+        { "id": "reduce", "title": "How does reduce() work?" },
+        { "id": "foreach", "title": "What is the difference between forEach() and map()?" },
+        { "id": "find", "title": "How do find() and findIndex() differ?" },
+        { "id": "some-every", "title": "How do some() and every() work?" },
+        { "id": "slice-splice", "title": "What is the difference between slice() and splice()?" },
+        { "id": "sort", "title": "How does sort() work?" },
+        { "id": "flat-flatmap", "title": "How do flat() and flatMap() work?" },
+        { "id": "immutable-array-methods", "title": "How do toSorted(), toReversed(), toSpliced() and with() work?" }
+      ]
+    },
+    {
+      "id": "maps-sets",
+      "title": "Map & Set",
+      "questions": [
+        { "id": "map-object", "title": "What is the difference between Map and Object?" },
+        { "id": "set-array", "title": "What is the difference between Set and Array?" },
+        { "id": "map-iteration", "title": "How do you iterate over Map and Set?" },
+        { "id": "set-operations", "title": "How do Set operations work?" }
+      ]
+    },
+    {
+      "id": "weak-collections",
+      "title": "Weak Collections",
+      "questions": [
+        { "id": "weakmap", "title": "What is WeakMap?" },
+        { "id": "weakset", "title": "What is WeakSet?" },
+        { "id": "weak-vs-strong", "title": "How do WeakMap and Map differ in garbage collection?" }
+      ]
+    },
+    {
+      "id": "typed-arrays",
+      "title": "Typed Arrays",
+      "questions": [
+        { "id": "arraybuffer", "title": "What is ArrayBuffer?" },
+        { "id": "typedarray", "title": "What are typed arrays?" },
+        { "id": "dataview", "title": "What is DataView?" }
+      ]
+    }
+  ]
+}

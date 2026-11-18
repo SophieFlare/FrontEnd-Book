@@ -1,0 +1,56 @@
+﻿{
+  "id": "execution",
+  "title": "Execution & Scope",
+  "concepts": [
+    {
+      "id": "execution-context",
+      "title": "Execution Context",
+      "questions": [
+        { "id": "global-context", "title": "What is the global execution context?" },
+        { "id": "function-context", "title": "What is a function execution context?" },
+        { "id": "execution-phases", "title": "What are the creation and execution phases?" },
+        { "id": "execution-stack", "title": "How does JavaScript manage execution contexts?" }
+      ]
+    },
+    {
+      "id": "call-stack",
+      "title": "Call Stack",
+      "questions": [
+        { "id": "stack-definition", "title": "What is the call stack?" },
+        { "id": "stack-order", "title": "How are functions pushed and popped from the stack?" },
+        { "id": "stack-overflow", "title": "What causes a stack overflow?" }
+      ]
+    },
+    {
+      "id": "hoisting",
+      "title": "Hoisting & TDZ",
+      "questions": [
+        { "id": "hoisting-definition", "title": "What is hoisting?" },
+        { "id": "var-let-const-hoisting", "title": "How do var, let and const differ during initialization?" },
+        { "id": "tdz", "title": "What is the Temporal Dead Zone?" },
+        { "id": "function-hoisting", "title": "How are function declarations hoisted?" }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": "Scope & Lexical Environment",
+      "questions": [
+        { "id": "scope-types", "title": "What are global, function, block and module scopes?" },
+        { "id": "lexical-scope", "title": "What is lexical scoping?" },
+        { "id": "scope-chain", "title": "How does the scope chain work?" },
+        { "id": "lexical-environment", "title": "What is a lexical environment?" }
+      ]
+    },
+    {
+      "id": "closures",
+      "title": "Closures",
+      "questions": [
+        { "id": "closure-definition", "title": "What is a closure?" },
+        { "id": "closure-internals", "title": "How do closures work under the hood?" },
+        { "id": "closure-use-cases", "title": "When should closures be used?" },
+        { "id": "closure-memory", "title": "How can closures affect memory?" },
+        { "id": "closure-loop", "title": "What happens when closures capture variables inside loops?" }
+      ]
+    }
+  ]
+}

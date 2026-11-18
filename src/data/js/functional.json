@@ -1,0 +1,28 @@
+﻿{
+  "id": "functional",
+  "title": "Functional Programming",
+  "concepts": [
+    {
+      "id": "functional-fundamentals",
+      "title": "Functional Fundamentals",
+      "questions": [
+        { "id": "functional-programming", "title": "What is functional programming?" },
+        { "id": "pure-functions", "title": "What is a pure function?" },
+        { "id": "side-effects", "title": "What are side effects?" },
+        { "id": "immutability", "title": "What is immutability?" },
+        { "id": "referential-transparency", "title": "What is referential transparency?" }
+      ]
+    },
+    {
+      "id": "functional-techniques",
+      "title": "Functional Techniques",
+      "questions": [
+        { "id": "higher-order-functions", "title": "What is a higher-order function?" },
+        { "id": "function-composition", "title": "What is function composition?" },
+        { "id": "currying", "title": "What is currying?" },
+        { "id": "partial-application", "title": "What is partial application?" },
+        { "id": "currying-vs-partial", "title": "How does currying differ from partial application?" }
+      ]
+    }
+  ]
+}

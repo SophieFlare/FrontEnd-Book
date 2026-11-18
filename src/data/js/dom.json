@@ -1,0 +1,39 @@
+﻿{
+  "id": "dom",
+  "title": "DOM & Events",
+  "concepts": [
+    {
+      "id": "dom-fundamentals",
+      "title": "DOM Fundamentals",
+      "questions": [
+        { "id": "dom-definition", "title": "What is the DOM?" },
+        { "id": "dom-vs-html", "title": "What is the difference between HTML and the DOM?" },
+        { "id": "dom-selection", "title": "How do you select DOM elements?" },
+        { "id": "dom-manipulation", "title": "How do you create, update and remove DOM nodes?" },
+        { "id": "nodelist-htmlcollection", "title": "What is the difference between NodeList and HTMLCollection?" }
+      ]
+    },
+    {
+      "id": "events",
+      "title": "Events",
+      "questions": [
+        { "id": "event-listeners", "title": "How does addEventListener() work?" },
+        { "id": "event-object", "title": "What information does the Event object provide?" },
+        { "id": "bubbling", "title": "What is event bubbling?" },
+        { "id": "capturing", "title": "What is event capturing?" },
+        { "id": "delegation", "title": "What is event delegation?" },
+        { "id": "stop-propagation", "title": "How do stopPropagation() and preventDefault() differ?" },
+        { "id": "event-target", "title": "What is the difference between target and currentTarget?" }
+      ]
+    },
+    {
+      "id": "dom-performance",
+      "title": "DOM Performance",
+      "questions": [
+        { "id": "reflow-repaint", "title": "What are layout, paint and compositing?" },
+        { "id": "dom-batching", "title": "How can DOM updates be optimized?" },
+        { "id": "mutation-observer", "title": "What is MutationObserver?" }
+      ]
+    }
+  ]
+}

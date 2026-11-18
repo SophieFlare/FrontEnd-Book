@@ -1,0 +1,180 @@
+{
+  "id": "fundamentals",
+  "title": "JavaScript Fundamentals",
+  "concepts": [
+    {
+      "id": "variables",
+      "title": "Variables & Declarations",
+      "questions": [
+        {
+          "id": "var-let-const",
+          "title": "What is the difference between var, let and const?",
+          "answer": "var is function-scoped, while let and const are block-scoped. var can be redeclared, whereas let and const cannot be redeclared in the same scope. const requires initialization and prevents reassignment of its binding.",
+          "underTheHood": "All three declarations create bindings during environment initialization. var bindings are initialized to undefined, while let and const remain uninitialized until their declarations execute, creating the Temporal Dead Zone.",
+          "code": "var a = 1;\nlet b = 2;\nconst c = 3;\n\nb = 10;\n// c = 20; // TypeError\n\nconst user = { name: 'Alex' };\nuser.name = 'Sam'; // Allowed",
+          "pitfalls": [
+            "const does not make objects immutable.",
+            "var is function-scoped, not block-scoped.",
+            "Accessing let or const before initialization throws ReferenceError."
+          ],
+          "followUps": [
+            "What is the Temporal Dead Zone?",
+            "What is hoisting?",
+            "Why should const generally be preferred?"
+          ]
+        },
+        {
+          "id": "declaration-vs-initialization",
+          "title": "What is the difference between declaration, initialization and assignment?",
+          "answer": "Declaration introduces a binding. Initialization gives it its initial value. Assignment updates an existing binding.",
+          "underTheHood": "JavaScript establishes bindings during environment setup. Their initialization behavior depends on the declaration type.",
+          "code": "let value; // Declaration, initialized to undefined\nvalue = 10; // Assignment\n\nconst count = 5; // Declaration + initialization",
+          "pitfalls": [
+            "const declarations must have an initializer.",
+            "An uninitialized let binding is different from a let binding initialized to undefined."
+          ],
+          "followUps": [
+            "When does initialization occur?",
+            "How does hoisting affect declarations?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "data-types",
+      "title": "Data Types",
+      "questions": [
+        {
+          "id": "primitive-reference",
+          "title": "What are primitive and reference types?",
+          "answer": "JavaScript has seven primitive types: string, number, bigint, boolean, undefined, symbol and null. Objects are non-primitive values. Primitive values are compared by value, while objects are compared by identity.",
+          "underTheHood": "Variables hold JavaScript values. When an object is assigned to another variable, both variables can refer to the same object. The exact memory representation is engine-dependent.",
+          "code": "let a = 10;\nlet b = a;\nb = 20;\nconsole.log(a); // 10\n\nconst x = { count: 1 };\nconst y = x;\ny.count = 5;\nconsole.log(x.count); // 5",
+          "pitfalls": [
+            "Arrays and functions are objects.",
+            "Objects are compared by identity, not structural equality.",
+            "typeof null returns 'object' due to historical behavior."
+          ],
+          "followUps": [
+            "What are the seven primitive types?",
+            "What is the difference between shallow and deep copying?"
+          ]
+        },
+        {
+          "id": "typeof",
+          "title": "How does the typeof operator work?",
+          "answer": "typeof returns a string describing the type of its operand. It is useful for checking primitives and functions, but it cannot reliably distinguish arrays, null and ordinary objects.",
+          "underTheHood": "typeof is a language operator with predefined results for JavaScript values.",
+          "code": "typeof 42; // 'number'\ntypeof 'hello'; // 'string'\ntypeof undefined; // 'undefined'\ntypeof null; // 'object'\ntypeof []; // 'object'\ntypeof (() => {}); // 'function'\n\nArray.isArray([]); // true",
+          "pitfalls": [
+            "typeof null is 'object'.",
+            "typeof [] is 'object'.",
+            "Use Array.isArray() to detect arrays."
+          ],
+          "followUps": [
+            "How can you detect arrays?",
+            "What is the difference between typeof and instanceof?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "coercion",
+      "title": "Type Conversion & Coercion",
+      "questions": [
+        {
+          "id": "type-coercion",
+          "title": "What is type coercion?",
+          "answer": "Type coercion is JavaScript's automatic conversion of values between types when an operation requires it. Explicit conversion occurs when developers intentionally call conversion functions such as Number() or String().",
+          "underTheHood": "Operators apply language-defined conversion algorithms. The + operator may perform string concatenation, while subtraction generally requires numeric conversion.",
+          "code": "console.log('5' + 2); // '52'\nconsole.log('5' - 2); // 3\nconsole.log(Number('5')); // 5\nconsole.log(Boolean('')); // false",
+          "pitfalls": [
+            "The + operator performs addition or concatenation.",
+            "Implicit conversions can produce unexpected results.",
+            "Number('abc') produces NaN."
+          ],
+          "followUps": [
+            "What is implicit versus explicit conversion?",
+            "What is NaN?",
+            "How does the + operator decide between addition and concatenation?"
+          ]
+        },
+        {
+          "id": "truthy-falsy",
+          "title": "What are truthy and falsy values?",
+          "answer": "Truthy values convert to true in Boolean contexts, while falsy values convert to false. Falsy values include false, 0, -0, 0n, an empty string, null, undefined and NaN.",
+          "underTheHood": "Conditions use JavaScript's ToBoolean conversion. Objects are truthy, including empty arrays and empty objects.",
+          "code": "Boolean(0); // false\nBoolean(''); // false\nBoolean([]); // true\nBoolean({}); // true\nBoolean('false'); // true",
+          "pitfalls": [
+            "Empty arrays are truthy.",
+            "Empty objects are truthy.",
+            "The string 'false' is truthy."
+          ],
+          "followUps": [
+            "How does Boolean conversion work?",
+            "What is the difference between || and ??"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "equality",
+      "title": "Equality & Operators",
+      "questions": [
+        {
+          "id": "equality-operators",
+          "title": "What is the difference between == and ===?",
+          "answer": "== performs loose equality comparison and may convert operands before comparing them. === performs strict equality comparison without type coercion.",
+          "underTheHood": "Loose equality follows the Abstract Equality Comparison algorithm. Strict equality follows the Strict Equality Comparison algorithm.",
+          "code": "5 == '5'; // true\n5 === '5'; // false\nnull == undefined; // true\nnull === undefined; // false",
+          "pitfalls": [
+            "== can trigger implicit conversions.",
+            "NaN is not strictly equal to itself.",
+            "Two distinct objects are never strictly equal."
+          ],
+          "followUps": [
+            "What is Object.is()?",
+            "How does NaN behave during comparison?"
+          ]
+        },
+        {
+          "id": "nullish-coalescing",
+          "title": "What is the difference between || and ??",
+          "answer": "|| returns its right operand when the left operand is falsy. ?? returns its right operand only when the left operand is null or undefined.",
+          "underTheHood": "Both operators short-circuit and return an operand rather than necessarily returning a Boolean.",
+          "code": "0 || 10; // 10\n0 ?? 10; // 0\n'' || 'default'; // 'default'\n'' ?? 'default'; // ''",
+          "pitfalls": [
+            "|| treats zero and empty strings as fallback conditions.",
+            "?? only handles nullish values."
+          ],
+          "followUps": [
+            "What is optional chaining?",
+            "How does short-circuit evaluation work?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "control-flow",
+      "title": "Control Flow",
+      "questions": [
+        {
+          "id": "loops",
+          "title": "What is the difference between for, for...in and for...of?",
+          "answer": "A traditional for loop provides explicit control over initialization, condition and update. for...in iterates enumerable string property keys. for...of iterates values produced by an iterable.",
+          "underTheHood": "for...of uses the iteration protocol through Symbol.iterator. for...in enumerates property keys, including eligible inherited keys.",
+          "code": "const arr = ['a', 'b'];\n\nfor (let i = 0; i < arr.length; i++) {\n  console.log(arr[i]);\n}\n\nfor (const key in arr) console.log(key);\nfor (const value of arr) console.log(value);",
+          "pitfalls": [
+            "for...in is usually not recommended for array iteration.",
+            "Ordinary objects are not iterable by default.",
+            "for...of works with arrays, strings, Maps and Sets."
+          ],
+          "followUps": [
+            "What is Symbol.iterator?",
+            "What is an iterable?"
+          ]
+        }
+      ]
+    }
+  ]
+}

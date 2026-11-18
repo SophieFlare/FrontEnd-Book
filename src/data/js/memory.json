@@ -1,0 +1,37 @@
+﻿{
+  "id": "memory",
+  "title": "Memory Management",
+  "concepts": [
+    {
+      "id": "memory-basics",
+      "title": "Memory Fundamentals",
+      "questions": [
+        { "id": "memory-lifecycle", "title": "What are the stages of memory management?" },
+        { "id": "stack-heap", "title": "What is the difference between stack and heap memory?" },
+        { "id": "reference-types", "title": "How are object references managed?" }
+      ]
+    },
+    {
+      "id": "garbage-collection",
+      "title": "Garbage Collection",
+      "questions": [
+        { "id": "gc-definition", "title": "What is garbage collection?" },
+        { "id": "reachability", "title": "What is reachability?" },
+        { "id": "mark-sweep", "title": "How does mark-and-sweep garbage collection work?" },
+        { "id": "gc-algorithms", "title": "What garbage collection strategies can JavaScript engines use?" },
+        { "id": "gc-control", "title": "Can developers manually trigger garbage collection?" }
+      ]
+    },
+    {
+      "id": "memory-leaks",
+      "title": "Memory Leaks",
+      "questions": [
+        { "id": "memory-leak-definition", "title": "What is a memory leak?" },
+        { "id": "closure-leaks", "title": "How can closures retain memory unnecessarily?" },
+        { "id": "event-listener-leaks", "title": "How can event listeners cause memory leaks?" },
+        { "id": "detached-dom", "title": "What are detached DOM nodes?" },
+        { "id": "memory-profiling", "title": "How do you investigate memory leaks?" }
+      ]
+    }
+  ]
+}

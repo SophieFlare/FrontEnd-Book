@@ -1,0 +1,37 @@
+﻿{
+  "id": "performance",
+  "title": "Performance & Optimization",
+  "concepts": [
+    {
+      "id": "complexity",
+      "title": "Time & Space Complexity",
+      "questions": [
+        { "id": "big-o", "title": "What is Big O notation?" },
+        { "id": "time-complexity", "title": "How do you calculate time complexity?" },
+        { "id": "space-complexity", "title": "How do you calculate space complexity?" },
+        { "id": "complexity-examples", "title": "What are common O(1), O(log n), O(n) and O(n²) examples?" }
+      ]
+    },
+    {
+      "id": "optimization-techniques",
+      "title": "Optimization Techniques",
+      "questions": [
+        { "id": "debounce", "title": "What is debouncing?" },
+        { "id": "throttle", "title": "What is throttling?" },
+        { "id": "debounce-vs-throttle", "title": "When should you use debounce instead of throttle?" },
+        { "id": "memoization", "title": "What is memoization?" },
+        { "id": "lazy-loading", "title": "What is lazy loading?" }
+      ]
+    },
+    {
+      "id": "browser-performance",
+      "title": "Browser Performance",
+      "questions": [
+        { "id": "rendering-pipeline", "title": "How does the browser rendering pipeline work?" },
+        { "id": "layout-thrashing", "title": "What is layout thrashing?" },
+        { "id": "performance-api", "title": "How do you measure JavaScript performance?" },
+        { "id": "long-tasks", "title": "How do long JavaScript tasks affect responsiveness?" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "id": "browser",
+  "title": "Browser APIs",
+  "concepts": [
+    {
+      "id": "storage",
+      "title": "Browser Storage",
+      "questions": [
+        {
+          "id": "local-session-storage",
+          "title": "What is the difference between localStorage and sessionStorage?",
+          "answer": "localStorage persists data across browser sessions until it is removed. sessionStorage stores data for a particular origin and browser tab session. Both expose synchronous key-value APIs and store strings.",
+          "underTheHood": "The browser maintains storage areas associated with origins. sessionStorage is additionally partitioned by top-level browsing context.",
+          "code": "localStorage.setItem('theme', 'dark');\nconsole.log(localStorage.getItem('theme'));\n\nsessionStorage.setItem('step', '2');",
+          "pitfalls": [
+            "Storage values are strings.",
+            "Web Storage APIs are synchronous.",
+            "Sensitive credentials should not be placed in Web Storage."
+          ],
+          "followUps": [
+            "What is IndexedDB?",
+            "How do cookies differ from localStorage?"
+          ]
+        },
+        {
+          "id": "cookies",
+          "title": "What are cookies?",
+          "answer": "Cookies are small pieces of data associated with websites. They are commonly used for sessions and preferences and can be automatically included in HTTP requests according to their attributes.",
+          "underTheHood": "Browsers store cookies with attributes controlling scope, expiration and transmission. Attributes such as Secure, HttpOnly and SameSite affect security and request behavior.",
+          "code": "document.cookie = 'theme=dark; Path=/; SameSite=Lax';",
+          "pitfalls": [
+            "HttpOnly cookies cannot be read through document.cookie.",
+            "Cookies can be included in network requests.",
+            "Cookie security depends on appropriate attributes."
+          ],
+          "followUps": [
+            "What is SameSite?",
+            "What is the difference between cookies and localStorage?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fetch-http",
+      "title": "Fetch & HTTP",
+      "questions": [
+        {
+          "id": "fetch-api",
+          "title": "How does the Fetch API work?",
+          "answer": "The Fetch API provides a Promise-based interface for making HTTP requests. fetch() returns a Promise that fulfills with a Response object when a response becomes available.",
+          "underTheHood": "The browser performs the network operation and resolves or rejects the associated Promise according to the Fetch API's rules.",
+          "code": "async function getUsers() {\n  const response = await fetch('/api/users');\n\n  if (!response.ok) {\n    throw new Error(`HTTP ${response.status}`);\n  }\n\n  return response.json();\n}",
+          "pitfalls": [
+            "HTTP error statuses do not automatically reject fetch().",
+            "Response bodies are streams and are generally consumed once.",
+            "Network errors and HTTP errors must be distinguished."
+          ],
+          "followUps": [
+            "What is CORS?",
+            "What is the difference between fetch and XMLHttpRequest?"
+          ]
+        },
+        {
+          "id": "abort-controller",
+          "title": "What is AbortController?",
+          "answer": "AbortController provides a way to signal cancellation to APIs that support AbortSignal, including fetch().",
+          "underTheHood": "An AbortController owns a signal. Calling abort() marks the signal as aborted and notifies operations observing it.",
+          "code": "const controller = new AbortController();\n\nfetch('/api/users', {\n  signal: controller.signal\n}).catch((error) => {\n  if (error.name !== 'AbortError') {\n    console.error(error);\n  }\n});\n\ncontroller.abort();",
+          "pitfalls": [
+            "AbortController only affects operations that support its signal.",
+            "Aborting a request does not guarantee that the server stopped processing it.",
+            "Abort errors should be distinguished from other failures."
+          ],
+          "followUps": [
+            "How do you cancel a fetch request?",
+            "How can AbortController prevent stale requests?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "workers",
+      "title": "Web Workers",
+      "questions": [
+        {
+          "id": "web-workers",
+          "title": "What are Web Workers?",
+          "answer": "Web Workers allow JavaScript to execute in background threads separate from the main browser thread. They are useful for computationally expensive work that would otherwise affect UI responsiveness.",
+          "underTheHood": "Workers have their own execution environment and communicate with other contexts through messages. Dedicated workers cannot directly manipulate the document DOM.",
+          "code": "// main.js\nconst worker = new Worker('/worker.js');\nworker.postMessage(10);\nworker.onmessage = (event) => console.log(event.data);\n\n// worker.js\nself.onmessage = (event) => {\n  self.postMessage(event.data * 2);\n};",
+          "pitfalls": [
+            "Workers cannot directly access the DOM.",
+            "Messages generally use structured cloning or transferable objects.",
+            "Workers introduce communication overhead."
+          ],
+          "followUps": [
+            "What is the structured clone algorithm?",
+            "What is the difference between dedicated and shared workers?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rendering",
+      "title": "Browser Rendering",
+      "questions": [
+        {
+          "id": "rendering-pipeline",
+          "title": "How does the browser render a web page?",
+          "answer": "Browsers parse HTML and CSS, construct the relevant document and style structures, calculate layout, paint visual content and composite the resulting layers for display.",
+          "underTheHood": "Rendering work depends on document structure, computed styles and layout requirements. Browsers may optimize or skip some stages for particular changes.",
+          "code": "const element = document.querySelector('.box');\n\n// Often avoids layout recalculation\n// compared with changing geometric properties.\nelement.style.transform = 'translateX(100px)';",
+          "pitfalls": [
+            "Not every style change triggers layout.",
+            "Repeated layout reads and writes can cause layout thrashing.",
+            "Long JavaScript tasks can delay rendering."
+          ],
+          "followUps": [
+            "What is reflow?",
+            "What is repaint?",
+            "What is compositing?"
+          ]
+        },
+        {
+          "id": "raf",
+          "title": "What is requestAnimationFrame()?",
+          "answer": "requestAnimationFrame() schedules a callback before an upcoming browser repaint. It is commonly used for visual animations.",
+          "underTheHood": "The browser invokes animation-frame callbacks as part of its rendering update process when appropriate.",
+          "code": "let position = 0;\n\nfunction animate() {\n  position += 1;\n  document.querySelector('.box').style.transform = `translateX(${position}px)`;\n\n  if (position < 100) {\n    requestAnimationFrame(animate);\n  }\n}\n\nrequestAnimationFrame(animate);",
+          "pitfalls": [
+            "Animation frame timing depends on the display and browser scheduling.",
+            "Use timestamps for frame-rate-independent animations.",
+            "Callbacks may be paused in background tabs."
+          ],
+          "followUps": [
+            "How does requestAnimationFrame differ from setTimeout?",
+            "How can animations avoid layout thrashing?"
+          ]
+        }
+      ]
+    }
+  ]
+}

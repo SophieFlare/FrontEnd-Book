@@ -1,0 +1,131 @@
+{
+  "id": "classes",
+  "title": "Classes & Object-Oriented Programming",
+  "concepts": [
+    {
+      "id": "constructors",
+      "title": "Constructors",
+      "questions": [
+        {
+          "id": "constructor-functions",
+          "title": "What is a constructor function?",
+          "answer": "A constructor function is an ordinary function intended to initialize objects created using new.",
+          "underTheHood": "For an ordinary constructible function, new creates an object linked to the constructor's prototype, binds this to the new object, executes the function and returns the appropriate result.",
+          "code": "function User(name) {\n  this.name = name;\n}\n\nUser.prototype.greet = function () {\n  return `Hello ${this.name}`;\n};\n\nconst user = new User('Alex');",
+          "pitfalls": [
+            "Arrow functions cannot be constructors.",
+            "Constructor functions should not be confused with class declarations.",
+            "Methods placed on the prototype can be shared between instances."
+          ],
+          "followUps": [
+            "What happens when new is used?",
+            "What is the prototype property?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "classes",
+      "title": "ES6 Classes",
+      "questions": [
+        {
+          "id": "class-definition",
+          "title": "What is a JavaScript class?",
+          "answer": "A JavaScript class is syntax for defining constructors, methods, inheritance relationships and related behavior using JavaScript's prototype-based object model.",
+          "underTheHood": "Class methods are generally placed on the class prototype. JavaScript classes still use prototypal inheritance rather than a separate classical inheritance system.",
+          "code": "class User {\n  constructor(name) {\n    this.name = name;\n  }\n\n  greet() {\n    return `Hello ${this.name}`;\n  }\n}\n\nconst user = new User('Alex');",
+          "pitfalls": [
+            "Classes use prototype-based inheritance.",
+            "Class constructors must be invoked with new.",
+            "Class methods are non-enumerable by default."
+          ],
+          "followUps": [
+            "What is syntactic sugar?",
+            "How do classes differ from constructor functions?"
+          ]
+        },
+        {
+          "id": "static-methods",
+          "title": "What are static methods?",
+          "answer": "Static methods belong to the class constructor itself rather than its instances. They are useful for utilities and factory methods related to the class.",
+          "underTheHood": "Static methods are properties of the constructor, not of its prototype used by ordinary instances.",
+          "code": "class MathUtils {\n  static double(value) {\n    return value * 2;\n  }\n}\n\nMathUtils.double(5); // 10",
+          "pitfalls": [
+            "Static methods are not directly available on ordinary instances.",
+            "Static methods can be inherited by subclasses."
+          ],
+          "followUps": [
+            "What are static fields?",
+            "How do static methods differ from instance methods?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "inheritance",
+      "title": "Inheritance",
+      "questions": [
+        {
+          "id": "extends-super",
+          "title": "How do extends and super work?",
+          "answer": "extends establishes inheritance between classes. super() invokes the parent constructor, while super.method() allows a subclass method to access a parent method.",
+          "underTheHood": "Class inheritance establishes prototype relationships for both instance methods and constructor-level properties.",
+          "code": "class Animal {\n  constructor(name) {\n    this.name = name;\n  }\n\n  speak() {\n    return 'Sound';\n  }\n}\n\nclass Dog extends Animal {\n  speak() {\n    return super.speak() + ' Woof';\n  }\n}\n\nconst dog = new Dog('Max');",
+          "pitfalls": [
+            "Derived constructors must call super() before accessing this.",
+            "super is not a reference to a separate parent instance.",
+            "Inheritance does not copy all methods onto each instance."
+          ],
+          "followUps": [
+            "What is the prototype chain?",
+            "How does method overriding work?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "encapsulation",
+      "title": "Encapsulation",
+      "questions": [
+        {
+          "id": "private-fields",
+          "title": "What are private class fields?",
+          "answer": "Private class fields use the # syntax to restrict access to the class body that declares them. They support encapsulation by hiding internal implementation details.",
+          "underTheHood": "Private fields are enforced by the JavaScript language and are not ordinary string-keyed object properties.",
+          "code": "class Counter {\n  #count = 0;\n\n  increment() {\n    this.#count++;\n  }\n\n  getCount() {\n    return this.#count;\n  }\n}",
+          "pitfalls": [
+            "Private fields cannot be accessed using ordinary bracket notation.",
+            "Private fields are different from naming conventions such as _count."
+          ],
+          "followUps": [
+            "What is encapsulation?",
+            "How do closures provide privacy?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oop-principles",
+      "title": "OOP Principles",
+      "questions": [
+        {
+          "id": "oop-pillars",
+          "title": "What are the four main OOP principles?",
+          "answer": "The four commonly taught OOP principles are encapsulation, abstraction, inheritance and polymorphism. Encapsulation controls access to internal state, abstraction hides unnecessary implementation details, inheritance supports reuse through relationships, and polymorphism allows different objects to respond to a common interface.",
+          "underTheHood": "JavaScript supports these patterns through objects, functions, classes, prototypes and private fields.",
+          "code": "class Shape {\n  area() {\n    throw new Error('Implement area');\n  }\n}\n\nclass Square extends Shape {\n  constructor(size) {\n    super();\n    this.size = size;\n  }\n\n  area() {\n    return this.size ** 2;\n  }\n}",
+          "pitfalls": [
+            "JavaScript does not have built-in abstract class declarations.",
+            "Inheritance is not always preferable to composition.",
+            "Polymorphism does not require class inheritance."
+          ],
+          "followUps": [
+            "What is composition over inheritance?",
+            "What is method overriding?",
+            "What is abstraction?"
+          ]
+        }
+      ]
+    }
+  ]
+}

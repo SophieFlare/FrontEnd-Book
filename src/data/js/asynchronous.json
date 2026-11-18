@@ -1,0 +1,150 @@
+{
+  "id": "asynchronous",
+  "title": "Asynchronous JavaScript",
+  "concepts": [
+    {
+      "id": "async-fundamentals",
+      "title": "Asynchronous Fundamentals",
+      "questions": [
+        {
+          "id": "sync-vs-async",
+          "title": "What is the difference between synchronous and asynchronous JavaScript?",
+          "answer": "Synchronous code executes in sequence and occupies the current execution path until it completes. Asynchronous programming allows operations to complete later while JavaScript continues other work.",
+          "underTheHood": "JavaScript execution interacts with host APIs and an event loop. When asynchronous operations become ready, their callbacks or promise reactions can be scheduled for later execution.",
+          "code": "console.log('A');\n\nsetTimeout(() => {\n  console.log('B');\n}, 0);\n\nconsole.log('C');\n\n// A, C, B",
+          "pitfalls": [
+            "Asynchronous does not automatically mean parallel.",
+            "A zero-delay timer does not execute immediately.",
+            "Long synchronous tasks can block the main thread."
+          ],
+          "followUps": [
+            "What is the event loop?",
+            "What are microtasks and tasks?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "callbacks",
+      "title": "Callbacks",
+      "questions": [
+        {
+          "id": "callback-definition",
+          "title": "What is a callback?",
+          "answer": "A callback is a function passed to another function to be invoked later or under specified conditions.",
+          "underTheHood": "Callbacks are possible because functions are first-class values. A callback can be invoked synchronously or asynchronously.",
+          "code": "function process(value, callback) {\n  callback(value);\n}\n\nprocess(10, console.log);",
+          "pitfalls": [
+            "Not every callback is asynchronous.",
+            "Nested asynchronous callbacks can become difficult to maintain.",
+            "Error handling depends on the callback API."
+          ],
+          "followUps": [
+            "What is callback hell?",
+            "How do promises improve asynchronous composition?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "promises",
+      "title": "Promises",
+      "questions": [
+        {
+          "id": "promise-definition",
+          "title": "What is a Promise?",
+          "answer": "A Promise is an object representing the eventual fulfillment or rejection of an asynchronous operation. Its states are pending, fulfilled and rejected.",
+          "underTheHood": "Promises settle once. Registered reactions are scheduled as microtasks when their promises settle.",
+          "code": "const promise = Promise.resolve(10);\n\npromise\n  .then((value) => value * 2)\n  .then(console.log)\n  .catch(console.error);",
+          "pitfalls": [
+            "A Promise can settle only once.",
+            "then() returns a new Promise.",
+            "A rejected Promise should have an appropriate rejection handler."
+          ],
+          "followUps": [
+            "How does promise chaining work?",
+            "What is the difference between fulfilled and resolved?"
+          ]
+        },
+        {
+          "id": "promise-combinators",
+          "title": "What is the difference between Promise.all(), allSettled(), race() and any()?",
+          "answer": "Promise.all() fulfills when every input fulfills and rejects when one rejects. Promise.allSettled() waits for every input to settle. Promise.race() settles with the first settled input. Promise.any() fulfills with the first fulfilled input and rejects with AggregateError if all inputs reject.",
+          "underTheHood": "These methods create a new Promise and attach reactions to their inputs. Their settlement behavior depends on the combinator.",
+          "code": "const a = Promise.resolve(1);\nconst b = Promise.resolve(2);\n\nPromise.all([a, b]).then(console.log);\nPromise.allSettled([a, b]).then(console.log);\nPromise.race([a, b]).then(console.log);\nPromise.any([a, b]).then(console.log);",
+          "pitfalls": [
+            "Promise.all() does not automatically cancel remaining operations after rejection.",
+            "Promise.race() can fulfill or reject.",
+            "Promise.any() ignores rejections until every input rejects."
+          ],
+          "followUps": [
+            "When should Promise.allSettled() be used?",
+            "How do you limit concurrency?",
+            "What is AggregateError?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "async-await",
+      "title": "async / await",
+      "questions": [
+        {
+          "id": "async-function",
+          "title": "How do async functions work?",
+          "answer": "An async function always returns a Promise. The await operator pauses execution of its surrounding async function until the awaited value is resolved or rejected, without blocking the entire JavaScript thread.",
+          "underTheHood": "When execution reaches await, the function's continuation is arranged through Promise machinery. The continuation resumes asynchronously through the microtask mechanism.",
+          "code": "async function getValue() {\n  const value = await Promise.resolve(42);\n  return value;\n}\n\ngetValue().then(console.log);",
+          "pitfalls": [
+            "An async function always returns a Promise.",
+            "await does not block the entire JavaScript thread.",
+            "Sequential awaits can unnecessarily serialize independent operations."
+          ],
+          "followUps": [
+            "What happens under the hood when await is reached?",
+            "How do you run independent requests concurrently?"
+          ]
+        },
+        {
+          "id": "async-errors",
+          "title": "How do you handle errors with async/await?",
+          "answer": "Use try/catch around awaited operations to handle rejected Promises. Errors can also propagate to the caller as rejected Promises.",
+          "underTheHood": "A rejected awaited Promise causes await to throw the rejection reason within the async function.",
+          "code": "async function loadData() {\n  try {\n    const response = await fetch('/api/users');\n    if (!response.ok) throw new Error('HTTP error');\n    return await response.json();\n  } catch (error) {\n    console.error(error);\n    throw error;\n  }\n}",
+          "pitfalls": [
+            "fetch() does not reject merely because the HTTP status is 404 or 500.",
+            "Unhandled rejections can occur if callers ignore rejected Promises.",
+            "Catching an error without rethrowing it can hide failures."
+          ],
+          "followUps": [
+            "How does try/catch interact with await?",
+            "How should HTTP errors be handled?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event-loop",
+      "title": "Event Loop",
+      "questions": [
+        {
+          "id": "event-loop-definition",
+          "title": "How does the JavaScript event loop work?",
+          "answer": "The event loop coordinates JavaScript execution with scheduled work. In browsers, it processes tasks and performs microtask checkpoints, allowing asynchronous callbacks and promise reactions to run when appropriate.",
+          "underTheHood": "JavaScript runs code on a call stack. Browser APIs can schedule tasks, while Promise reactions are queued as microtasks. Microtasks are processed after the current execution finishes, before the event loop proceeds to another task.",
+          "code": "console.log('1');\n\nsetTimeout(() => console.log('2'), 0);\n\nPromise.resolve().then(() => console.log('3'));\n\nconsole.log('4');\n\n// 1, 4, 3, 2",
+          "pitfalls": [
+            "Microtasks generally run before the next timer task.",
+            "A timer delay is not a guaranteed execution time.",
+            "The event loop is provided by the host environment."
+          ],
+          "followUps": [
+            "What is a microtask?",
+            "What is the difference between tasks and microtasks?",
+            "What causes microtask starvation?"
+          ]
+        }
+      ]
+    }
+  ]
+}
