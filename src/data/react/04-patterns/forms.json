@@ -1,0 +1,114 @@
+﻿{
+  "id": "forms",
+  "title": "Forms & User Input",
+  "questions": [
+    {
+      "id": "controlled-uncontrolled",
+      "keyword": "Controlled vs Uncontrolled",
+      "level": "Intermediate",
+      "title": "62. Controlled vs uncontrolled components?",
+      "shortTitle": "Controlled vs Uncontrolled",
+      "summary": "◦ Controlled → R^ state owns input value.\n◦ Uncontrolled → DOM owns current input value.",
+      "keywords": [
+        "Controlled",
+        "Uncontrolled",
+        "useState",
+        "useRef",
+        "value",
+        "defaultValue",
+        "onChange",
+        "DOM"
+      ],
+      "answer": "◦ Controlled C^ → Input value is driven by R^ state.\n◦ Uses value + onChange + setState to synchronize UI.\n◦ Uncontrolled C^ → DOM manages current input value.\n◦ Uses defaultValue for initial value + ref to read current value.\n◦ Controlled → Best for live validation, conditional UI, and dependent fields.\n◦ Uncontrolled → Useful for simple forms and DOM-managed integrations.\n◦ Both approaches can be valid depending on requirements.",
+      "underTheHood": "◦ Controlled → State update schedules re-r().\n◦ R^ supplies updated value to DOM input during commit.\n◦ Uncontrolled → Browser updates DOM input directly as user types.\n◦ Reading ref.current.value retrieves its current value w/o requiring R^ state.\n◦ defaultValue initializes an uncontrolled input but does not continuously control it.\n◦ File inputs are inherently uncontrolled for their selected files.",
+      "code": "import { useRef, useState } from 'react';\n\nfunction Example() {\n  const [name, setName] = useState('');\n  const inputRef = useRef(null);\n\n  return (\n    <>\n      <input\n        value={name}\n        onChange={e => setName(e.target.value)}\n      />\n\n      <input\n        ref={inputRef}\n        defaultValue=\"Alex\"\n      />\n    </>\n  );\n}",
+      "pitfalls": [
+        "◦ Controlled input needs onChange or another update mechanism unless readOnly.",
+        "◦ Avoid switching between controlled and uncontrolled modes.",
+        "◦ value={undefined} can accidentally make an input uncontrolled.",
+        "◦ defaultValue ≠ continuously synchronized value.",
+        "◦ useRef changes do not trigger re-r()."
+      ],
+      "followUps": [
+        "◦ value vs defaultValue?",
+        "◦ Why does controlled input re-r()?",
+        "◦ When should useRef replace useState?",
+        "◦ Why are file inputs uncontrolled?",
+        "◦ How do you avoid controlled/uncontrolled warnings?"
+      ],
+      "recall": "◦ Controlled → State → value + onChange → re-r().\n◦ Uncontrolled → DOM → defaultValue + ref.\n◦ useState → reactive UI.\n◦ useRef → DOM access w/o re-r()."
+    },
+    {
+      "id": "react-forms",
+      "keyword": "Forms",
+      "level": "Intermediate",
+      "title": "63. How do React forms work?",
+      "shortTitle": "React Forms",
+      "summary": "◦ R^ forms use native HTML controls + event handlers.\n◦ Values can be managed through state or read from the DOM.",
+      "keywords": [
+        "form",
+        "onSubmit",
+        "onChange",
+        "preventDefault",
+        "FormData",
+        "Validation",
+        "Controlled",
+        "Uncontrolled"
+      ],
+      "answer": "◦ R^ forms use native HTML form elements and R^ event handlers.\n◦ Inputs can be controlled through state or uncontrolled through the DOM.\n◦ onChange handles user input updates.\n◦ onSubmit handles form submission.\n◦ event.preventDefault() prevents native navigation when handling submission manually.\n◦ FormData can extract named form field values.\n◦ Validation can use HTML constraints, custom logic, or schemas.\n◦ Submission may trigger async requests, loading states, and error handling.",
+      "underTheHood": "◦ R^ registers event handlers through its event system.\n◦ Input events invoke handlers that may schedule state updates.\n◦ Controlled values are synchronized during rendering and commit.\n◦ Native form submission follows browser behavior unless intercepted.\n◦ FormData reads successful named controls from the form.\n◦ React 19 supports form action F()s and useActionState for action-related state.",
+      "code": "function LoginForm() {\n  function handleSubmit(event) {\n    event.preventDefault();\n\n    const formData = new FormData(event.currentTarget);\n    const email = formData.get('email');\n\n    console.log(email);\n  }\n\n  return (\n    <form onSubmit={handleSubmit}>\n      <input name=\"email\" type=\"email\" required />\n      <button type=\"submit\">Submit</button>\n    </form>\n  );\n}",
+      "pitfalls": [
+        "◦ Missing name attributes cause fields to be absent from FormData.",
+        "◦ preventDefault() is unnecessary when intentionally using native or supported form actions.",
+        "◦ Client-side validation does not replace server-side validation.",
+        "◦ Handle pending, success, and error states.",
+        "◦ Disabled controls are excluded from FormData."
+      ],
+      "followUps": [
+        "◦ onSubmit vs onClick?",
+        "◦ What does preventDefault() do?",
+        "◦ What is FormData?",
+        "◦ How does React 19 form action work?",
+        "◦ How do you validate forms?"
+      ],
+      "recall": "◦ Input → onChange → State/DOM.\n◦ Submit → onSubmit → Validate → Process.\n◦ FormData → Named fields.\n◦ React 19 → Form Actions + useActionState."
+    },
+    {
+      "id": "controlled-form",
+      "keyword": "Controlled Form",
+      "level": "Intermediate",
+      "title": "64. How do you implement a controlled form?",
+      "shortTitle": "Controlled Form",
+      "summary": "◦ Store field values in useState.\n◦ Bind value + onChange + onSubmit to manage input and submission.",
+      "keywords": [
+        "useState",
+        "value",
+        "onChange",
+        "setState",
+        "onSubmit",
+        "Validation",
+        "Immutability"
+      ],
+      "answer": "◦ Initialize form values using useState.\n◦ Bind each input value to state.\n◦ Use onChange to update the corresponding field.\n◦ Update object state immutably using the spread operator.\n◦ Use onSubmit to validate and process the form.\n◦ Prevent native submission when handling it manually.\n◦ Display validation errors and submission status through state.",
+      "underTheHood": "◦ User types → Browser dispatches input event.\n◦ R^ invokes onChange handler.\n◦ setState enqueues an update.\n◦ R^ schedules and processes re-r().\n◦ New state produces updated input props.\n◦ Commit synchronizes controlled input value w1 DOM.\n◦ State becomes the authoritative source for displayed input values.",
+      "code": "import { useState } from 'react';\n\nfunction LoginForm() {\n  const [form, setForm] = useState({\n    email: '',\n    password: ''\n  });\n\n  function handleChange(event) {\n    const { name, value } = event.target;\n\n    setForm(prev => ({\n      ...prev,\n      [name]: value\n    }));\n  }\n\n  function handleSubmit(event) {\n    event.preventDefault();\n    console.log(form);\n  }\n\n  return (\n    <form onSubmit={handleSubmit}>\n      <input\n        name=\"email\"\n        value={form.email}\n        onChange={handleChange}\n      />\n      <input\n        name=\"password\"\n        type=\"password\"\n        value={form.password}\n        onChange={handleChange}\n      />\n      <button type=\"submit\">Submit</button>\n    </form>\n  );\n}",
+      "pitfalls": [
+        "◦ Do not mutate form state directly.",
+        "◦ Avoid missing onChange for controlled inputs.",
+        "◦ Use stable initial values, such as empty strings.",
+        "◦ Ensure input name matches the state field key.",
+        "◦ Validate values before submitting.",
+        "◦ Avoid logging passwords or other sensitive form data."
+      ],
+      "followUps": [
+        "◦ Why use functional setState?",
+        "◦ How do you manage multiple inputs?",
+        "◦ How do you implement validation?",
+        "◦ How do you handle async submission?",
+        "◦ Controlled forms vs React Hook Form?"
+      ],
+      "recall": "◦ useState → value → onChange → setState → re-r().\n◦ onSubmit → Validate → Submit.\n◦ Spread → Immutable update.\n◦ State = Single source of truth."
+    }
+  ]
+}

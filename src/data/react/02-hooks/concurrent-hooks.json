@@ -1,0 +1,41 @@
+{
+  "id": "concurrent-hooks",
+  "title": "Concurrent Hooks",
+  "questions": [
+    {
+      "id": "use-transition",
+      "keyword": "useTransition",
+      "level": "Advanced",
+      "title": "55. What does useTransition do?",
+      "shortTitle": "useTransition",
+      "summary": "◦ useTransition marks eligible updates as non-urgent.\n◦ Keeps urgent UI interactions responsive during expensive rendering.",
+      "keywords": [
+        "useTransition",
+        "startTransition",
+        "isPending",
+        "Lanes",
+        "Priority",
+        "Concurrent r()",
+        "Interruptible"
+      ],
+      "answer": "◦ useTransition = R^ H^ for marking certain updates as non-urgent.\n◦ Returns [isPending, startTransition].\n◦ startTransition marks eligible state updates as transition work.\n◦ Urgent updates, such as typing, can take priority.\n◦ Transition rendering may be interrupted or restarted.\n◦ isPending indicates whether transition work remains pending.\n◦ Useful for expensive UI updates that should not block immediate feedback.",
+      "underTheHood": "◦ startTransition marks updates with transition priority.\n◦ R^ associates scheduled work w1 transition lanes.\n◦ Scheduler coordinates rendering according to priority.\n◦ Higher-priority updates can interrupt transition rendering.\n◦ R^ resumes or restarts work as needed.\n◦ Completed work is applied during commit.\n◦ This does not move JavaScript execution to another thread.",
+      "code": "import { useState, useTransition } from 'react';\n\nfunction Search() {\n  const [input, setInput] = useState('');\n  const [query, setQuery] = useState('');\n  const [isPending, startTransition] = useTransition();\n\n  function handleChange(event) {\n    const value = event.target.value;\n    setInput(value);\n\n    startTransition(() => {\n      setQuery(value);\n    });\n  }\n\n  return <>\n    <input value={input} onChange={handleChange} />\n    {isPending && <span>Updating...</span>}\n    <Results query={query} />\n  </>;\n}",
+      "pitfalls": [
+        "◦ Transition updates must not directly control text inputs.",
+        "◦ useTransition ≠ async/await.",
+        "◦ Expensive synchronous F() execution still blocks the JS thread.",
+        "◦ Transition priority does not guarantee a fixed completion time.",
+        "◦ State updates after await may require another startTransition."
+      ],
+      "followUps": [
+        "◦ useTransition vs useDeferredValue?",
+        "◦ What are transition lanes?",
+        "◦ What is urgent vs non-urgent work?",
+        "◦ Can transition rendering be interrupted?",
+        "◦ Why should text input updates remain urgent?"
+      ],
+      "recall": "◦ useTransition → [isPending, startTransition].\n◦ Urgent > Transition.\n◦ Lanes → Priority → Interruptible r().\n◦ Non-urgent UI update ≠ Background thread."
+    }
+  ]
+}

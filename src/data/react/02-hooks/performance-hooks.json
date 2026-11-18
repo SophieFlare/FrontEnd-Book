@@ -1,0 +1,41 @@
+﻿{
+  "id": "performance-hooks",
+  "title": "Performance Hooks",
+  "questions": [
+    {
+      "id": "use-callback",
+      "keyword": "useCallback",
+      "level": "Intermediate",
+      "title": "61. Why do we need useCallback?",
+      "shortTitle": "useCallback",
+      "summary": "◦ useCallback caches a F() ref between re-r()s.\n◦ Useful for stable cb^ props and H^ deps.",
+      "keywords": [
+        "useCallback",
+        "F() Identity",
+        "Ref",
+        "React.memo",
+        "Deps",
+        "Object.is()",
+        "memzt_on"
+      ],
+      "answer": "◦ useCallback = R^ H^ that caches a F() ref between renders.\n◦ Returns the same F() when deps remain unchanged.\n◦ Prevents unnecessary ref changes for cb^ props.\n◦ Useful when passing cb^s to memoized C^s.\n◦ Useful when a stable F() is required by another H^.\n◦ Does not prevent the parent C^ from re-r().\n◦ Use only when stable identity provides a measurable benefit.",
+      "underTheHood": "◦ R^ stores cb^ + deps in the owning C^ Fiber-associated H^ data.\n◦ During re-r(), R^ compares deps using Object.is().\n◦ Unchanged deps → Return cached F() ref.\n◦ Changed deps → Store + return new F().\n◦ React.memo can skip child re-r() when its props remain equal.\n◦ Stable cb^ ref helps avoid invalidating memoization.",
+      "code": "import { memo, useCallback, useState } from 'react';\n\nconst Button = memo(function Button({ onClick }) {\n  return <button onClick={onClick}>Increment</button>;\n});\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n\n  const increment = useCallback(() => {\n    setCount(c => c + 1);\n  }, []);\n\n  return <>\n    <p>{count}</p>\n    <Button onClick={increment} />\n  </>;\n}",
+      "pitfalls": [
+        "◦ useCallback does not prevent F() creation during r().",
+        "◦ useCallback does not automatically improve perf_nc.",
+        "◦ Missing deps can produce stale closures.",
+        "◦ New object/array props may still cause child re-r().",
+        "◦ React.memo is not required for every useCallback use case."
+      ],
+      "followUps": [
+        "◦ useCallback vs useMemo?",
+        "◦ useCallback vs React.memo?",
+        "◦ What is a stale closure?",
+        "◦ How does Object.is() compare deps?",
+        "◦ When should useCallback be avoided?"
+      ],
+      "recall": "◦ useCallback(F(), deps) → Stable F() ref.\n◦ deps = → Reuse.\n◦ deps ≠ → Replace.\n◦ React.memo + Stable cb^ → Possible skipped child re-r()."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+﻿{
+  "title": "React",
+  "categories": [
+    { "id": "01-fundamentals", "title": "Fundamentals" },
+    { "id": "02-hooks", "title": "Hooks" },
+    { "id": "03-advanced-hooks", "title": "Advanced Hooks" },
+    { "id": "04-patterns", "title": "Patterns & Forms" },
+    { "id": "05-performance", "title": "Performance" },
+    { "id": "06-architecture", "title": "Architecture" }
+  ]
+}

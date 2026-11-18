@@ -1,0 +1,25 @@
+﻿{
+    "categories":  [
+                       {
+                           "id":  "01-fundamentals",
+                           "title":  "Fundamentals"
+                       },
+                       {
+                           "id":  "02-redux-toolkit",
+                           "title":  "Redux Toolkit"
+                       },
+                       {
+                           "id":  "03-react-redux",
+                           "title":  "React Redux"
+                       },
+                       {
+                           "id":  "04-async-middleware",
+                           "title":  "Async \u0026 Middleware"
+                       },
+                       {
+                           "id":  "05-advanced-redux",
+                           "title":  "Advanced Redux"
+                       }
+                   ],
+    "title":  "Redux"
+}

@@ -1,0 +1,174 @@
+﻿{
+  "id": "rendering-reconciliation",
+  "title": "Virtual DOM, Reconciliation & Fiber",
+  "questions": [
+    {
+      "id": "reconciliation",
+      "keyword": "Reconciliation",
+      "level": "Intermediate",
+      "title": "50. What is React reconciliation?",
+      "shortTitle": "Reconciliation",
+      "summary": "◦ Reconciliation = R^ determines what changed between previous and next UI.\n◦ Uses element type + key to preserve or replace identity.",
+      "keywords": [
+        "Diffing",
+        "Element Type",
+        "key",
+        "Fiber",
+        "Identity",
+        "State Preservation",
+        "Commit"
+      ],
+      "answer": "◦ Reconciliation = R^ process of comparing new UI descriptions w1 existing Fibers.\n◦ Determines which C^s and host nodes can be reused, updated, or replaced.\n◦ Type + key determine whether children match in their parent context.\n◦ Matching identity generally preserves C^ state.\n◦ Changed identity can trigger remount + state reset.\n◦ Reconciliation calculates changes; commit applies them.",
+      "underTheHood": "◦ An update schedules work on the Fiber tree.\n◦ R^ executes C^s to produce new elements.\n◦ Child reconciliation matches new elements against existing child Fibers.\n◦ Same type + matching key → reuse eligible Fiber + preserve state.\n◦ Different type/key → replace Fiber + reset affected state.\n◦ R^ tracks placement, update, and deletion work.\n◦ Commit phase applies necessary DOM changes.",
+      "code": "items.map(item => (\n  <UserCard key={item.id} user={item} />\n));",
+      "pitfalls": [
+        "◦ Reconciliation ≠ DOM mutation.",
+        "◦ Keys only need to be unique among siblings.",
+        "◦ Index keys can cause state mismatches after reordering.",
+        "◦ Random keys force remounts.",
+        "◦ Same type alone does not guarantee preservation across different positions."
+      ],
+      "followUps": [
+        "◦ How do keys affect reconciliation?",
+        "◦ When does R^ preserve/reset state?",
+        "◦ What happens when element type changes?",
+        "◦ Reconciliation vs commit?"
+      ],
+      "recall": "◦ New Elements + Existing Fibers → Diff(type/key) → Reuse/Replace → Commit."
+    },
+    {
+      "id": "virtual-dom",
+      "keyword": "Virtual DOM",
+      "level": "Foundation",
+      "title": "51. What is the Virtual DOM?",
+      "shortTitle": "Virtual DOM",
+      "summary": "◦ Virtual DOM = conceptual JS representation of UI.\n◦ R^ uses element descriptions + Fiber to coordinate DOM updates.",
+      "keywords": [
+        "JSX",
+        "React Elements",
+        "Virtual DOM",
+        "Fiber",
+        "Reconciliation",
+        "Real DOM"
+      ],
+      "answer": "◦ Virtual DOM = conceptual in-memory representation of the desired UI.\n◦ JSX creates R^ element descriptions rather than actual DOM nodes.\n◦ R^ reconciles new descriptions against existing work.\n◦ Fiber tracks C^ state, identity, and scheduled work.\n◦ Commit applies necessary changes to the real DOM.\n◦ Avoids blindly replacing the entire DOM tree.",
+      "underTheHood": "◦ JSX compiles into element-creation calls.\n◦ Elements describe type, props, and children.\n◦ R^ maintains a Fiber tree representing current UI work.\n◦ On updates, R^ reconciles new elements w1 existing Fibers.\n◦ Matching identity allows reuse; changed identity may require replacement.\n◦ DOM mutations occur during commit.\n◦ Virtual DOM does not guarantee superior perf_nc in every scenario.",
+      "code": "const element = <h1>Hello</h1>;\n\n// R^ element description, not a real DOM node.",
+      "pitfalls": [
+        "◦ Virtual DOM ≠ real DOM.",
+        "◦ R^ elements ≠ Fiber nodes.",
+        "◦ Virtual DOM ≠ automatic performance guarantee.",
+        "◦ Re-r() does not necessarily mutate DOM."
+      ],
+      "followUps": [
+        "◦ Virtual DOM vs real DOM?",
+        "◦ Virtual DOM vs Fiber?",
+        "◦ Why is reconciliation necessary?",
+        "◦ Does every re-r() update the DOM?"
+      ],
+      "recall": "◦ JSX → Elements → Fiber/Reconciliation → Commit → Real DOM."
+    },
+    {
+      "id": "fiber",
+      "keyword": "Fiber",
+      "level": "Advanced",
+      "title": "52. What is React Fiber?",
+      "shortTitle": "Fiber",
+      "summary": "◦ Fiber = R^ reconciliation architecture built around units of work.\n◦ Enables priority-aware + interruptible rendering.",
+      "keywords": [
+        "Fiber Node",
+        "Work Unit",
+        "Scheduler",
+        "Lanes",
+        "Priority",
+        "Alternate",
+        "Concurrent Rendering"
+      ],
+      "answer": "◦ Fiber = R^ internal architecture for reconciliation and scheduling.\n◦ Each Fiber represents work associated w1 a C^, Fragment, or host element.\n◦ Stores props, state, relationships, and pending work.\n◦ Supports splitting rendering into units of work.\n◦ Enables R^ to prioritize, interrupt, resume, or restart render work.\n◦ Completed work is committed to the host environment.",
+      "underTheHood": "◦ Fiber nodes connect through child, sibling, and return pointers.\n◦ R^ maintains current + work-in-progress representations.\n◦ alternate connects corresponding Fibers between those representations.\n◦ Lanes encode update priorities and pending work.\n◦ Scheduler helps coordinate when rendering work executes.\n◦ Render phase may be interrupted or restarted.\n◦ Commit phase applies completed mutations synchronously.",
+      "code": "const [isPending, startTransition] = useTransition();\n\nstartTransition(() => {\n  setResults(nextResults);\n});",
+      "pitfalls": [
+        "◦ Fiber is an internal architecture, not a public API.",
+        "◦ Fiber ≠ Virtual DOM exactly.",
+        "◦ Concurrent rendering ≠ multithreaded JS.",
+        "◦ Interruptible render ≠ interruptible commit.",
+        "◦ useTransition does not make synchronous calculations non-blocking."
+      ],
+      "followUps": [
+        "◦ Fiber vs Virtual DOM?",
+        "◦ What is work-in-progress Fiber?",
+        "◦ What is alternate?",
+        "◦ How does R^ prioritize updates?"
+      ],
+      "recall": "◦ Fiber → Work Units → Lanes → Scheduling → Interruptible r() → Commit."
+    },
+    {
+      "id": "hooks-fiber",
+      "keyword": "H^ + Fiber",
+      "level": "Advanced",
+      "title": "53. How are Hooks related to Fiber?",
+      "shortTitle": "Hooks & Fiber",
+      "summary": "◦ H^ state belongs to the C^ Fiber.\n◦ Call order maps H^ calls to their stored state.",
+      "keywords": [
+        "H^",
+        "Fiber",
+        "memoizedState",
+        "Hook Order",
+        "Update Queue",
+        "RoH",
+        "top^lvl"
+      ],
+      "answer": "◦ H^ allow functional C^s to access R^ state and lifecycle-related capabilities.\n◦ R^ associates H^ state w1 the C^ Fiber.\n◦ H^ calls are matched by their order during r().\n◦ Each C^ instance has its own H^ state.\n◦ RoH require consistent H^ call order.\n◦ Call H^ at top^lvl of C^s or CH^s.",
+      "underTheHood": "◦ A functional C^ Fiber stores its hook list through memoizedState.\n◦ H^ records are linked in call order for stateful hooks.\n◦ During r(), R^ walks these records in the same order.\n◦ useState/useReducer maintain update queues associated w1 hook records.\n◦ setState schedules an update on the owning Fiber.\n◦ Conditional H^ calls can shift hook positions and break state association.\n◦ Different mounted instances have separate Fiber-associated hook data.",
+      "code": "function Counter() {\n  const [count, setCount] = useState(0);\n  const ref = useRef(null);\n\n  return <button ref={ref} onClick={() => setCount(c => c + 1)}>{count}</button>;\n}",
+      "pitfalls": [
+        "◦ Never call H^ inside conditions or loops.",
+        "◦ Never call H^ after an early return that changes call order.",
+        "◦ H^ belong to C^ instances, not globally shared F() definitions.",
+        "◦ Not every H^ stores state in exactly the same internal form."
+      ],
+      "followUps": [
+        "◦ How does R^ know which state belongs to which H^?",
+        "◦ Why must H^ call order remain stable?",
+        "◦ What happens when two Counter C^s mount?",
+        "◦ What does memoizedState store?"
+      ],
+      "recall": "◦ C^ Fiber → H^ records → Call Order → State/Queue → Re-r()."
+    },
+    {
+      "id": "update-prioritization",
+      "keyword": "Priority",
+      "level": "Advanced",
+      "title": "54. What controls update prioritization?",
+      "shortTitle": "Update Prioritization",
+      "summary": "◦ R^ prioritizes updates through lanes + scheduling.\n◦ Urgent interactions can take precedence over transition updates.",
+      "keywords": [
+        "Lanes",
+        "Scheduler",
+        "Urgent",
+        "Transition",
+        "useTransition",
+        "useDeferredValue",
+        "Concurrent Rendering"
+      ],
+      "answer": "◦ R^ update prioritization is primarily coordinated through lanes and its scheduling system.\n◦ Lanes represent update priority categories and pending work.\n◦ Urgent updates, such as typing, generally receive higher priority than transitions.\n◦ useTransition marks eligible state updates as non-urgent.\n◦ useDeferredValue allows a less urgent part of UI to lag behind a changing value.\n◦ R^ can interrupt lower-priority rendering to handle urgent work.",
+      "underTheHood": "◦ setState creates an update associated w1 a lane.\n◦ R^ tracks pending lanes on the root.\n◦ Scheduling selects work according to priority and other constraints.\n◦ Higher-priority work may interrupt lower-priority rendering.\n◦ Interrupted rendering may resume or restart depending on circumstances.\n◦ Commit applies a completed tree synchronously.\n◦ React's scheduler coordinates execution, while lanes encode rendering priorities.",
+      "code": "const [isPending, startTransition] = useTransition();\n\nfunction handleChange(event) {\n  const value = event.target.value;\n  setInput(value);\n\n  startTransition(() => {\n    setQuery(value);\n  });\n}",
+      "pitfalls": [
+        "◦ useTransition ≠ async/await.",
+        "◦ Transition updates cannot control text inputs directly.",
+        "◦ Priority does not guarantee a fixed execution time.",
+        "◦ Concurrent rendering ≠ parallel threads.",
+        "◦ startTransition marks synchronous state updates; updates after await need another startTransition."
+      ],
+      "followUps": [
+        "◦ What are lanes?",
+        "◦ Scheduler vs lanes?",
+        "◦ Urgent vs non-urgent updates?",
+        "◦ useTransition vs useDeferredValue?",
+        "◦ Can R^ interrupt the commit phase?"
+      ],
+      "recall": "◦ setState → Lane → Schedule → Priority → Render → Commit.\n◦ Urgent > Transition.\n◦ useTransition → Non-urgent updates."
+    }
+  ]
+}

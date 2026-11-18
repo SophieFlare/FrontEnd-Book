@@ -1,0 +1,78 @@
+﻿{
+  "id": "component-patterns",
+  "title": "React Design Patterns",
+  "questions": [
+    {
+      "id": "react-design-patterns",
+      "keyword": "Design Patterns",
+      "level": "Intermediate",
+      "title": "65. What are React design patterns?",
+      "shortTitle": "Design Patterns",
+      "summary": "◦ R^ design patterns = reusable approaches to organizing C^s, state, and UI logic.\n◦ Improve reusability, maintainability, and separation of concerns.",
+      "keywords": [
+        "Composition",
+        "Container/Presentational",
+        "CH^",
+        "Compound C^",
+        "Provider",
+        "HOC",
+        "Render Props",
+        "State Reducer"
+      ],
+      "answer": "◦ R^ design patterns = established approaches to solving recurring UI architecture problems.\n◦ Define how C^s share logic, manage state, and communicate.\n◦ Composition → Build complex UI from smaller C^s.\n◦ Container/Presentational → Separate data + behavior from UI presentation.\n◦ CH^ → Extract reusable stateful logic.\n◦ Compound C^ → Coordinate related C^s through shared state/context.\n◦ Provider → Share data through Context w/o passing props through every level.\n◦ HOC → Wrap a C^ to enhance its behavior.\n◦ Render Props → Share behavior through a F() prop.\n◦ Choose patterns according to complexity; avoid unnecessary abstraction.",
+      "underTheHood": "◦ R^ uses C^ composition to construct its element tree.\n◦ Props provide explicit parent → child communication.\n◦ Context allows descendants to read a provider's value.\n◦ CH^ reuse logic but each C^ call has its own H^ state.\n◦ HOCs return enhanced C^ definitions.\n◦ Render Props invoke a supplied F() to determine rendered content.\n◦ Patterns influence code organization; they do not replace reconciliation or Fiber.",
+      "code": "function Card({ children }) {\n  return <section>{children}</section>;\n}\n\nfunction UserCard({ user }) {\n  return (\n    <Card>\n      <h2>{user.name}</h2>\n    </Card>\n  );\n}",
+      "pitfalls": [
+        "◦ Design patterns are approaches, not mandatory R^ APIs.",
+        "◦ Avoid excessive abstraction for simple C^s.",
+        "◦ CH^ share logic, not automatically shared state.",
+        "◦ Context updates may re-r() consumers.",
+        "◦ HOCs and Render Props remain valid but CH^ often simplify logic reuse."
+      ],
+      "followUps": [
+        "◦ Composition vs inheritance?",
+        "◦ CH^ vs HOC?",
+        "◦ Render Props vs CH^?",
+        "◦ What are Compound C^s?",
+        "◦ When should Context be used?"
+      ],
+      "recall": "◦ Patterns → Reuse + Separation + Composition.\n◦ Container → Logic | Presentational → UI.\n◦ CH^ → Logic reuse.\n◦ Context/Provider → Shared data.\n◦ HOC → Wrap C^.\n◦ Render Props → F() prop."
+    },
+    {
+      "id": "container-presentational",
+      "keyword": "Container / Presentational",
+      "level": "Intermediate",
+      "title": "66. What is the Container/Presentational pattern?",
+      "shortTitle": "Container vs Presentational",
+      "summary": "◦ Container C^ → Handles data, state, and behavior.\n◦ Presentational C^ → Receives props and renders UI.",
+      "keywords": [
+        "Container",
+        "Presentational",
+        "Separation of Concerns",
+        "Props",
+        "Data",
+        "UI",
+        "Reusability",
+        "Testing"
+      ],
+      "answer": "◦ Container/Presentational = R^ pattern separating application logic from UI rendering.\n◦ Container C^ → Fetches data, manages state, and handles business logic.\n◦ Presentational C^ → Receives data + cb^s through props and describes UI.\n◦ Container determines WHAT data and behavior the UI needs.\n◦ Presentational determines HOW that data appears.\n◦ Improves reuse, testing, and maintainability.\n◦ Modern R^ often extracts container logic into CH^s.",
+      "underTheHood": "◦ Container C^ executes H^s and prepares props.\n◦ Container passes data + event handlers to Presentational C^.\n◦ Presentational C^ returns R^ elements from those props.\n◦ State changes schedule rendering in the owning C^.\n◦ Updated props flow to the Presentational C^.\n◦ React.memo may skip its re-r() when props remain unchanged.\n◦ Separation is architectural; R^ treats both as ordinary C^s.",
+      "code": "function UserContainer() {\n  const [user, setUser] = useState({ name: 'Alex' });\n\n  return (\n    <UserView\n      name={user.name}\n      onRename={() => setUser({ name: 'Sam' })}\n    />\n  );\n}\n\nfunction UserView({ name, onRename }) {\n  return (\n    <div>\n      <h2>{name}</h2>\n      <button onClick={onRename}>Rename</button>\n    </div>\n  );\n}",
+      "pitfalls": [
+        "◦ Presentational C^s can still have local UI state.",
+        "◦ Container does not have to be a class C^.",
+        "◦ Separating every tiny C^ creates unnecessary complexity.",
+        "◦ New object/F() props can affect React.memo effectiveness.",
+        "◦ CH^s can replace separate containers when appropriate."
+      ],
+      "followUps": [
+        "◦ Container vs Presentational responsibilities?",
+        "◦ How does this improve testing?",
+        "◦ Container pattern vs CH^?",
+        "◦ Can Presentational C^ use H^s?",
+        "◦ How do props connect both layers?"
+      ],
+      "recall": "◦ Container → Data + State + Logic.\n◦ Presentational → Props + UI.\n◦ Flow → Container → Props → Presentational.\n◦ Modern alternative → CH^ + UI C^."
+    }
+  ]
+}

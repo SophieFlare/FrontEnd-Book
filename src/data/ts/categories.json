@@ -1,0 +1,25 @@
+﻿{
+    "categories":  [
+                       {
+                           "id":  "01-fundamentals",
+                           "title":  "Fundamentals"
+                       },
+                       {
+                           "id":  "02-type-system",
+                           "title":  "Type System"
+                       },
+                       {
+                           "id":  "03-generics",
+                           "title":  "Generics"
+                       },
+                       {
+                           "id":  "04-advanced-types",
+                           "title":  "Advanced Types"
+                       },
+                       {
+                           "id":  "05-practical-ts",
+                           "title":  "Practical TypeScript"
+                       }
+                   ],
+    "title":  "TypeScript"
+}

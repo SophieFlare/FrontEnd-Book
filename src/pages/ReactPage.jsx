@@ -1,82 +1,36 @@
-import SubjectPage from "../components/ui/SubjectPage.jsx";
+import InterviewExplorer from "../components/interview/InterviewExplorer.jsx";
+import categories from "../data/react/categories.json";
 
-const topics = [
-  "React Fundamentals & Philosophy",
-  "Declarative vs Imperative UI",
-  "Virtual DOM",
-  "JSX & React Elements",
-  "Components & Composition",
-  "Functional vs Class Components",
-  "Props & One-Way Data Flow",
-  "State & State Updates",
-  "State as a Snapshot",
-  "Batching & Update Queues",
-  "Conditional Rendering",
-  "Lists & Keys",
-  "Controlled vs Uncontrolled Components",
-  "Forms & Validation",
-  "Component Lifecycle",
-  "Rules of Hooks",
-  "useState",
-  "useReducer",
-  "useEffect",
-  "useLayoutEffect",
-  "useInsertionEffect",
-  "useRef",
-  "useImperativeHandle",
-  "useContext",
-  "useMemo",
-  "useCallback",
-  "useDebugValue",
-  "useId",
-  "useTransition",
-  "useDeferredValue",
-  "useSyncExternalStore",
-  "useActionState",
-  "useOptimistic",
-  "useEffectEvent",
-  "Custom Hooks",
-  "Context API",
-  "React.memo",
-  "Higher-Order Components",
-  "Render Props Pattern",
-  "Refs & Forwarding Refs",
-  "React Fiber Architecture",
-  "Reconciliation",
-  "Render vs Commit Phases",
-  "Concurrent Rendering",
-  "Scheduling & Update Priorities",
-  "Transitions",
-  "Suspense",
-  "React.lazy & Code Splitting",
-  "Error Boundaries",
-  "Portals",
-  "StrictMode",
-  "Hydration",
-  "SSR vs CSR vs SSG",
-  "Server Components",
-  "React Router",
-  "Protected Routes",
-  "React Performance Optimization",
-  "Profiling & React DevTools",
-  "Stale Closures",
-  "Effect Dependencies & Cleanup",
-  "Race Conditions",
-  "React Testing Library",
-  "Jest & Vitest",
-  "E2E Testing",
-  "Accessibility & ARIA",
-  "React 19 Features",
-  "Common React Coding Challenges",
-];
+const files = import.meta.glob("../data/react/*/*.json", {
+  eager: true,
+  import: "default",
+});
+
+const content = Object.fromEntries(
+  categories.categories.map((category) => {
+    const prefix = `../data/react/${category.id}/`;
+
+    const concepts = Object.entries(files)
+      .filter(
+        ([path]) =>
+          path.startsWith(prefix) && !path.endsWith("/_overview.json"),
+      )
+      .map(([, concept]) => concept);
+
+    const overview = files[`${prefix}_overview.json`] ?? null;
+
+    return [
+      category.id,
+      {
+        id: category.id,
+        title: category.title,
+        concepts,
+        overview,
+      },
+    ];
+  }),
+);
 
 export default function ReactPage() {
-  return (
-    <SubjectPage
-      title="React"
-      short="R^"
-      description="Master React hooks, component architecture, rendering internals, reconciliation, concurrent features and performance optimization."
-      topics={topics}
-    />
-  );
+  return <InterviewExplorer subject={categories} content={content} />;
 }

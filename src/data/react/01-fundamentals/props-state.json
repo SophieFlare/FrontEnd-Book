@@ -1,0 +1,75 @@
+﻿{
+  "id": "props-state",
+  "title": "Props & State",
+  "questions": [
+    {
+      "id": "props",
+      "keyword": "Props",
+      "level": "Foundation",
+      "title": "58. What are props?",
+      "shortTitle": "Props",
+      "summary": "◦ Props = read-only inputs passed from parent C^ → child C^.\n◦ Configure C^ behavior + appearance.",
+      "keywords": [
+        "Props",
+        "Read-only",
+        "Parent → Child",
+        "Data Flow",
+        "children",
+        "Object.is()"
+      ],
+      "answer": "◦ Props = inputs received by a C^ from its parent.\n◦ Configure C^ behavior, appearance, and content.\n◦ Read-only snapshots for each r().\n◦ Support one-way data flow: parent → child.\n◦ Accept primitives, objects, arrays, F()s, and R^ elements.\n◦ children represents nested content.\n◦ Parent can pass cb^ props to let children request updates.",
+      "underTheHood": "◦ Parent r() produces R^ elements containing props.\n◦ R^ supplies props when rendering child C^.\n◦ Parent re-r() normally causes child r() unless work is skipped.\n◦ React.memo can skip re-r() when props remain unchanged.\n◦ Default React.memo comparison checks each prop using Object.is().\n◦ Primitive → value cmp.\n◦ Object / Array / F() → ref cmp.",
+      "code": "function User({ name, children }) {\n  return (\n    <section>\n      <h2>{name}</h2>\n      {children}\n    </section>\n  );\n}\n\n<User name=\"Alex\">\n  <p>Developer</p>\n</User>",
+      "pitfalls": [
+        "◦ Never mutate props.",
+        "◦ Read-only ≠ deeply frozen.",
+        "◦ New {} / [] / F() refs can break memoization.",
+        "◦ key is not accessible through props.",
+        "◦ Avoid excessive props drilling."
+      ],
+      "followUps": [
+        "◦ Props vs state?",
+        "◦ Why are props read-only?",
+        "◦ How does child → parent communication work?",
+        "◦ What is props drilling?",
+        "◦ How does React.memo compare props?"
+      ],
+      "recall": "◦ Props → Parent → Child.\n◦ Read-only snapshot.\n◦ children → nested UI.\n◦ cb^ → Child requests parent update.\n◦ React.memo → Object.is() per prop."
+    },
+    {
+      "id": "state",
+      "keyword": "State",
+      "level": "Foundation",
+      "title": "59. What is state?",
+      "shortTitle": "State",
+      "summary": "◦ State = C^ memory preserved between renders.\n◦ Updates schedule re-r() and produce new UI snapshots.",
+      "keywords": [
+        "State",
+        "useState",
+        "useReducer",
+        "Snapshot",
+        "Queue",
+        "Batching",
+        "Object.is()"
+      ],
+      "answer": "◦ State = data R^ remembers between C^ renders.\n◦ useState / useReducer manage local state.\n◦ Each r() receives a state snapshot.\n◦ setState requests an update; current snapshot stays unchanged.\n◦ R^ queues updates and calculates next state.\n◦ State updates should preserve immutability.\n◦ State belongs to C^ identity + tree position.",
+      "underTheHood": "◦ R^ associates H^ state w1 C^ Fiber.\n◦ setState enqueues an update.\n◦ Scheduler assigns update priority.\n◦ Multiple updates can be batched.\n◦ R^ processes update queue during r().\n◦ Object.is() compares previous and next state.\n◦ Same state can allow R^ to skip unnecessary work.\n◦ Commit applies necessary DOM updates.",
+      "code": "import { useState } from 'react';\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <button onClick={() => setCount(c => c + 1)}>\n      {count}\n    </button>\n  );\n}",
+      "pitfalls": [
+        "◦ setState ≠ immediate mutation.",
+        "◦ Never mutate existing state directly.",
+        "◦ Use functional updater when next state depends on previous state.",
+        "◦ Same Object.is() value can skip updates.",
+        "◦ Changing key / C^ type can reset state."
+      ],
+      "followUps": [
+        "◦ Props vs state?",
+        "◦ Why is state a snapshot?",
+        "◦ How does automatic batching work?",
+        "◦ useState vs useReducer?",
+        "◦ How does R^ preserve or reset state?"
+      ],
+      "recall": "◦ State → C^ memory.\n◦ setState → Queue → Schedule → r() → Commit.\n◦ Snapshot ≠ immediate mutation.\n◦ Object.is() → equality bailout.\n◦ Position + type + key → identity."
+    }
+  ]
+}

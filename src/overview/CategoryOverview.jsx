@@ -4,6 +4,8 @@ import { BsChevronDown, BsChevronRight } from "react-icons/bs";
 import OverviewQuestion from "./OverviewQuestion.jsx";
 import OverviewKeywords from "./OverviewKeywords.jsx";
 import { getSections } from "./overviewUtils.js";
+import OverviewTooltip from "./OverviewTooltip.jsx";
+import useOverviewTooltip from "./useOverviewTooltip.js";
 
 export default function CategoryOverview({
   concepts = [],
@@ -11,14 +13,14 @@ export default function CategoryOverview({
   onQuestionClick,
 }) {
   const sections = getSections(concepts, overview);
+  const { tooltip, showTooltip, moveTooltip, hideTooltip } =
+    useOverviewTooltip();
 
-  // First section expanded by default
   const [expandedSections, setExpandedSections] = useState({});
-
   function toggleSection(sectionId) {
     setExpandedSections((prev) => ({
       ...prev,
-      [sectionId]: !(prev[sectionId] ?? sectionId === sections[0]?.id),
+      [sectionId]: !prev[sectionId],
     }));
   }
 
@@ -48,8 +50,7 @@ export default function CategoryOverview({
       {/* COLLAPSIBLE CONCEPT SECTIONS */}
       <div className="mt-5 space-y-2">
         {sections.map((section, sectionIndex) => {
-          const isExpanded = expandedSections[section.id] ?? sectionIndex === 0;
-
+          const isExpanded = expandedSections[section.id] ?? false;
           const startIndex = questionNumber;
 
           questionNumber += section.questions?.length ?? 0;
@@ -62,7 +63,13 @@ export default function CategoryOverview({
               {/* CLICKABLE SECTION HEADER */}
               <button
                 type="button"
-                onClick={() => toggleSection(section.id)}
+                onMouseEnter={(e) => showTooltip(e, section)}
+                onMouseMove={moveTooltip}
+                onMouseLeave={hideTooltip}
+                onClick={() => {
+                  hideTooltip();
+                  toggleSection(section.id);
+                }}
                 aria-expanded={isExpanded}
                 className={`
                   group flex w-full cursor-pointer items-center
@@ -154,6 +161,7 @@ export default function CategoryOverview({
           </div>
         </div>
       )}
+      <OverviewTooltip tooltip={tooltip} />
     </section>
   );
 }

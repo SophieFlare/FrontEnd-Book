@@ -1,0 +1,152 @@
+﻿{
+  "id": "components-jsx",
+  "title": "Components & JSX",
+  "questions": [
+    {
+      "id": "react-definition",
+      "title": "What is React?",
+      "shortTitle": "React",
+      "level": "Foundation",
+      "summary": "R^ is a declarative JavaScript library for building UI from reusable C^s.",
+      "keywords": ["R^", "Declarative", "C^", "UI", "State", "Props"],
+      "answer": "R^ is a declarative, C^-based JavaScript library for building interactive UIs. You describe what the UI should look like for a given state, and R^ coordinates updates when props or state change.",
+      "underTheHood": "R^ creates an element tree from C^ output, reconciles it against previous work, and commits necessary changes to the host environment. In the browser, React DOM handles DOM updates.",
+      "pitfalls": [
+        "R^ is a UI library, not a complete framework.",
+        "R^ does not necessarily update the DOM on every re-r()."
+      ],
+      "followUps": [
+        "Declarative vs imperative?",
+        "What is reconciliation?",
+        "What triggers re-r()?"
+      ],
+      "recall": "R^ → Declarative UI → C^ → State/Props → r() → Reconciliation → Commit."
+    },
+    {
+      "id": "components",
+      "title": "What is a Component?",
+      "shortTitle": "Components",
+      "level": "Foundation",
+      "summary": "A C^ is a reusable UI unit, commonly implemented as a F() returning R^ elements.",
+      "keywords": ["C^", "F()", "JSX", "Props", "Reusable", "Composition"],
+      "answer": "A C^ is an independent, reusable UI unit. A functional C^ receives props and returns R^ elements describing the UI. C^ composition builds complex interfaces from smaller pieces.",
+      "underTheHood": "R^ calls functional C^s during rendering and associates their H^ state with their position and identity in the R^ tree.",
+      "pitfalls": [
+        "C^ names must start with uppercase letters.",
+        "Do not call H^-using C^s as ordinary F()s.",
+        "Keep rendering logic pure."
+      ],
+      "followUps": [
+        "C^ vs element?",
+        "What is composition?",
+        "What is a C^ instance?"
+      ],
+      "recall": "C^ = F(props) → R^ elements → reusable UI."
+    },
+    {
+      "id": "jsx",
+      "title": "What is JSX?",
+      "shortTitle": "JSX",
+      "level": "Foundation",
+      "summary": "JSX is JavaScript syntax that describes R^ elements using HTML-like markup.",
+      "keywords": [
+        "JSX",
+        "Transpilation",
+        "React Element",
+        "Expression",
+        "Fragment"
+      ],
+      "answer": "JSX is a syntax extension for JavaScript that makes UI declarations readable. Build tools transform JSX into calls that create R^ element objects. JSX expressions use braces to embed JavaScript values.",
+      "underTheHood": "Modern JSX transforms commonly compile JSX into jsx()/jsxs() calls from react/jsx-runtime. The resulting elements are descriptions, not actual DOM nodes.",
+      "pitfalls": [
+        "JSX is not HTML.",
+        "Use className instead of class.",
+        "Return a single root element or Fragment.",
+        "JSX expressions cannot directly contain statements."
+      ],
+      "followUps": [
+        "JSX vs HTML?",
+        "How does JSX compile?",
+        "What is a R^ element?"
+      ],
+      "recall": "JSX → Transform → R^ Element → Reconciliation."
+    },
+    {
+      "id": "react-elements",
+      "title": "React Elements vs Components",
+      "shortTitle": "Elements vs C^",
+      "level": "Intermediate",
+      "summary": "An element describes what to render; a C^ defines reusable logic that produces elements.",
+      "keywords": ["Element", "C^", "type", "props", "key", "Immutable"],
+      "answer": "A R^ element is an immutable description of UI containing a type, props, and key. A C^ is a F() or class that defines how UI elements are produced.",
+      "underTheHood": "R^ uses element descriptions to build and update its Fiber tree. Elements are lightweight descriptions rather than mounted instances or DOM nodes.",
+      "pitfalls": [
+        "An element is not a DOM node.",
+        "Creating an element does not immediately mount it."
+      ],
+      "followUps": [
+        "Element vs Fiber?",
+        "What is C^ identity?",
+        "Why are elements immutable?"
+      ],
+      "recall": "C^ → produces Element → R^ processes Element → DOM commit."
+    },
+    {
+      "id": "fragments",
+      "title": "React Fragments",
+      "shortTitle": "Fragments",
+      "level": "Foundation",
+      "summary": "Fragments group multiple children w/o adding an extra DOM element.",
+      "keywords": ["Fragment", "<>", "</>", "DOM", "key"],
+      "answer": "A Fragment groups multiple R^ elements w/o introducing an additional DOM wrapper. Use <>...</> for simple fragments or <Fragment key={...}> for keyed fragments.",
+      "underTheHood": "R^ represents fragments in its internal tree but does not create a corresponding wrapper DOM element.",
+      "pitfalls": [
+        "Short fragment syntax cannot receive a key.",
+        "Fragments do not create DOM nodes."
+      ],
+      "followUps": ["Fragment vs div?", "When do fragments need keys?"],
+      "recall": "Fragment → Group children → No extra DOM node."
+    },
+    {
+      "id": "conditional-rendering",
+      "title": "Conditional Rendering",
+      "shortTitle": "Conditional r()",
+      "level": "Foundation",
+      "summary": "R^ conditionally includes UI using if, ternary, &&, or null.",
+      "keywords": ["if", "?:", "&&", "null", "Conditional r()"],
+      "answer": "Conditional r() chooses which elements a C^ returns based on props or state. Common patterns include if statements, ternary expressions, logical &&, and returning null.",
+      "underTheHood": "Different element types or positions can change C^ identity and cause state reset. R^ reconciles the selected output against the previous tree.",
+      "pitfalls": [
+        "0 && <C^ /> may render 0.",
+        "Changing C^ identity can reset state.",
+        "Returning null does not prevent the C^ from executing."
+      ],
+      "followUps": [
+        "How does conditional r() affect state?",
+        "When does R^ remount a C^?"
+      ],
+      "recall": "Condition → Element/null → Reconciliation → Preserve or reset state."
+    },
+    {
+      "id": "lists-keys",
+      "title": "Rendering Lists & Keys",
+      "shortTitle": "Lists & Keys",
+      "level": "Intermediate",
+      "summary": "Lists use map() to produce elements; stable keys help R^ preserve child identity.",
+      "keywords": ["map()", "key", "Identity", "Reconciliation", "Stable"],
+      "answer": "R^ renders lists by mapping data into elements. Each sibling should have a stable, unique key that identifies its logical item across updates. Keys help R^ match existing children and preserve state correctly.",
+      "underTheHood": "During reconciliation, R^ uses element type and key to determine whether an existing Fiber can be reused or must be replaced.",
+      "pitfalls": [
+        "Avoid array index keys for reorderable lists.",
+        "Avoid Math.random() keys.",
+        "Keys are not passed as ordinary props."
+      ],
+      "followUps": [
+        "Why are keys important?",
+        "What happens when keys change?",
+        "Index key pitfalls?"
+      ],
+      "recall": "List → map() → Stable key → Identity → State preservation."
+    }
+  ]
+}

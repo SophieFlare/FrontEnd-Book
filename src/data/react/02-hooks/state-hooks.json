@@ -1,0 +1,42 @@
+﻿{
+  "id": "state-hooks",
+  "title": "Hooks & State Fundamentals",
+  "questions": [
+    {
+      "id": "react-hooks",
+      "keyword": "H^",
+      "level": "Foundation",
+      "title": "60. What are Hooks?",
+      "shortTitle": "React Hooks",
+      "summary": "◦ H^ = special R^ F()s that let C^s use R^ features.\n◦ Enable state, effects, refs, context, and reusable logic.",
+      "keywords": [
+        "H^",
+        "useState",
+        "useEffect",
+        "useRef",
+        "useContext",
+        "CH^",
+        "RoH",
+        "top^lvl"
+      ],
+      "answer": "◦ H^ = special R^ F()s that let functional C^s use state and other R^ capabilities.\n◦ State H^ → useState, useReducer.\n◦ Effect H^ → useEffect, useLayoutEffect.\n◦ Ref H^ → useRef, useImperativeHandle.\n◦ Context H^ → useContext.\n◦ Performance H^ → useMemo, useCallback.\n◦ CH^ → Extract reusable stateful logic.\n◦ RoH → Call H^ at top^lvl of C^s or CH^s.\n◦ H^ must preserve consistent call order across renders.",
+      "underTheHood": "◦ R^ associates H^ data w1 the owning C^ Fiber.\n◦ Stateful H^ records are tracked in call order.\n◦ During r(), R^ matches each H^ call to its previous record.\n◦ useState/useReducer maintain update queues.\n◦ H^ updates schedule work on the owning Fiber.\n◦ Each mounted C^ instance has independent H^ state.",
+      "code": "import { useState, useEffect } from 'react';\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n\n  useEffect(() => {\n    document.title = `Count: ${count}`;\n  }, [count]);\n\n  return <button onClick={() => setCount(c => c + 1)}>{count}</button>;\n}",
+      "pitfalls": [
+        "◦ Never call H^ conditionally or inside loops.",
+        "◦ Never call H^ inside ordinary event handlers.",
+        "◦ Do not call H^ after conditional early returns.",
+        "◦ CH^ share logic, not automatically shared state.",
+        "◦ useEffect is for synchronization, not every calculation."
+      ],
+      "followUps": [
+        "◦ Why do RoH exist?",
+        "◦ How does R^ associate state w1 H^?",
+        "◦ H^ vs ordinary F()?",
+        "◦ What is a CH^?",
+        "◦ How does H^ call order relate to Fiber?"
+      ],
+      "recall": "◦ H^ → R^ features inside C^.\n◦ Fiber → H^ records → Call order.\n◦ RoH → top^lvl + consistent order.\n◦ CH^ → Reusable logic."
+    }
+  ]
+}
