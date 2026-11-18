@@ -1,7 +1,7 @@
 ﻿import { useState } from "react";
 import InterviewAnswer from "./InterviewAnswer.jsx";
-import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import CategoryOverview from "./CategoryOverview.jsx";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 export default function InterviewExplorer({ subject, content }) {
   const [category, setCategory] = useState(null);
@@ -9,7 +9,6 @@ export default function InterviewExplorer({ subject, content }) {
   const [question, setQuestion] = useState(null);
 
   const concepts = category ? (content?.[category.id]?.concepts ?? []) : [];
-
   const questions = concept?.questions ?? [];
 
   function goBack() {
@@ -52,10 +51,12 @@ export default function InterviewExplorer({ subject, content }) {
     category?.title ||
     subject.title;
 
+  const showOverview = category && !concept && !question;
+
   return (
-    <section className="w-full min-w-0 text-zinc-300">
+    <section className="flex min-h-full w-full min-w-0 flex-col text-zinc-300">
       {/* HEADER */}
-      <header className="mb-3 flex min-w-0 items-center gap-2 border-b border-white/10 pb-3">
+      <header className="mb-3 flex min-w-0 shrink-0 items-center gap-2 border-b border-white/10 pb-3">
         {category && (
           <button
             type="button"
@@ -63,7 +64,7 @@ export default function InterviewExplorer({ subject, content }) {
             aria-label="Go back"
             className="shrink-0 text-zinc-500 transition hover:text-violet-400"
           >
-              <BsChevronLeft size={12} />
+            <BsChevronLeft size={12} />
           </button>
         )}
 
@@ -83,52 +84,56 @@ export default function InterviewExplorer({ subject, content }) {
         )}
       </header>
 
-      {/* EXPLORER ITEMS */}
-      {!question && (
-        <div className="space-y-0.5">
-          {items.map((item, index) => (
-            <button
-              key={item.id ?? index}
-              type="button"
-              onClick={() => selectItem(item)}
-              title={item.title || item.question || ""}
-              className="
-                group flex w-full min-w-0
-                items-center gap-2
-                rounded px-2 py-2
-                text-left text-xs
-                transition-colors
-                hover:bg-violet-500/10
-                hover:text-violet-300
-              "
-            >
-              <span className="w-5 shrink-0 font-mono text-[10px] text-zinc-600">
-                {String(index + 1).padStart(2, "0")}
-              </span>
+      {/* CATEGORY OVERVIEW */}
+      {showOverview && <CategoryOverview concepts={concepts} />}
 
-              <span className="min-w-0 flex-1 truncate">
-                {item.title || item.question}
-              </span>
-<BsChevronRight
-  size={12}
-  className="shrink-0 text-white transition group-hover:text-violet-400"
-/>
-            </button>
-          ))}
+      {/* FLEXIBLE QUESTION EXPLORER */}
+      <div className="min-h-0 min-w-0 flex-1">
+        {!question && (
+          <div className="space-y-0.5">
+            {items.map((item, index) => (
+              <button
+                key={item.id ?? index}
+                type="button"
+                onClick={() => selectItem(item)}
+                title={item.title || item.question || ""}
+                className="
+                  group flex w-full min-w-0
+                  items-center gap-2
+                  rounded px-2 py-2
+                  text-left text-xs
+                  transition-colors
+                  hover:bg-violet-500/10
+                  hover:text-violet-300
+                "
+              >
+                <span className="w-5 shrink-0 font-mono text-[10px] text-zinc-600">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
 
-          {items.length === 0 && (
-            <p className="px-2 py-3 text-xs text-zinc-600">No content yet.</p>
-          )}
-        </div>
-      )}
+                <span className="min-w-0 flex-1 truncate">
+                  {item.title || item.question}
+                </span>
 
-      {/* ANSWER */}
-      {question && (
-        <div className="min-w-0 overflow-x-auto">
-          <InterviewAnswer question={question} />
-        </div>
-      )}
+                <BsChevronRight
+                  size={12}
+                  className="shrink-0 text-white transition group-hover:text-violet-400"
+                />
+              </button>
+            ))}
+
+            {items.length === 0 && (
+              <p className="px-2 py-3 text-xs text-zinc-600">No content yet.</p>
+            )}
+          </div>
+        )}
+
+        {question && (
+          <div className="min-w-0 overflow-x-auto">
+            <InterviewAnswer question={question} />
+          </div>
+        )}
+      </div>
     </section>
   );
 }
-
