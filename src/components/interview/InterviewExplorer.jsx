@@ -2,8 +2,8 @@
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 import InterviewAnswer from "./InterviewAnswer.jsx";
-import CategoryOverview from "./CategoryOverview.jsx";
-import useOverviewNavigation from "./useOverviewNavigation.js";
+import CategoryOverview from "../../overview/CategoryOverview.jsx";
+import useOverviewNavigation from "../../overview/useOverviewNavigation.js";
 
 export default function InterviewExplorer({ subject, content }) {
   const [category, setCategory] = useState(null);

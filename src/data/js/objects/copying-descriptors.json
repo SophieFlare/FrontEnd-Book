@@ -1,0 +1,151 @@
+﻿{
+  "id": "copying-descriptors",
+  "title": "Copying & Descriptors",
+  "description": "Object cloning, immutability, descriptors, accessors, and property restrictions.",
+  "questions": [
+    {
+      "id": "shallow-deep-copy",
+      "keyword": "Copying",
+      "level": "Advanced",
+      "title": "Shallow vs Deep Copy",
+      "shortTitle": "Shallow vs Deep Copy",
+      "summary": "A shallow copy duplicates the outer structure but preserves references to nested objects. A deep copy recursively duplicates supported nested values.",
+      "keywords": ["shallow", "deep", "reference", "nested", "identity"],
+      "answer": "Shallow copying creates a new outer object while retaining references to nested objects. Deep copying creates independent copies of supported nested structures. The distinction matters because mutating shared nested objects can unexpectedly affect multiple parts of an application.",
+      "underTheHood": "Object spread and Object.assign() copy property values, not complete object graphs. Nested objects remain referenced. Deep cloning must account for cycles, shared references, built-in types, and unsupported values.",
+      "code": "const original = {\n  user: { name: 'Alex' }\n};\n\nconst shallow = { ...original };\nshallow.user.name = 'Sam';\n\noriginal.user.name; // 'Sam'\n\nconst deep = structuredClone(original);\ndeep.user.name = 'Taylor';\n\noriginal.user.name; // 'Sam'",
+      "pitfalls": [
+        "Spread does not recursively clone nested objects.",
+        "Deep copying is not always necessary for immutable updates.",
+        "Cloning may change object identity and affect memoization.",
+        "Not all JavaScript values can be cloned."
+      ],
+      "followUps": [
+        "How do you handle circular references?",
+        "What is structural sharing?",
+        "When should you avoid deep cloning?"
+      ],
+      "recall": "Shallow → new outer ref, nested refs shared. Deep → supported nested values copied."
+    },
+    {
+      "id": "spread-vs-assign",
+      "keyword": "Spread",
+      "level": "Advanced",
+      "title": "Spread vs Object.assign()",
+      "shortTitle": "Spread vs assign()",
+      "summary": "Both copy own enumerable properties, but object spread creates properties on a new object, while Object.assign() assigns into a target and can trigger its setters.",
+      "keywords": ["spread", "Object.assign()", "enumerable", "setter", "shallow"],
+      "answer": "Object spread and Object.assign() both perform shallow copying of own enumerable string and Symbol properties. Spread creates data properties on the new object. Object.assign() writes to an existing target using assignment semantics, which can invoke setters or fail when properties are non-writable.",
+      "underTheHood": "Spread uses CopyDataProperties-like behavior, while Object.assign() reads source values and performs [[Set]] operations on the target. Neither preserves the source property's descriptor or prototype.",
+      "code": "const source = { name: 'Alex' };\n\nconst spread = { ...source };\nconst assigned = Object.assign({}, source);\n\nconst target = {\n  set name(value) {\n    console.log('Setter:', value);\n  }\n};\n\nObject.assign(target, source); // invokes setter",
+      "pitfalls": [
+        "Both operations are shallow.",
+        "Neither preserves getters or setters as descriptors.",
+        "Object.assign() mutates its target.",
+        "Object.assign() can invoke target setters."
+      ],
+      "followUps": [
+        "Which properties are copied?",
+        "Do Symbol keys get copied?",
+        "How can descriptors be preserved?"
+      ],
+      "recall": "Spread → new data properties. assign() → target mutation + [[Set]]."
+    },
+    {
+      "id": "structured-clone",
+      "keyword": "structuredClone",
+      "level": "Advanced",
+      "title": "structuredClone()",
+      "shortTitle": "structuredClone()",
+      "summary": "structuredClone() performs deep cloning of supported structured-cloneable values, including cyclic graphs, Map, Set, and many built-in types.",
+      "keywords": ["structuredClone()", "deep copy", "cycles", "Map", "Set"],
+      "answer": "structuredClone() provides native deep cloning for values supported by the structured clone algorithm. It can preserve cyclic relationships and clone supported built-in objects such as Date, Map, and Set. It does not clone functions, and it does not preserve arbitrary custom prototype behavior or property descriptors.",
+      "underTheHood": "The structured clone algorithm traverses the supported object graph while tracking previously visited references. This allows cycles and repeated references to be reconstructed without infinite recursion.",
+      "code": "const original = {\n  created: new Date(),\n  tags: new Set(['js']),\n  data: new Map([['score', 10]])\n};\n\noriginal.self = original;\n\nconst clone = structuredClone(original);\n\nclone !== original; // true\nclone.self === clone; // true\nclone.tags instanceof Set; // true",
+      "pitfalls": [
+        "Functions cannot be cloned.",
+        "Custom class instances may lose their custom prototype.",
+        "Property descriptors are not preserved.",
+        "Some objects and platform-specific values are unsupported."
+      ],
+      "followUps": [
+        "structuredClone() vs JSON cloning?",
+        "How are circular references handled?",
+        "What is the transfer option?"
+      ],
+      "recall": "structuredClone() → supported deep graph cloning + cycles; not functions."
+    },
+    {
+      "id": "property-descriptors",
+      "keyword": "Descriptors",
+      "level": "Advanced",
+      "title": "Property Descriptors",
+      "shortTitle": "Property Descriptors",
+      "summary": "Property descriptors control how properties behave through writable, enumerable, configurable, value, get, and set attributes.",
+      "keywords": ["writable", "enumerable", "configurable", "get", "set"],
+      "answer": "JavaScript properties have descriptors. Data properties use value and writable, while accessor properties use get and set. Both kinds use enumerable and configurable. These attributes control assignment, enumeration, deletion, and reconfiguration.",
+      "underTheHood": "Object.defineProperty() invokes the object's [[DefineOwnProperty]] operation. Descriptor defaults differ from assignment: omitted boolean attributes default to false when defining a new property through Object.defineProperty().",
+      "code": "const user = {};\n\nObject.defineProperty(user, 'id', {\n  value: 123,\n  writable: false,\n  enumerable: true,\n  configurable: false\n});\n\nObject.getOwnPropertyDescriptor(user, 'id');",
+      "pitfalls": [
+        "writable and configurable are different.",
+        "Non-configurable properties cannot normally be deleted.",
+        "Object.defineProperty() defaults omitted attributes to false for new properties.",
+        "Data and accessor descriptor fields cannot be mixed."
+      ],
+      "followUps": [
+        "Data vs accessor properties?",
+        "What does enumerable control?",
+        "Can non-configurable properties ever change?"
+      ],
+      "recall": "Data → value/writable. Accessor → get/set. Both → enumerable/configurable."
+    },
+    {
+      "id": "getters-setters",
+      "keyword": "Accessors",
+      "level": "Intermediate",
+      "title": "Getters vs Setters",
+      "shortTitle": "Getters & Setters",
+      "summary": "Getters run during property reads, while setters run during property assignments, allowing controlled access to object state.",
+      "keywords": ["get", "set", "accessor", "this", "encapsulation"],
+      "answer": "Getters and setters are accessor properties. A getter computes or retrieves a value when a property is read. A setter handles an assigned value. They can provide validation or computed interfaces while retaining property-access syntax.",
+      "underTheHood": "Reading an accessor invokes its getter through [[Get]], while writing invokes its setter through [[Set]]. Inherited accessors generally receive the original accessing object as this.",
+      "code": "const user = {\n  firstName: 'Alex',\n  lastName: 'Smith',\n\n  get fullName() {\n    return `${this.firstName} ${this.lastName}`;\n  },\n\n  set fullName(value) {\n    [this.firstName, this.lastName] = value.split(' ');\n  }\n};\n\nuser.fullName; // 'Alex Smith'\nuser.fullName = 'Sam Jones';",
+      "pitfalls": [
+        "Accessors are invoked automatically during property operations.",
+        "A getter should generally avoid unexpected side effects.",
+        "Assigning inside a setter to the same accessor can cause recursion.",
+        "Getters and setters are not ordinary data properties."
+      ],
+      "followUps": [
+        "Getter vs regular method?",
+        "How do inherited accessors work?",
+        "How do descriptors represent accessors?"
+      ],
+      "recall": "get → read interception. set → write interception."
+    },
+    {
+      "id": "freeze-seal",
+      "keyword": "Immutability",
+      "level": "Advanced",
+      "title": "freeze() vs seal() vs preventExtensions()",
+      "shortTitle": "freeze() vs seal()",
+      "summary": "preventExtensions() blocks new properties, seal() additionally blocks deletion and reconfiguration, and freeze() additionally makes existing data properties non-writable.",
+      "keywords": ["freeze", "seal", "preventExtensions", "shallow", "descriptors"],
+      "answer": "Object.preventExtensions() prevents adding own properties. Object.seal() also makes existing own properties non-configurable. Object.freeze() further makes existing own data properties non-writable. These operations are shallow and do not automatically freeze nested objects.",
+      "underTheHood": "The operations modify the object's extensibility and property descriptors. Frozen accessor properties may still execute setters, and nested objects can remain mutable unless independently restricted.",
+      "code": "const user = {\n  name: 'Alex',\n  settings: { theme: 'dark' }\n};\n\nObject.freeze(user);\n\nObject.isFrozen(user); // true\n\nuser.settings.theme = 'light';\nuser.settings.theme; // 'light'",
+      "pitfalls": [
+        "Object.freeze() is shallow.",
+        "freeze() does not automatically make an entire object graph immutable.",
+        "Frozen accessor setters may still have side effects.",
+        "These operations cannot be reversed on the same object."
+      ],
+      "followUps": [
+        "How would you deep-freeze an object?",
+        "Why is freeze() shallow?",
+        "How do these operations affect property descriptors?"
+      ],
+      "recall": "preventExtensions → no add. seal → no add/delete. freeze → no add/delete/write data."
+    }
+  ]
+}

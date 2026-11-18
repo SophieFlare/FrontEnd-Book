@@ -1,0 +1,126 @@
+﻿{
+  "id": "prototypes-inheritance",
+  "title": "Prototypes & Inheritance",
+  "description": "Prototype chains, inheritance, constructors, classes, and property resolution.",
+  "questions": [
+    {
+      "id": "prototype-vs-proto",
+      "keyword": "prototype",
+      "level": "Advanced",
+      "title": "prototype vs __proto__ vs [[Prototype]]",
+      "shortTitle": "prototype vs __proto__",
+      "summary": "prototype is a property on constructor functions used when creating instances with new. [[Prototype]] is an object's internal prototype link, while __proto__ is a legacy accessor exposing that link.",
+      "keywords": ["prototype", "[[Prototype]]", "__proto__", "constructor", "inheritance"],
+      "answer": "Every ordinary object has an internal [[Prototype]] link, which points to another object or null. Constructor functions normally have a prototype property, which supplies the [[Prototype]] of instances created with new. __proto__ is a legacy accessor inherited from Object.prototype that exposes or changes an object's prototype. Prefer Object.getPrototypeOf() and Object.setPrototypeOf() for explicit prototype operations.",
+      "underTheHood": "When new Constructor() executes, the created object's [[Prototype]] is normally initialized from Constructor.prototype. During property access, JavaScript searches the object's own properties first, then follows [[Prototype]] links until the property is found or the chain ends.",
+      "code": "function User(name) {\n  this.name = name;\n}\n\nUser.prototype.greet = function () {\n  return `Hello ${this.name}`;\n};\n\nconst user = new User('Alex');\n\nObject.getPrototypeOf(user) === User.prototype; // true\nUser.prototype === user.__proto__; // true",
+      "pitfalls": [
+        "prototype and [[Prototype]] are different concepts.",
+        "Not every function has a prototype property; arrow functions do not.",
+        "Avoid using __proto__ in modern application code.",
+        "Changing prototypes dynamically can negatively affect performance."
+      ],
+      "followUps": [
+        "How does the prototype chain work?",
+        "What happens when a property is not found?",
+        "How does new establish inheritance?"
+      ],
+      "recall": "Constructor.prototype → instance.[[Prototype]] → inherited property lookup."
+    },
+    {
+      "id": "prototype-chain",
+      "keyword": "Prototype Chain",
+      "level": "Advanced",
+      "title": "Prototype Chain & Property Lookup",
+      "shortTitle": "Prototype Chain",
+      "summary": "Property lookup begins on the object itself and continues through its prototype chain until a matching property is found or the chain ends at null.",
+      "keywords": ["[[Get]]", "own", "inherited", "shadowing", "null"],
+      "answer": "JavaScript uses prototype-based delegation. When accessing obj.key, the engine first checks the object's own properties. If the property is missing, lookup continues through successive prototypes. The first matching property wins. If no property exists anywhere in the chain, the result is undefined.",
+      "underTheHood": "Ordinary property access uses the internal [[Get]] operation. Inherited accessor properties can execute getters with the original receiver as this. Assigning to a property may create an own property or invoke an inherited setter, depending on the descriptors involved.",
+      "code": "const parent = { role: 'admin' };\nconst child = Object.create(parent);\n\nchild.name = 'Alex';\n\nchild.role; // 'admin'\nchild.name; // 'Alex'\n\nObject.hasOwn(child, 'role'); // false\n'role' in child; // true\n\nchild.role = 'user';\nchild.role; // 'user'",
+      "pitfalls": [
+        "Inherited properties are not own properties.",
+        "The in operator checks both own and inherited properties.",
+        "Property shadowing does not modify the prototype.",
+        "An inherited getter or setter may affect property access and assignment."
+      ],
+      "followUps": [
+        "What is property shadowing?",
+        "Object.hasOwn() vs in?",
+        "How are inherited getters executed?"
+      ],
+      "recall": "Own → prototype → prototype → null. First match wins."
+    },
+    {
+      "id": "constructor-new",
+      "keyword": "new",
+      "level": "Advanced",
+      "title": "Constructor Functions & new",
+      "shortTitle": "Constructor F() & new",
+      "summary": "new creates an object, links its prototype, invokes the constructor with this bound to the object, and returns the resulting instance unless the constructor explicitly returns an object.",
+      "keywords": ["new", "constructor", "this", "instance", "prototype"],
+      "answer": "The new operator constructs an instance by creating an object, establishing its prototype, invoking the constructor with the new object as this, and returning the object. If a constructor function explicitly returns another object, that object replaces the default result. Returning a primitive does not replace it.",
+      "underTheHood": "The constructor's internal [[Construct]] operation controls construction. For ordinary constructor functions, new uses the constructor's prototype property when it is an object; otherwise, it falls back to the default object prototype. Reflect.construct() exposes constructor invocation with explicit newTarget control.",
+      "code": "function Person(name) {\n  this.name = name;\n}\n\nPerson.prototype.sayHello = function () {\n  return `Hello ${this.name}`;\n};\n\nconst person = new Person('Alex');\n\nperson instanceof Person; // true\nperson.sayHello(); // 'Hello Alex'",
+      "pitfalls": [
+        "Arrow functions cannot be used as constructors.",
+        "Calling a regular constructor without new does not construct an instance.",
+        "Explicitly returning an object overrides the default instance.",
+        "Class constructors must be called with new."
+      ],
+      "followUps": [
+        "What does new do internally?",
+        "What is new.target?",
+        "Constructor vs factory function?"
+      ],
+      "recall": "new → create → link prototype → bind this → execute → return."
+    },
+    {
+      "id": "object-create",
+      "keyword": "Object.create",
+      "level": "Intermediate",
+      "title": "Object.create() & Delegation",
+      "shortTitle": "Object.create()",
+      "summary": "Object.create(proto) creates a new object with the specified [[Prototype]], allowing inheritance without invoking a constructor.",
+      "keywords": ["Object.create()", "delegation", "null prototype", "inheritance"],
+      "answer": "Object.create() creates an object whose [[Prototype]] is explicitly specified. It supports prototype-based delegation without a constructor function. Passing null creates an object without Object.prototype in its prototype chain.",
+      "underTheHood": "Unlike new, Object.create() does not execute a constructor. Its optional second argument defines own properties using property descriptors rather than normal assignment semantics.",
+      "code": "const behavior = {\n  greet() {\n    return `Hello ${this.name}`;\n  }\n};\n\nconst user = Object.create(behavior);\nuser.name = 'Alex';\n\nuser.greet(); // 'Hello Alex'\n\nconst dictionary = Object.create(null);\nObject.getPrototypeOf(dictionary); // null",
+      "pitfalls": [
+        "Object.create(null) does not inherit toString() or hasOwnProperty().",
+        "Inherited methods are shared through the prototype, not copied.",
+        "Property descriptors passed as the second argument have different defaults from assignment."
+      ],
+      "followUps": [
+        "Object.create() vs new?",
+        "Why use null-prototype objects?",
+        "How does method sharing work?"
+      ],
+      "recall": "Object.create(proto) → new object linked to proto; no constructor call."
+    },
+    {
+      "id": "classes-inheritance",
+      "keyword": "class",
+      "level": "Advanced",
+      "title": "Classes, extends & super",
+      "shortTitle": "Classes & Inheritance",
+      "summary": "JavaScript classes provide syntax for constructors, prototype methods, inheritance, and private fields while retaining the language's prototype-based object model.",
+      "keywords": ["class", "extends", "super", "prototype", "private fields"],
+      "answer": "Classes organize object construction and inheritance. Instance methods are normally defined on the class prototype, while static methods belong to the constructor itself. extends establishes inheritance relationships between both the prototype objects and constructor objects. super enables access to parent behavior and parent construction.",
+      "underTheHood": "Class methods are non-enumerable. Class declarations are lexical bindings with a temporal dead zone. In derived constructors, this cannot be accessed before super() initializes the instance. Private fields use language-enforced private names rather than ordinary string property keys.",
+      "code": "class Animal {\n  constructor(name) {\n    this.name = name;\n  }\n\n  speak() {\n    return `${this.name} makes a sound`;\n  }\n}\n\nclass Dog extends Animal {\n  speak() {\n    return `${super.speak()} - woof`;\n  }\n}\n\nconst dog = new Dog('Max');\ndog.speak();",
+      "pitfalls": [
+        "Classes do not replace prototype-based inheritance.",
+        "Class methods are not automatically bound to instances.",
+        "Derived constructors must call super() before using this.",
+        "Private fields are not ordinary properties."
+      ],
+      "followUps": [
+        "Class vs constructor function?",
+        "How does extends work internally?",
+        "What is the difference between static and instance methods?"
+      ],
+      "recall": "class → constructor + prototype methods; extends → inheritance; super → parent behavior."
+    }
+  ]
+}

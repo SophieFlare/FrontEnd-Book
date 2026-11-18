@@ -1,0 +1,175 @@
+﻿{
+  "id": "advanced-objects",
+  "title": "Advanced Objects",
+  "description": "this binding, destructuring, Symbols, Proxy, Reflect, and object identity in applications.",
+  "questions": [
+    {
+      "id": "this-binding",
+      "keyword": "this",
+      "level": "Advanced",
+      "title": "this & Binding Rules",
+      "shortTitle": "this & Binding",
+      "summary": "For regular functions, this generally depends on how the function is invoked. Arrow functions capture this lexically from their surrounding environment.",
+      "keywords": ["this", "call-site", "implicit", "explicit", "lexical"],
+      "answer": "For ordinary function calls, this is determined by the invocation context. Method calls usually bind this to the receiver. call(), apply(), and bind() provide explicit binding. Constructor calls with new establish a new instance as this. Arrow functions do not create their own this binding; they capture it from the surrounding lexical scope.",
+      "underTheHood": "JavaScript establishes a this binding when entering an ordinary function execution context. In strict-mode standalone calls, this is undefined unless explicitly supplied. Arrow functions use lexical this and ignore attempts to rebind it through call(), apply(), or bind().",
+      "code": "const user = {\n  name: 'Alex',\n  greet() {\n    return this.name;\n  }\n};\n\nuser.greet(); // 'Alex'\n\nconst extracted = user.greet;\nextracted.call(user); // 'Alex'\n\nconst bound = user.greet.bind(user);\nbound(); // 'Alex'",
+      "pitfalls": [
+        "this is not determined by where a regular function is defined.",
+        "Extracting a method can lose its original receiver.",
+        "Arrow functions cannot have this rebound.",
+        "Class methods are not automatically bound."
+      ],
+      "followUps": [
+        "call() vs apply() vs bind()?",
+        "Why do extracted methods lose this?",
+        "Arrow function vs regular function?"
+      ],
+      "recall": "Regular F() → call-site this. Arrow F() → lexical this."
+    },
+    {
+      "id": "call-apply-bind",
+      "keyword": "Binding",
+      "level": "Advanced",
+      "title": "call() vs apply() vs bind()",
+      "shortTitle": "call vs apply vs bind",
+      "summary": "call() invokes immediately with separate arguments, apply() invokes immediately with array-like arguments, and bind() returns a new function with a fixed this binding.",
+      "keywords": ["call()", "apply()", "bind()", "this", "partial application"],
+      "answer": "Function.prototype.call() invokes a function with an explicit this value and individual arguments. apply() accepts arguments as an array-like object. bind() returns a new bound function that remembers its this value and optionally prepended arguments without immediately invoking the original function.",
+      "underTheHood": "Bound functions have internal [[BoundTargetFunction]], [[BoundThis]], and [[BoundArguments]] slots. A bound function used with new can still construct an instance, with constructor semantics taking precedence over the bound this value.",
+      "code": "function greet(greeting, punctuation) {\n  return `${greeting} ${this.name}${punctuation}`;\n}\n\nconst user = { name: 'Alex' };\n\ngreet.call(user, 'Hi', '!');\ngreet.apply(user, ['Hi', '!']);\n\nconst bound = greet.bind(user, 'Hi');\nbound('!');",
+      "pitfalls": [
+        "bind() does not invoke the original function immediately.",
+        "call() and apply() do invoke immediately.",
+        "Binding an arrow function does not replace its lexical this.",
+        "Bound constructor functions have special new behavior."
+      ],
+      "followUps": [
+        "How would you implement a simplified bind()?",
+        "What is partial application?",
+        "What happens when new is used with a bound function?"
+      ],
+      "recall": "call → args. apply → array-like args. bind → returns F()."
+    },
+    {
+      "id": "destructuring",
+      "keyword": "Destructuring",
+      "level": "Intermediate",
+      "title": "Object Destructuring & Rest",
+      "shortTitle": "Destructuring & Rest",
+      "summary": "Object destructuring extracts properties into bindings, supports renaming and defaults, and can collect remaining own enumerable properties using rest syntax.",
+      "keywords": ["destructuring", "rest", "defaults", "renaming", "nested"],
+      "answer": "Object destructuring reads named properties from an object and assigns their values to variables. It supports aliases, defaults, and nested patterns. Rest properties collect remaining own enumerable properties into a new shallow object.",
+      "underTheHood": "Destructuring performs property access, so getters may execute. Defaults apply when the extracted value is undefined, not null. Object rest uses property-copying behavior and excludes properties already extracted.",
+      "code": "const user = {\n  id: 1,\n  name: 'Alex',\n  role: 'admin'\n};\n\nconst {\n  name: displayName,\n  role = 'guest',\n  ...rest\n} = user;\n\n// displayName → 'Alex'\n// role → 'admin'\n// rest → { id: 1 }",
+      "pitfalls": [
+        "Defaults apply to undefined, not null.",
+        "Object rest creates a shallow copy.",
+        "Destructuring null or undefined without a fallback throws.",
+        "Nested destructuring requires the expected nested structure."
+      ],
+      "followUps": [
+        "Rest vs spread?",
+        "How do destructuring defaults work?",
+        "Can destructuring invoke getters?"
+      ],
+      "recall": "Destructure → extract. Rest → remaining properties. Spread → copy/expand."
+    },
+    {
+      "id": "symbols",
+      "keyword": "Symbol",
+      "level": "Advanced",
+      "title": "Symbols & Property Keys",
+      "shortTitle": "Symbols",
+      "summary": "Symbol is a primitive type whose values are unique identifiers commonly used as property keys and for defining well-known JavaScript protocols.",
+      "keywords": ["Symbol", "unique", "property key", "iterator", "Reflect.ownKeys()"],
+      "answer": "Symbols are primitive values that can be used as object property keys. Every Symbol() call creates a unique Symbol. Symbol.for() retrieves or creates a Symbol in the global Symbol registry. Well-known Symbols, such as Symbol.iterator, let objects participate in built-in JavaScript protocols.",
+      "underTheHood": "Ordinary object property keys are strings or Symbols. Symbol-keyed properties are omitted by Object.keys() and JSON.stringify(), but can be retrieved through Object.getOwnPropertySymbols() or Reflect.ownKeys().",
+      "code": "const id = Symbol('id');\n\nconst user = {\n  name: 'Alex',\n  [id]: 123\n};\n\nObject.keys(user); // ['name']\nReflect.ownKeys(user); // ['name', Symbol(id)]\n\nSymbol('x') === Symbol('x'); // false",
+      "pitfalls": [
+        "Symbols are not private properties.",
+        "Object.keys() excludes Symbol keys.",
+        "Symbol() always creates a new unique value.",
+        "Symbol.for() uses a shared registry."
+      ],
+      "followUps": [
+        "Symbol() vs Symbol.for()?",
+        "What are well-known Symbols?",
+        "How are Symbol properties enumerated?"
+      ],
+      "recall": "Symbol → unique primitive key. Reflect.ownKeys() → string + Symbol keys."
+    },
+    {
+      "id": "proxy-reflect",
+      "keyword": "Metaprogramming",
+      "level": "Advanced",
+      "title": "Proxy vs Reflect",
+      "shortTitle": "Proxy & Reflect",
+      "summary": "Proxy intercepts fundamental object operations through traps, while Reflect exposes methods for performing those operations with standard JavaScript semantics.",
+      "keywords": ["Proxy", "Reflect", "trap", "[[Get]]", "[[Set]]"],
+      "answer": "Proxy creates an intermediary object that can customize operations such as property reads, writes, deletion, and enumeration. Reflect provides methods corresponding to many internal object operations. They are often combined so Proxy traps can delegate to default behavior while adding validation, logging, or other logic.",
+      "underTheHood": "Proxy traps intercept internal methods such as [[Get]] and [[Set]]. Proxy handlers must respect language invariants, particularly for non-configurable or non-writable properties. Reflect.get() and Reflect.set() accept an optional receiver that influences accessor behavior.",
+      "code": "const user = { age: 20 };\n\nconst proxy = new Proxy(user, {\n  get(target, key, receiver) {\n    return Reflect.get(target, key, receiver);\n  },\n\n  set(target, key, value, receiver) {\n    if (key === 'age' && value < 0) {\n      throw new RangeError('Invalid age');\n    }\n\n    return Reflect.set(target, key, value, receiver);\n  }\n});\n\nproxy.age = 25;",
+      "pitfalls": [
+        "Proxy traps must respect object invariants.",
+        "Reflect methods do not create proxies.",
+        "A Proxy has a different identity from its target.",
+        "Built-in objects with internal slots may require special handling."
+      ],
+      "followUps": [
+        "What are Proxy invariants?",
+        "Reflect.get() vs direct property access?",
+        "How can Proxy support reactivity?"
+      ],
+      "recall": "Proxy → intercept. Reflect → perform/delegate."
+    },
+    {
+      "id": "object-vs-map",
+      "keyword": "Map",
+      "level": "Advanced",
+      "title": "Object vs Map",
+      "shortTitle": "Object vs Map",
+      "summary": "Objects primarily represent structured records with string or Symbol keys, while Map is designed for dynamic key-value collections and supports keys of any JavaScript value.",
+      "keywords": ["Object", "Map", "keys", "iteration", "SameValueZero"],
+      "answer": "Objects are suitable for structured data with named properties and prototype-based behavior. Map is designed for key-value collections, accepts objects and primitives as keys, preserves insertion order, and provides size, get(), set(), has(), and delete() methods. Map compares keys using SameValueZero.",
+      "underTheHood": "Map stores entries using collection-specific internal data structures. Object property access follows ordinary object property semantics, including prototypes and descriptors. Map key equality uses SameValueZero, which treats NaN as equal to NaN and +0 as equal to -0.",
+      "code": "const key = { id: 1 };\n\nconst map = new Map();\nmap.set(key, 'value');\n\nmap.get(key); // 'value'\nmap.size; // 1\n\nconst obj = {};\nobj[key] = 'value';\n\nObject.keys(obj); // ['[object Object]']",
+      "pitfalls": [
+        "Object keys cannot be arbitrary objects without coercion.",
+        "Map keys use identity for objects.",
+        "Map and Object have different iteration APIs.",
+        "Map is not automatically faster for every workload."
+      ],
+      "followUps": [
+        "Map vs WeakMap?",
+        "Why does Map use SameValueZero?",
+        "When should Object.create(null) be used?"
+      ],
+      "recall": "Object → structured record. Map → dynamic key-value collection."
+    },
+    {
+      "id": "react-object-identity",
+      "keyword": "Referential Equality",
+      "level": "Advanced",
+      "title": "Object Identity & React Performance",
+      "shortTitle": "Object Identity in React",
+      "summary": "React relies on reference comparisons in several APIs, so creating new object references can affect memoization, dependency tracking, and rendering behavior.",
+      "keywords": ["Object.is()", "reference", "React.memo", "useMemo", "immutability"],
+      "answer": "JavaScript objects are compared by identity rather than structural content. React uses Object.is() for state update comparisons and dependency checks, while React.memo uses shallow prop comparison by default. Recreating objects during rendering can invalidate memoization, even when their contents are unchanged. Immutable updates create new references for changed data while preserving references to unchanged parts.",
+      "underTheHood": "Object.is() compares object references by identity. React dependency arrays are compared element by element using Object.is(). React.memo compares individual props shallowly by default, so unstable object or function props may cause additional renders.",
+      "code": "const a = { value: 1 };\nconst b = { value: 1 };\n\nObject.is(a, b); // false\nObject.is(a, a); // true\n\nconst updated = {\n  ...a,\n  value: 2\n};\n\nupdated !== a; // true",
+      "pitfalls": [
+        "Identical object contents do not imply equal references.",
+        "Mutating existing React state can prevent expected updates.",
+        "Memoization is not always beneficial.",
+        "New object props can invalidate shallow memoization."
+      ],
+      "followUps": [
+        "How does React compare dependencies?",
+        "What is structural sharing?",
+        "When should useMemo() be used?"
+      ],
+      "recall": "Object identity → reference comparison → React deps/memoization."
+    }
+  ]
+}
