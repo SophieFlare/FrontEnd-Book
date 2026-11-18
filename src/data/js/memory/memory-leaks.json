@@ -1,0 +1,26 @@
+﻿{
+    "id":  "memory-leaks",
+    "title":  "Memory Leaks",
+    "questions":  [
+                      {
+                          "id":  "memory-leak-definition",
+                          "title":  "What is a memory leak?"
+                      },
+                      {
+                          "id":  "closure-leaks",
+                          "title":  "How can closures retain memory unnecessarily?"
+                      },
+                      {
+                          "id":  "event-listener-leaks",
+                          "title":  "How can event listeners cause memory leaks?"
+                      },
+                      {
+                          "id":  "detached-dom",
+                          "title":  "What are detached DOM nodes?"
+                      },
+                      {
+                          "id":  "memory-profiling",
+                          "title":  "How do you investigate memory leaks?"
+                      }
+                  ]
+}

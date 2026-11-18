@@ -1,0 +1,38 @@
+﻿{
+    "id":  "this-binding",
+    "title":  "this Binding",
+    "questions":  [
+                      {
+                          "id":  "this-keyword",
+                          "title":  "What is the this keyword?",
+                          "answer":  "this is a value available during function execution. In ordinary functions, its value depends on how the function is called. Arrow functions inherit this lexically.",
+                          "underTheHood":  "Ordinary function calls establish a this binding according to the call form and strict-mode rules.",
+                          "code":  "const user = {\n  name: \u0027Alex\u0027,\n  greet() {\n    return this.name;\n  }\n};\n\nconsole.log(user.greet()); // Alex",
+                          "pitfalls":  [
+                                           "this does not necessarily refer to the function\u0027s lexical scope.",
+                                           "Extracting a method can lose its original receiver.",
+                                           "Arrow functions do not create their own this binding."
+                                       ],
+                          "followUps":  [
+                                            "What are the this binding rules?",
+                                            "How does strict mode affect this?"
+                                        ]
+                      },
+                      {
+                          "id":  "call-apply-bind",
+                          "title":  "What is the difference between call(), apply() and bind()?",
+                          "answer":  "call() invokes a function with an explicit this value and individual arguments. apply() invokes it with arguments supplied as an array-like object. bind() creates a new function with a bound this value and optional preset arguments.",
+                          "underTheHood":  "call() and apply() invoke immediately. bind() returns a bound function that can be invoked later.",
+                          "code":  "function greet(message) {\n  return `${message}, ${this.name}`;\n}\n\nconst user = { name: \u0027Alex\u0027 };\n\ngreet.call(user, \u0027Hi\u0027);\ngreet.apply(user, [\u0027Hi\u0027]);\n\nconst bound = greet.bind(user);\nbound(\u0027Hi\u0027);",
+                          "pitfalls":  [
+                                           "bind() does not immediately invoke the function.",
+                                           "call() and apply() differ in argument passing.",
+                                           "Arrow functions ignore attempts to rebind lexical this."
+                                       ],
+                          "followUps":  [
+                                            "What is explicit binding?",
+                                            "What happens when a bound function is used with new?"
+                                        ]
+                      }
+                  ]
+}

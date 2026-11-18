@@ -1,0 +1,39 @@
+﻿{
+    "id":  "promises",
+    "title":  "Promises",
+    "questions":  [
+                      {
+                          "id":  "promise-definition",
+                          "title":  "What is a Promise?",
+                          "answer":  "A Promise is an object representing the eventual fulfillment or rejection of an asynchronous operation. Its states are pending, fulfilled and rejected.",
+                          "underTheHood":  "Promises settle once. Registered reactions are scheduled as microtasks when their promises settle.",
+                          "code":  "const promise = Promise.resolve(10);\n\npromise\n  .then((value) =\u003e value * 2)\n  .then(console.log)\n  .catch(console.error);",
+                          "pitfalls":  [
+                                           "A Promise can settle only once.",
+                                           "then() returns a new Promise.",
+                                           "A rejected Promise should have an appropriate rejection handler."
+                                       ],
+                          "followUps":  [
+                                            "How does promise chaining work?",
+                                            "What is the difference between fulfilled and resolved?"
+                                        ]
+                      },
+                      {
+                          "id":  "promise-combinators",
+                          "title":  "What is the difference between Promise.all(), allSettled(), race() and any()?",
+                          "answer":  "Promise.all() fulfills when every input fulfills and rejects when one rejects. Promise.allSettled() waits for every input to settle. Promise.race() settles with the first settled input. Promise.any() fulfills with the first fulfilled input and rejects with AggregateError if all inputs reject.",
+                          "underTheHood":  "These methods create a new Promise and attach reactions to their inputs. Their settlement behavior depends on the combinator.",
+                          "code":  "const a = Promise.resolve(1);\nconst b = Promise.resolve(2);\n\nPromise.all([a, b]).then(console.log);\nPromise.allSettled([a, b]).then(console.log);\nPromise.race([a, b]).then(console.log);\nPromise.any([a, b]).then(console.log);",
+                          "pitfalls":  [
+                                           "Promise.all() does not automatically cancel remaining operations after rejection.",
+                                           "Promise.race() can fulfill or reject.",
+                                           "Promise.any() ignores rejections until every input rejects."
+                                       ],
+                          "followUps":  [
+                                            "When should Promise.allSettled() be used?",
+                                            "How do you limit concurrency?",
+                                            "What is AggregateError?"
+                                        ]
+                      }
+                  ]
+}

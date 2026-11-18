@@ -1,0 +1,26 @@
+﻿{
+    "id":  "exception-handling",
+    "title":  "Exception Handling",
+    "questions":  [
+                      {
+                          "id":  "try-catch",
+                          "title":  "How does try/catch work?"
+                      },
+                      {
+                          "id":  "finally",
+                          "title":  "When does finally execute?"
+                      },
+                      {
+                          "id":  "throw",
+                          "title":  "How does throw work?"
+                      },
+                      {
+                          "id":  "async-errors",
+                          "title":  "How do you handle asynchronous errors?"
+                      },
+                      {
+                          "id":  "promise-rejection",
+                          "title":  "What is an unhandled promise rejection?"
+                      }
+                  ]
+}

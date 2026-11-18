@@ -1,0 +1,23 @@
+﻿{
+    "id":  "oop-principles",
+    "title":  "OOP Principles",
+    "questions":  [
+                      {
+                          "id":  "oop-pillars",
+                          "title":  "What are the four main OOP principles?",
+                          "answer":  "The four commonly taught OOP principles are encapsulation, abstraction, inheritance and polymorphism. Encapsulation controls access to internal state, abstraction hides unnecessary implementation details, inheritance supports reuse through relationships, and polymorphism allows different objects to respond to a common interface.",
+                          "underTheHood":  "JavaScript supports these patterns through objects, functions, classes, prototypes and private fields.",
+                          "code":  "class Shape {\n  area() {\n    throw new Error(\u0027Implement area\u0027);\n  }\n}\n\nclass Square extends Shape {\n  constructor(size) {\n    super();\n    this.size = size;\n  }\n\n  area() {\n    return this.size ** 2;\n  }\n}",
+                          "pitfalls":  [
+                                           "JavaScript does not have built-in abstract class declarations.",
+                                           "Inheritance is not always preferable to composition.",
+                                           "Polymorphism does not require class inheritance."
+                                       ],
+                          "followUps":  [
+                                            "What is composition over inheritance?",
+                                            "What is method overriding?",
+                                            "What is abstraction?"
+                                        ]
+                      }
+                  ]
+}

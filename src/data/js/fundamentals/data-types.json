@@ -1,0 +1,38 @@
+﻿{
+    "id":  "data-types",
+    "title":  "Data Types",
+    "questions":  [
+                      {
+                          "id":  "primitive-reference",
+                          "title":  "What are primitive and reference types?",
+                          "answer":  "JavaScript has seven primitive types: string, number, bigint, boolean, undefined, symbol and null. Objects are non-primitive values. Primitive values are compared by value, while objects are compared by identity.",
+                          "underTheHood":  "Variables hold JavaScript values. When an object is assigned to another variable, both variables can refer to the same object. The exact memory representation is engine-dependent.",
+                          "code":  "let a = 10;\nlet b = a;\nb = 20;\nconsole.log(a); // 10\n\nconst x = { count: 1 };\nconst y = x;\ny.count = 5;\nconsole.log(x.count); // 5",
+                          "pitfalls":  [
+                                           "Arrays and functions are objects.",
+                                           "Objects are compared by identity, not structural equality.",
+                                           "typeof null returns \u0027object\u0027 due to historical behavior."
+                                       ],
+                          "followUps":  [
+                                            "What are the seven primitive types?",
+                                            "What is the difference between shallow and deep copying?"
+                                        ]
+                      },
+                      {
+                          "id":  "typeof",
+                          "title":  "How does the typeof operator work?",
+                          "answer":  "typeof returns a string describing the type of its operand. It is useful for checking primitives and functions, but it cannot reliably distinguish arrays, null and ordinary objects.",
+                          "underTheHood":  "typeof is a language operator with predefined results for JavaScript values.",
+                          "code":  "typeof 42; // \u0027number\u0027\ntypeof \u0027hello\u0027; // \u0027string\u0027\ntypeof undefined; // \u0027undefined\u0027\ntypeof null; // \u0027object\u0027\ntypeof []; // \u0027object\u0027\ntypeof (() =\u003e {}); // \u0027function\u0027\n\nArray.isArray([]); // true",
+                          "pitfalls":  [
+                                           "typeof null is \u0027object\u0027.",
+                                           "typeof [] is \u0027object\u0027.",
+                                           "Use Array.isArray() to detect arrays."
+                                       ],
+                          "followUps":  [
+                                            "How can you detect arrays?",
+                                            "What is the difference between typeof and instanceof?"
+                                        ]
+                      }
+                  ]
+}

@@ -1,0 +1,22 @@
+﻿{
+    "id":  "debugging",
+    "title":  "Debugging",
+    "questions":  [
+                      {
+                          "id":  "debugger",
+                          "title":  "How does the debugger statement work?"
+                      },
+                      {
+                          "id":  "breakpoints",
+                          "title":  "What are breakpoints?"
+                      },
+                      {
+                          "id":  "stack-traces",
+                          "title":  "How do you interpret a stack trace?"
+                      },
+                      {
+                          "id":  "source-maps",
+                          "title":  "What are source maps?"
+                      }
+                  ]
+}

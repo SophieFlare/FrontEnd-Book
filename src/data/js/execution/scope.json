@@ -1,0 +1,22 @@
+﻿{
+    "id":  "scope",
+    "title":  "Scope \u0026 Lexical Environment",
+    "questions":  [
+                      {
+                          "id":  "scope-types",
+                          "title":  "What are global, function, block and module scopes?"
+                      },
+                      {
+                          "id":  "lexical-scope",
+                          "title":  "What is lexical scoping?"
+                      },
+                      {
+                          "id":  "scope-chain",
+                          "title":  "How does the scope chain work?"
+                      },
+                      {
+                          "id":  "lexical-environment",
+                          "title":  "What is a lexical environment?"
+                      }
+                  ]
+}

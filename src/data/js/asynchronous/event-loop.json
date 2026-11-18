@@ -1,0 +1,23 @@
+﻿{
+    "id":  "event-loop",
+    "title":  "Event Loop",
+    "questions":  [
+                      {
+                          "id":  "event-loop-definition",
+                          "title":  "How does the JavaScript event loop work?",
+                          "answer":  "The event loop coordinates JavaScript execution with scheduled work. In browsers, it processes tasks and performs microtask checkpoints, allowing asynchronous callbacks and promise reactions to run when appropriate.",
+                          "underTheHood":  "JavaScript runs code on a call stack. Browser APIs can schedule tasks, while Promise reactions are queued as microtasks. Microtasks are processed after the current execution finishes, before the event loop proceeds to another task.",
+                          "code":  "console.log(\u00271\u0027);\n\nsetTimeout(() =\u003e console.log(\u00272\u0027), 0);\n\nPromise.resolve().then(() =\u003e console.log(\u00273\u0027));\n\nconsole.log(\u00274\u0027);\n\n// 1, 4, 3, 2",
+                          "pitfalls":  [
+                                           "Microtasks generally run before the next timer task.",
+                                           "A timer delay is not a guaranteed execution time.",
+                                           "The event loop is provided by the host environment."
+                                       ],
+                          "followUps":  [
+                                            "What is a microtask?",
+                                            "What is the difference between tasks and microtasks?",
+                                            "What causes microtask starvation?"
+                                        ]
+                      }
+                  ]
+}

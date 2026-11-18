@@ -1,0 +1,26 @@
+﻿{
+    "id":  "optimization-techniques",
+    "title":  "Optimization Techniques",
+    "questions":  [
+                      {
+                          "id":  "debounce",
+                          "title":  "What is debouncing?"
+                      },
+                      {
+                          "id":  "throttle",
+                          "title":  "What is throttling?"
+                      },
+                      {
+                          "id":  "debounce-vs-throttle",
+                          "title":  "When should you use debounce instead of throttle?"
+                      },
+                      {
+                          "id":  "memoization",
+                          "title":  "What is memoization?"
+                      },
+                      {
+                          "id":  "lazy-loading",
+                          "title":  "What is lazy loading?"
+                      }
+                  ]
+}

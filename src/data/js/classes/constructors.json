@@ -1,0 +1,22 @@
+﻿{
+    "id":  "constructors",
+    "title":  "Constructors",
+    "questions":  [
+                      {
+                          "id":  "constructor-functions",
+                          "title":  "What is a constructor function?",
+                          "answer":  "A constructor function is an ordinary function intended to initialize objects created using new.",
+                          "underTheHood":  "For an ordinary constructible function, new creates an object linked to the constructor\u0027s prototype, binds this to the new object, executes the function and returns the appropriate result.",
+                          "code":  "function User(name) {\n  this.name = name;\n}\n\nUser.prototype.greet = function () {\n  return `Hello ${this.name}`;\n};\n\nconst user = new User(\u0027Alex\u0027);",
+                          "pitfalls":  [
+                                           "Arrow functions cannot be constructors.",
+                                           "Constructor functions should not be confused with class declarations.",
+                                           "Methods placed on the prototype can be shared between instances."
+                                       ],
+                          "followUps":  [
+                                            "What happens when new is used?",
+                                            "What is the prototype property?"
+                                        ]
+                      }
+                  ]
+}

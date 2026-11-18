@@ -1,0 +1,38 @@
+﻿{
+    "id":  "async-await",
+    "title":  "async / await",
+    "questions":  [
+                      {
+                          "id":  "async-function",
+                          "title":  "How do async functions work?",
+                          "answer":  "An async function always returns a Promise. The await operator pauses execution of its surrounding async function until the awaited value is resolved or rejected, without blocking the entire JavaScript thread.",
+                          "underTheHood":  "When execution reaches await, the function\u0027s continuation is arranged through Promise machinery. The continuation resumes asynchronously through the microtask mechanism.",
+                          "code":  "async function getValue() {\n  const value = await Promise.resolve(42);\n  return value;\n}\n\ngetValue().then(console.log);",
+                          "pitfalls":  [
+                                           "An async function always returns a Promise.",
+                                           "await does not block the entire JavaScript thread.",
+                                           "Sequential awaits can unnecessarily serialize independent operations."
+                                       ],
+                          "followUps":  [
+                                            "What happens under the hood when await is reached?",
+                                            "How do you run independent requests concurrently?"
+                                        ]
+                      },
+                      {
+                          "id":  "async-errors",
+                          "title":  "How do you handle errors with async/await?",
+                          "answer":  "Use try/catch around awaited operations to handle rejected Promises. Errors can also propagate to the caller as rejected Promises.",
+                          "underTheHood":  "A rejected awaited Promise causes await to throw the rejection reason within the async function.",
+                          "code":  "async function loadData() {\n  try {\n    const response = await fetch(\u0027/api/users\u0027);\n    if (!response.ok) throw new Error(\u0027HTTP error\u0027);\n    return await response.json();\n  } catch (error) {\n    console.error(error);\n    throw error;\n  }\n}",
+                          "pitfalls":  [
+                                           "fetch() does not reject merely because the HTTP status is 404 or 500.",
+                                           "Unhandled rejections can occur if callers ignore rejected Promises.",
+                                           "Catching an error without rethrowing it can hide failures."
+                                       ],
+                          "followUps":  [
+                                            "How does try/catch interact with await?",
+                                            "How should HTTP errors be handled?"
+                                        ]
+                      }
+                  ]
+}

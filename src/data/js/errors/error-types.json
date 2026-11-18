@@ -1,0 +1,26 @@
+﻿{
+    "id":  "error-types",
+    "title":  "Error Types",
+    "questions":  [
+                      {
+                          "id":  "syntax-error",
+                          "title":  "What is a SyntaxError?"
+                      },
+                      {
+                          "id":  "type-error",
+                          "title":  "What is a TypeError?"
+                      },
+                      {
+                          "id":  "reference-error",
+                          "title":  "What is a ReferenceError?"
+                      },
+                      {
+                          "id":  "range-error",
+                          "title":  "What is a RangeError?"
+                      },
+                      {
+                          "id":  "custom-errors",
+                          "title":  "How do you create custom Error classes?"
+                      }
+                  ]
+}

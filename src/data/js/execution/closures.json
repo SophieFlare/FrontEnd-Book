@@ -1,0 +1,26 @@
+﻿{
+    "id":  "closures",
+    "title":  "Closures",
+    "questions":  [
+                      {
+                          "id":  "closure-definition",
+                          "title":  "What is a closure?"
+                      },
+                      {
+                          "id":  "closure-internals",
+                          "title":  "How do closures work under the hood?"
+                      },
+                      {
+                          "id":  "closure-use-cases",
+                          "title":  "When should closures be used?"
+                      },
+                      {
+                          "id":  "closure-memory",
+                          "title":  "How can closures affect memory?"
+                      },
+                      {
+                          "id":  "closure-loop",
+                          "title":  "What happens when closures capture variables inside loops?"
+                      }
+                  ]
+}

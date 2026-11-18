@@ -1,0 +1,26 @@
+﻿{
+    "id":  "functional-fundamentals",
+    "title":  "Functional Fundamentals",
+    "questions":  [
+                      {
+                          "id":  "functional-programming",
+                          "title":  "What is functional programming?"
+                      },
+                      {
+                          "id":  "pure-functions",
+                          "title":  "What is a pure function?"
+                      },
+                      {
+                          "id":  "side-effects",
+                          "title":  "What are side effects?"
+                      },
+                      {
+                          "id":  "immutability",
+                          "title":  "What is immutability?"
+                      },
+                      {
+                          "id":  "referential-transparency",
+                          "title":  "What is referential transparency?"
+                      }
+                  ]
+}

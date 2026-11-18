@@ -1,0 +1,22 @@
+﻿{
+    "id":  "execution-context",
+    "title":  "Execution Context",
+    "questions":  [
+                      {
+                          "id":  "global-context",
+                          "title":  "What is the global execution context?"
+                      },
+                      {
+                          "id":  "function-context",
+                          "title":  "What is a function execution context?"
+                      },
+                      {
+                          "id":  "execution-phases",
+                          "title":  "What are the creation and execution phases?"
+                      },
+                      {
+                          "id":  "execution-stack",
+                          "title":  "How does JavaScript manage execution contexts?"
+                      }
+                  ]
+}

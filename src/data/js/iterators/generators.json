@@ -1,0 +1,22 @@
+﻿{
+    "id":  "generators",
+    "title":  "Generators",
+    "questions":  [
+                      {
+                          "id":  "generator-function",
+                          "title":  "What is a generator function?"
+                      },
+                      {
+                          "id":  "yield",
+                          "title":  "How does yield work?"
+                      },
+                      {
+                          "id":  "generator-resume",
+                          "title":  "How do generators pause and resume execution?"
+                      },
+                      {
+                          "id":  "generator-use-cases",
+                          "title":  "When are generators useful?"
+                      }
+                  ]
+}

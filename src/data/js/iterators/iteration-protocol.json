@@ -1,0 +1,26 @@
+﻿{
+    "id":  "iteration-protocol",
+    "title":  "Iteration Protocol",
+    "questions":  [
+                      {
+                          "id":  "iterable",
+                          "title":  "What is an iterable?"
+                      },
+                      {
+                          "id":  "iterator",
+                          "title":  "What is an iterator?"
+                      },
+                      {
+                          "id":  "symbol-iterator",
+                          "title":  "What is Symbol.iterator?"
+                      },
+                      {
+                          "id":  "for-of",
+                          "title":  "How does for...of work?"
+                      },
+                      {
+                          "id":  "for-in-vs-for-of",
+                          "title":  "What is the difference between for...in and for...of?"
+                      }
+                  ]
+}

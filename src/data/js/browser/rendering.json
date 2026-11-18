@@ -1,0 +1,39 @@
+﻿{
+    "id":  "rendering",
+    "title":  "Browser Rendering",
+    "questions":  [
+                      {
+                          "id":  "rendering-pipeline",
+                          "title":  "How does the browser render a web page?",
+                          "answer":  "Browsers parse HTML and CSS, construct the relevant document and style structures, calculate layout, paint visual content and composite the resulting layers for display.",
+                          "underTheHood":  "Rendering work depends on document structure, computed styles and layout requirements. Browsers may optimize or skip some stages for particular changes.",
+                          "code":  "const element = document.querySelector(\u0027.box\u0027);\n\n// Often avoids layout recalculation\n// compared with changing geometric properties.\nelement.style.transform = \u0027translateX(100px)\u0027;",
+                          "pitfalls":  [
+                                           "Not every style change triggers layout.",
+                                           "Repeated layout reads and writes can cause layout thrashing.",
+                                           "Long JavaScript tasks can delay rendering."
+                                       ],
+                          "followUps":  [
+                                            "What is reflow?",
+                                            "What is repaint?",
+                                            "What is compositing?"
+                                        ]
+                      },
+                      {
+                          "id":  "raf",
+                          "title":  "What is requestAnimationFrame()?",
+                          "answer":  "requestAnimationFrame() schedules a callback before an upcoming browser repaint. It is commonly used for visual animations.",
+                          "underTheHood":  "The browser invokes animation-frame callbacks as part of its rendering update process when appropriate.",
+                          "code":  "let position = 0;\n\nfunction animate() {\n  position += 1;\n  document.querySelector(\u0027.box\u0027).style.transform = `translateX(${position}px)`;\n\n  if (position \u003c 100) {\n    requestAnimationFrame(animate);\n  }\n}\n\nrequestAnimationFrame(animate);",
+                          "pitfalls":  [
+                                           "Animation frame timing depends on the display and browser scheduling.",
+                                           "Use timestamps for frame-rate-independent animations.",
+                                           "Callbacks may be paused in background tabs."
+                                       ],
+                          "followUps":  [
+                                            "How does requestAnimationFrame differ from setTimeout?",
+                                            "How can animations avoid layout thrashing?"
+                                        ]
+                      }
+                  ]
+}

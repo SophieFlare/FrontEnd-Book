@@ -1,0 +1,22 @@
+﻿{
+    "id":  "inheritance",
+    "title":  "Inheritance",
+    "questions":  [
+                      {
+                          "id":  "extends-super",
+                          "title":  "How do extends and super work?",
+                          "answer":  "extends establishes inheritance between classes. super() invokes the parent constructor, while super.method() allows a subclass method to access a parent method.",
+                          "underTheHood":  "Class inheritance establishes prototype relationships for both instance methods and constructor-level properties.",
+                          "code":  "class Animal {\n  constructor(name) {\n    this.name = name;\n  }\n\n  speak() {\n    return \u0027Sound\u0027;\n  }\n}\n\nclass Dog extends Animal {\n  speak() {\n    return super.speak() + \u0027 Woof\u0027;\n  }\n}\n\nconst dog = new Dog(\u0027Max\u0027);",
+                          "pitfalls":  [
+                                           "Derived constructors must call super() before accessing this.",
+                                           "super is not a reference to a separate parent instance.",
+                                           "Inheritance does not copy all methods onto each instance."
+                                       ],
+                          "followUps":  [
+                                            "What is the prototype chain?",
+                                            "How does method overriding work?"
+                                        ]
+                      }
+                  ]
+}

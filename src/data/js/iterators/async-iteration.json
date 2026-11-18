@@ -1,0 +1,18 @@
+﻿{
+    "id":  "async-iteration",
+    "title":  "Asynchronous Iteration",
+    "questions":  [
+                      {
+                          "id":  "async-generator",
+                          "title":  "What is an async generator?"
+                      },
+                      {
+                          "id":  "for-await",
+                          "title":  "How does for await...of work?"
+                      },
+                      {
+                          "id":  "async-iterator",
+                          "title":  "What is Symbol.asyncIterator?"
+                      }
+                  ]
+}

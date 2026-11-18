@@ -1,0 +1,26 @@
+﻿{
+    "id":  "design-patterns",
+    "title":  "Design Patterns",
+    "questions":  [
+                      {
+                          "id":  "singleton",
+                          "title":  "What is the Singleton pattern?"
+                      },
+                      {
+                          "id":  "factory",
+                          "title":  "What is the Factory pattern?"
+                      },
+                      {
+                          "id":  "observer",
+                          "title":  "What is the Observer pattern?"
+                      },
+                      {
+                          "id":  "module-pattern",
+                          "title":  "What is the Module pattern?"
+                      },
+                      {
+                          "id":  "decorator",
+                          "title":  "What is the Decorator pattern?"
+                      }
+                  ]
+}

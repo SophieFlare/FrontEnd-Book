@@ -1,0 +1,18 @@
+﻿{
+    "id":  "memory-basics",
+    "title":  "Memory Fundamentals",
+    "questions":  [
+                      {
+                          "id":  "memory-lifecycle",
+                          "title":  "What are the stages of memory management?"
+                      },
+                      {
+                          "id":  "stack-heap",
+                          "title":  "What is the difference between stack and heap memory?"
+                      },
+                      {
+                          "id":  "reference-types",
+                          "title":  "How are object references managed?"
+                      }
+                  ]
+}

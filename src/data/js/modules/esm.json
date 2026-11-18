@@ -1,0 +1,26 @@
+﻿{
+    "id":  "esm",
+    "title":  "ES Modules",
+    "questions":  [
+                      {
+                          "id":  "esm-definition",
+                          "title":  "What are ES modules?"
+                      },
+                      {
+                          "id":  "named-default",
+                          "title":  "What is the difference between named and default exports?"
+                      },
+                      {
+                          "id":  "live-bindings",
+                          "title":  "What are live bindings?"
+                      },
+                      {
+                          "id":  "module-scope",
+                          "title":  "How does module scope work?"
+                      },
+                      {
+                          "id":  "module-evaluation",
+                          "title":  "How are modules linked and evaluated?"
+                      }
+                  ]
+}

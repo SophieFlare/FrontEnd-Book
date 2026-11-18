@@ -1,0 +1,26 @@
+﻿{
+    "id":  "solid",
+    "title":  "SOLID Principles",
+    "questions":  [
+                      {
+                          "id":  "srp",
+                          "title":  "What is the Single Responsibility Principle?"
+                      },
+                      {
+                          "id":  "ocp",
+                          "title":  "What is the Open/Closed Principle?"
+                      },
+                      {
+                          "id":  "lsp",
+                          "title":  "What is the Liskov Substitution Principle?"
+                      },
+                      {
+                          "id":  "isp",
+                          "title":  "What is the Interface Segregation Principle?"
+                      },
+                      {
+                          "id":  "dip",
+                          "title":  "What is the Dependency Inversion Principle?"
+                      }
+                  ]
+}

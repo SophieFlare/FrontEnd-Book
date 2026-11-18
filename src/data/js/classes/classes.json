@@ -1,0 +1,37 @@
+﻿{
+    "id":  "classes",
+    "title":  "ES6 Classes",
+    "questions":  [
+                      {
+                          "id":  "class-definition",
+                          "title":  "What is a JavaScript class?",
+                          "answer":  "A JavaScript class is syntax for defining constructors, methods, inheritance relationships and related behavior using JavaScript\u0027s prototype-based object model.",
+                          "underTheHood":  "Class methods are generally placed on the class prototype. JavaScript classes still use prototypal inheritance rather than a separate classical inheritance system.",
+                          "code":  "class User {\n  constructor(name) {\n    this.name = name;\n  }\n\n  greet() {\n    return `Hello ${this.name}`;\n  }\n}\n\nconst user = new User(\u0027Alex\u0027);",
+                          "pitfalls":  [
+                                           "Classes use prototype-based inheritance.",
+                                           "Class constructors must be invoked with new.",
+                                           "Class methods are non-enumerable by default."
+                                       ],
+                          "followUps":  [
+                                            "What is syntactic sugar?",
+                                            "How do classes differ from constructor functions?"
+                                        ]
+                      },
+                      {
+                          "id":  "static-methods",
+                          "title":  "What are static methods?",
+                          "answer":  "Static methods belong to the class constructor itself rather than its instances. They are useful for utilities and factory methods related to the class.",
+                          "underTheHood":  "Static methods are properties of the constructor, not of its prototype used by ordinary instances.",
+                          "code":  "class MathUtils {\n  static double(value) {\n    return value * 2;\n  }\n}\n\nMathUtils.double(5); // 10",
+                          "pitfalls":  [
+                                           "Static methods are not directly available on ordinary instances.",
+                                           "Static methods can be inherited by subclasses."
+                                       ],
+                          "followUps":  [
+                                            "What are static fields?",
+                                            "How do static methods differ from instance methods?"
+                                        ]
+                      }
+                  ]
+}

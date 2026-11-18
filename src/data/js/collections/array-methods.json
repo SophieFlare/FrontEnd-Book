@@ -1,0 +1,46 @@
+﻿{
+    "id":  "array-methods",
+    "title":  "Array Methods",
+    "questions":  [
+                      {
+                          "id":  "map",
+                          "title":  "How does map() work?"
+                      },
+                      {
+                          "id":  "filter",
+                          "title":  "How does filter() work?"
+                      },
+                      {
+                          "id":  "reduce",
+                          "title":  "How does reduce() work?"
+                      },
+                      {
+                          "id":  "foreach",
+                          "title":  "What is the difference between forEach() and map()?"
+                      },
+                      {
+                          "id":  "find",
+                          "title":  "How do find() and findIndex() differ?"
+                      },
+                      {
+                          "id":  "some-every",
+                          "title":  "How do some() and every() work?"
+                      },
+                      {
+                          "id":  "slice-splice",
+                          "title":  "What is the difference between slice() and splice()?"
+                      },
+                      {
+                          "id":  "sort",
+                          "title":  "How does sort() work?"
+                      },
+                      {
+                          "id":  "flat-flatmap",
+                          "title":  "How do flat() and flatMap() work?"
+                      },
+                      {
+                          "id":  "immutable-array-methods",
+                          "title":  "How do toSorted(), toReversed(), toSpliced() and with() work?"
+                      }
+                  ]
+}

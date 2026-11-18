@@ -1,0 +1,18 @@
+﻿{
+    "id":  "commonjs",
+    "title":  "CommonJS",
+    "questions":  [
+                      {
+                          "id":  "commonjs-definition",
+                          "title":  "What is CommonJS?"
+                      },
+                      {
+                          "id":  "esm-vs-commonjs",
+                          "title":  "What is the difference between ESM and CommonJS?"
+                      },
+                      {
+                          "id":  "require",
+                          "title":  "How does require() work?"
+                      }
+                  ]
+}

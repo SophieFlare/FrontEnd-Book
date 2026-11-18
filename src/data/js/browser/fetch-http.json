@@ -1,0 +1,38 @@
+﻿{
+    "id":  "fetch-http",
+    "title":  "Fetch \u0026 HTTP",
+    "questions":  [
+                      {
+                          "id":  "fetch-api",
+                          "title":  "How does the Fetch API work?",
+                          "answer":  "The Fetch API provides a Promise-based interface for making HTTP requests. fetch() returns a Promise that fulfills with a Response object when a response becomes available.",
+                          "underTheHood":  "The browser performs the network operation and resolves or rejects the associated Promise according to the Fetch API\u0027s rules.",
+                          "code":  "async function getUsers() {\n  const response = await fetch(\u0027/api/users\u0027);\n\n  if (!response.ok) {\n    throw new Error(`HTTP ${response.status}`);\n  }\n\n  return response.json();\n}",
+                          "pitfalls":  [
+                                           "HTTP error statuses do not automatically reject fetch().",
+                                           "Response bodies are streams and are generally consumed once.",
+                                           "Network errors and HTTP errors must be distinguished."
+                                       ],
+                          "followUps":  [
+                                            "What is CORS?",
+                                            "What is the difference between fetch and XMLHttpRequest?"
+                                        ]
+                      },
+                      {
+                          "id":  "abort-controller",
+                          "title":  "What is AbortController?",
+                          "answer":  "AbortController provides a way to signal cancellation to APIs that support AbortSignal, including fetch().",
+                          "underTheHood":  "An AbortController owns a signal. Calling abort() marks the signal as aborted and notifies operations observing it.",
+                          "code":  "const controller = new AbortController();\n\nfetch(\u0027/api/users\u0027, {\n  signal: controller.signal\n}).catch((error) =\u003e {\n  if (error.name !== \u0027AbortError\u0027) {\n    console.error(error);\n  }\n});\n\ncontroller.abort();",
+                          "pitfalls":  [
+                                           "AbortController only affects operations that support its signal.",
+                                           "Aborting a request does not guarantee that the server stopped processing it.",
+                                           "Abort errors should be distinguished from other failures."
+                                       ],
+                          "followUps":  [
+                                            "How do you cancel a fetch request?",
+                                            "How can AbortController prevent stale requests?"
+                                        ]
+                      }
+                  ]
+}

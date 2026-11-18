@@ -1,0 +1,22 @@
+﻿{
+    "id":  "maps-sets",
+    "title":  "Map \u0026 Set",
+    "questions":  [
+                      {
+                          "id":  "map-object",
+                          "title":  "What is the difference between Map and Object?"
+                      },
+                      {
+                          "id":  "set-array",
+                          "title":  "What is the difference between Set and Array?"
+                      },
+                      {
+                          "id":  "map-iteration",
+                          "title":  "How do you iterate over Map and Set?"
+                      },
+                      {
+                          "id":  "set-operations",
+                          "title":  "How do Set operations work?"
+                      }
+                  ]
+}

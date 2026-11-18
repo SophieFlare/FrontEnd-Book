@@ -1,0 +1,21 @@
+﻿{
+    "id":  "encapsulation",
+    "title":  "Encapsulation",
+    "questions":  [
+                      {
+                          "id":  "private-fields",
+                          "title":  "What are private class fields?",
+                          "answer":  "Private class fields use the # syntax to restrict access to the class body that declares them. They support encapsulation by hiding internal implementation details.",
+                          "underTheHood":  "Private fields are enforced by the JavaScript language and are not ordinary string-keyed object properties.",
+                          "code":  "class Counter {\n  #count = 0;\n\n  increment() {\n    this.#count++;\n  }\n\n  getCount() {\n    return this.#count;\n  }\n}",
+                          "pitfalls":  [
+                                           "Private fields cannot be accessed using ordinary bracket notation.",
+                                           "Private fields are different from naming conventions such as _count."
+                                       ],
+                          "followUps":  [
+                                            "What is encapsulation?",
+                                            "How do closures provide privacy?"
+                                        ]
+                      }
+                  ]
+}

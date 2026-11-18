@@ -1,0 +1,26 @@
+﻿{
+    "id":  "garbage-collection",
+    "title":  "Garbage Collection",
+    "questions":  [
+                      {
+                          "id":  "gc-definition",
+                          "title":  "What is garbage collection?"
+                      },
+                      {
+                          "id":  "reachability",
+                          "title":  "What is reachability?"
+                      },
+                      {
+                          "id":  "mark-sweep",
+                          "title":  "How does mark-and-sweep garbage collection work?"
+                      },
+                      {
+                          "id":  "gc-algorithms",
+                          "title":  "What garbage collection strategies can JavaScript engines use?"
+                      },
+                      {
+                          "id":  "gc-control",
+                          "title":  "Can developers manually trigger garbage collection?"
+                      }
+                  ]
+}

@@ -1,0 +1,22 @@
+﻿{
+    "id":  "recursion",
+    "title":  "Recursion",
+    "questions":  [
+                      {
+                          "id":  "recursion-definition",
+                          "title":  "What is recursion?",
+                          "answer":  "Recursion occurs when a function calls itself, directly or indirectly, to solve smaller instances of a problem.",
+                          "underTheHood":  "Recursive calls create additional active function executions. Without an appropriate stopping condition, recursion can exhaust the call stack.",
+                          "code":  "function factorial(n) {\n  if (n \u003c= 1) return 1;\n  return n * factorial(n - 1);\n}\n\nconsole.log(factorial(5)); // 120",
+                          "pitfalls":  [
+                                           "Recursion requires a base case.",
+                                           "Deep recursion may cause stack overflow.",
+                                           "Recursive solutions can have additional stack-space costs."
+                                       ],
+                          "followUps":  [
+                                            "What is tail recursion?",
+                                            "How does recursion compare with iteration?"
+                                        ]
+                      }
+                  ]
+}

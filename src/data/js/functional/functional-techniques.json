@@ -1,0 +1,26 @@
+﻿{
+    "id":  "functional-techniques",
+    "title":  "Functional Techniques",
+    "questions":  [
+                      {
+                          "id":  "higher-order-functions",
+                          "title":  "What is a higher-order function?"
+                      },
+                      {
+                          "id":  "function-composition",
+                          "title":  "What is function composition?"
+                      },
+                      {
+                          "id":  "currying",
+                          "title":  "What is currying?"
+                      },
+                      {
+                          "id":  "partial-application",
+                          "title":  "What is partial application?"
+                      },
+                      {
+                          "id":  "currying-vs-partial",
+                          "title":  "How does currying differ from partial application?"
+                      }
+                  ]
+}

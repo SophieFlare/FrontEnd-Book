@@ -1,0 +1,38 @@
+﻿{
+    "id":  "variables",
+    "title":  "Variables \u0026 Declarations",
+    "questions":  [
+                      {
+                          "id":  "var-let-const",
+                          "title":  "What is the difference between var, let and const?",
+                          "answer":  "var is function-scoped, while let and const are block-scoped. var can be redeclared, whereas let and const cannot be redeclared in the same scope. const requires initialization and prevents reassignment of its binding.",
+                          "underTheHood":  "All three declarations create bindings during environment initialization. var bindings are initialized to undefined, while let and const remain uninitialized until their declarations execute, creating the Temporal Dead Zone.",
+                          "code":  "var a = 1;\nlet b = 2;\nconst c = 3;\n\nb = 10;\n// c = 20; // TypeError\n\nconst user = { name: \u0027Alex\u0027 };\nuser.name = \u0027Sam\u0027; // Allowed",
+                          "pitfalls":  [
+                                           "const does not make objects immutable.",
+                                           "var is function-scoped, not block-scoped.",
+                                           "Accessing let or const before initialization throws ReferenceError."
+                                       ],
+                          "followUps":  [
+                                            "What is the Temporal Dead Zone?",
+                                            "What is hoisting?",
+                                            "Why should const generally be preferred?"
+                                        ]
+                      },
+                      {
+                          "id":  "declaration-vs-initialization",
+                          "title":  "What is the difference between declaration, initialization and assignment?",
+                          "answer":  "Declaration introduces a binding. Initialization gives it its initial value. Assignment updates an existing binding.",
+                          "underTheHood":  "JavaScript establishes bindings during environment setup. Their initialization behavior depends on the declaration type.",
+                          "code":  "let value; // Declaration, initialized to undefined\nvalue = 10; // Assignment\n\nconst count = 5; // Declaration + initialization",
+                          "pitfalls":  [
+                                           "const declarations must have an initializer.",
+                                           "An uninitialized let binding is different from a let binding initialized to undefined."
+                                       ],
+                          "followUps":  [
+                                            "When does initialization occur?",
+                                            "How does hoisting affect declarations?"
+                                        ]
+                      }
+                  ]
+}

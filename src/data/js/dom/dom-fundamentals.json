@@ -1,0 +1,26 @@
+﻿{
+    "id":  "dom-fundamentals",
+    "title":  "DOM Fundamentals",
+    "questions":  [
+                      {
+                          "id":  "dom-definition",
+                          "title":  "What is the DOM?"
+                      },
+                      {
+                          "id":  "dom-vs-html",
+                          "title":  "What is the difference between HTML and the DOM?"
+                      },
+                      {
+                          "id":  "dom-selection",
+                          "title":  "How do you select DOM elements?"
+                      },
+                      {
+                          "id":  "dom-manipulation",
+                          "title":  "How do you create, update and remove DOM nodes?"
+                      },
+                      {
+                          "id":  "nodelist-htmlcollection",
+                          "title":  "What is the difference between NodeList and HTMLCollection?"
+                      }
+                  ]
+}

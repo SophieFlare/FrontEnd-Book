@@ -1,0 +1,22 @@
+﻿{
+    "id":  "browser-performance",
+    "title":  "Browser Performance",
+    "questions":  [
+                      {
+                          "id":  "rendering-pipeline",
+                          "title":  "How does the browser rendering pipeline work?"
+                      },
+                      {
+                          "id":  "layout-thrashing",
+                          "title":  "What is layout thrashing?"
+                      },
+                      {
+                          "id":  "performance-api",
+                          "title":  "How do you measure JavaScript performance?"
+                      },
+                      {
+                          "id":  "long-tasks",
+                          "title":  "How do long JavaScript tasks affect responsiveness?"
+                      }
+                  ]
+}

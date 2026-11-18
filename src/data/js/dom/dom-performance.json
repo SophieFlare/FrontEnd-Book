@@ -1,0 +1,18 @@
+﻿{
+    "id":  "dom-performance",
+    "title":  "DOM Performance",
+    "questions":  [
+                      {
+                          "id":  "reflow-repaint",
+                          "title":  "What are layout, paint and compositing?"
+                      },
+                      {
+                          "id":  "dom-batching",
+                          "title":  "How can DOM updates be optimized?"
+                      },
+                      {
+                          "id":  "mutation-observer",
+                          "title":  "What is MutationObserver?"
+                      }
+                  ]
+}

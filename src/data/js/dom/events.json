@@ -1,0 +1,34 @@
+﻿{
+    "id":  "events",
+    "title":  "Events",
+    "questions":  [
+                      {
+                          "id":  "event-listeners",
+                          "title":  "How does addEventListener() work?"
+                      },
+                      {
+                          "id":  "event-object",
+                          "title":  "What information does the Event object provide?"
+                      },
+                      {
+                          "id":  "bubbling",
+                          "title":  "What is event bubbling?"
+                      },
+                      {
+                          "id":  "capturing",
+                          "title":  "What is event capturing?"
+                      },
+                      {
+                          "id":  "delegation",
+                          "title":  "What is event delegation?"
+                      },
+                      {
+                          "id":  "stop-propagation",
+                          "title":  "How do stopPropagation() and preventDefault() differ?"
+                      },
+                      {
+                          "id":  "event-target",
+                          "title":  "What is the difference between target and currentTarget?"
+                      }
+                  ]
+}

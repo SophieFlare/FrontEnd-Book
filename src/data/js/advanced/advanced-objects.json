@@ -1,0 +1,22 @@
+﻿{
+    "id":  "advanced-objects",
+    "title":  "Advanced Object Behavior",
+    "questions":  [
+                      {
+                          "id":  "property-descriptors",
+                          "title":  "What are property descriptors?"
+                      },
+                      {
+                          "id":  "getters-setters",
+                          "title":  "How do getters and setters work?"
+                      },
+                      {
+                          "id":  "freeze-seal",
+                          "title":  "What is the difference between Object.freeze() and Object.seal()?"
+                      },
+                      {
+                          "id":  "object-keys",
+                          "title":  "How do Object.keys(), values() and entries() work?"
+                      }
+                  ]
+}

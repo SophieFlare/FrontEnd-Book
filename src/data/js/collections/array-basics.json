@@ -1,0 +1,22 @@
+﻿{
+    "id":  "array-basics",
+    "title":  "Array Fundamentals",
+    "questions":  [
+                      {
+                          "id":  "array-definition",
+                          "title":  "What is an array in JavaScript?"
+                      },
+                      {
+                          "id":  "array-creation",
+                          "title":  "How can arrays be created?"
+                      },
+                      {
+                          "id":  "array-reference",
+                          "title":  "How are arrays compared and copied?"
+                      },
+                      {
+                          "id":  "array-destructuring",
+                          "title":  "How does array destructuring work?"
+                      }
+                  ]
+}

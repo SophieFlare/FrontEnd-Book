@@ -1,0 +1,22 @@
+﻿{
+    "id":  "async-fundamentals",
+    "title":  "Asynchronous Fundamentals",
+    "questions":  [
+                      {
+                          "id":  "sync-vs-async",
+                          "title":  "What is the difference between synchronous and asynchronous JavaScript?",
+                          "answer":  "Synchronous code executes in sequence and occupies the current execution path until it completes. Asynchronous programming allows operations to complete later while JavaScript continues other work.",
+                          "underTheHood":  "JavaScript execution interacts with host APIs and an event loop. When asynchronous operations become ready, their callbacks or promise reactions can be scheduled for later execution.",
+                          "code":  "console.log(\u0027A\u0027);\n\nsetTimeout(() =\u003e {\n  console.log(\u0027B\u0027);\n}, 0);\n\nconsole.log(\u0027C\u0027);\n\n// A, C, B",
+                          "pitfalls":  [
+                                           "Asynchronous does not automatically mean parallel.",
+                                           "A zero-delay timer does not execute immediately.",
+                                           "Long synchronous tasks can block the main thread."
+                                       ],
+                          "followUps":  [
+                                            "What is the event loop?",
+                                            "What are microtasks and tasks?"
+                                        ]
+                      }
+                  ]
+}

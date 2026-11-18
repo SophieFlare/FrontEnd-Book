@@ -1,0 +1,36 @@
+﻿{
+    "id":  "parameters",
+    "title":  "Parameters \u0026 Arguments",
+    "questions":  [
+                      {
+                          "id":  "rest-parameters",
+                          "title":  "What are rest parameters?",
+                          "answer":  "Rest parameters collect remaining arguments into a real array. They allow functions to accept a variable number of arguments.",
+                          "underTheHood":  "The rest parameter collects arguments not assigned to earlier parameters.",
+                          "code":  "function sum(...numbers) {\n  return numbers.reduce((a, b) =\u003e a + b, 0);\n}\n\nconsole.log(sum(1, 2, 3)); // 6",
+                          "pitfalls":  [
+                                           "Rest parameters must be the final parameter.",
+                                           "Rest parameters and spread syntax have different purposes."
+                                       ],
+                          "followUps":  [
+                                            "What is the arguments object?",
+                                            "How does rest differ from spread?"
+                                        ]
+                      },
+                      {
+                          "id":  "default-parameters",
+                          "title":  "How do default parameters work?",
+                          "answer":  "Default parameters provide fallback values when an argument is missing or explicitly undefined.",
+                          "underTheHood":  "Default parameter expressions are evaluated when the corresponding argument is undefined.",
+                          "code":  "function greet(name = \u0027Guest\u0027) {\n  return `Hello ${name}`;\n}\n\nconsole.log(greet()); // Hello Guest\nconsole.log(greet(null)); // Hello null",
+                          "pitfalls":  [
+                                           "null does not activate a default parameter.",
+                                           "Default expressions can reference earlier parameters."
+                                       ],
+                          "followUps":  [
+                                            "How are parameters initialized?",
+                                            "What happens when undefined is passed explicitly?"
+                                        ]
+                      }
+                  ]
+}

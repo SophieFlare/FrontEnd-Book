@@ -1,0 +1,22 @@
+﻿{
+    "id":  "workers",
+    "title":  "Web Workers",
+    "questions":  [
+                      {
+                          "id":  "web-workers",
+                          "title":  "What are Web Workers?",
+                          "answer":  "Web Workers allow JavaScript to execute in background threads separate from the main browser thread. They are useful for computationally expensive work that would otherwise affect UI responsiveness.",
+                          "underTheHood":  "Workers have their own execution environment and communicate with other contexts through messages. Dedicated workers cannot directly manipulate the document DOM.",
+                          "code":  "// main.js\nconst worker = new Worker(\u0027/worker.js\u0027);\nworker.postMessage(10);\nworker.onmessage = (event) =\u003e console.log(event.data);\n\n// worker.js\nself.onmessage = (event) =\u003e {\n  self.postMessage(event.data * 2);\n};",
+                          "pitfalls":  [
+                                           "Workers cannot directly access the DOM.",
+                                           "Messages generally use structured cloning or transferable objects.",
+                                           "Workers introduce communication overhead."
+                                       ],
+                          "followUps":  [
+                                            "What is the structured clone algorithm?",
+                                            "What is the difference between dedicated and shared workers?"
+                                        ]
+                      }
+                  ]
+}

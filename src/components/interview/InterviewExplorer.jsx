@@ -1,6 +1,7 @@
 ﻿import { useState } from "react";
 import InterviewAnswer from "./InterviewAnswer.jsx";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import CategoryOverview from "./CategoryOverview.jsx";
 
 export default function InterviewExplorer({ subject, content }) {
   const [category, setCategory] = useState(null);

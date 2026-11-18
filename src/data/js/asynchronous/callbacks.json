@@ -1,0 +1,22 @@
+﻿{
+    "id":  "callbacks",
+    "title":  "Callbacks",
+    "questions":  [
+                      {
+                          "id":  "callback-definition",
+                          "title":  "What is a callback?",
+                          "answer":  "A callback is a function passed to another function to be invoked later or under specified conditions.",
+                          "underTheHood":  "Callbacks are possible because functions are first-class values. A callback can be invoked synchronously or asynchronously.",
+                          "code":  "function process(value, callback) {\n  callback(value);\n}\n\nprocess(10, console.log);",
+                          "pitfalls":  [
+                                           "Not every callback is asynchronous.",
+                                           "Nested asynchronous callbacks can become difficult to maintain.",
+                                           "Error handling depends on the callback API."
+                                       ],
+                          "followUps":  [
+                                            "What is callback hell?",
+                                            "How do promises improve asynchronous composition?"
+                                        ]
+                      }
+                  ]
+}

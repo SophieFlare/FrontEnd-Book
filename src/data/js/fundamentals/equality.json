@@ -1,0 +1,37 @@
+﻿{
+    "id":  "equality",
+    "title":  "Equality \u0026 Operators",
+    "questions":  [
+                      {
+                          "id":  "equality-operators",
+                          "title":  "What is the difference between == and ===?",
+                          "answer":  "== performs loose equality comparison and may convert operands before comparing them. === performs strict equality comparison without type coercion.",
+                          "underTheHood":  "Loose equality follows the Abstract Equality Comparison algorithm. Strict equality follows the Strict Equality Comparison algorithm.",
+                          "code":  "5 == \u00275\u0027; // true\n5 === \u00275\u0027; // false\nnull == undefined; // true\nnull === undefined; // false",
+                          "pitfalls":  [
+                                           "== can trigger implicit conversions.",
+                                           "NaN is not strictly equal to itself.",
+                                           "Two distinct objects are never strictly equal."
+                                       ],
+                          "followUps":  [
+                                            "What is Object.is()?",
+                                            "How does NaN behave during comparison?"
+                                        ]
+                      },
+                      {
+                          "id":  "nullish-coalescing",
+                          "title":  "What is the difference between || and ??",
+                          "answer":  "|| returns its right operand when the left operand is falsy. ?? returns its right operand only when the left operand is null or undefined.",
+                          "underTheHood":  "Both operators short-circuit and return an operand rather than necessarily returning a Boolean.",
+                          "code":  "0 || 10; // 10\n0 ?? 10; // 0\n\u0027\u0027 || \u0027default\u0027; // \u0027default\u0027\n\u0027\u0027 ?? \u0027default\u0027; // \u0027\u0027",
+                          "pitfalls":  [
+                                           "|| treats zero and empty strings as fallback conditions.",
+                                           "?? only handles nullish values."
+                                       ],
+                          "followUps":  [
+                                            "What is optional chaining?",
+                                            "How does short-circuit evaluation work?"
+                                        ]
+                      }
+                  ]
+}

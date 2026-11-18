@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@theme {
+  --font-mono: "Victor Mono", monospace;
+  --font-sans: "Victor Mono", monospace;
+}
+
+body {
+  font-family: "Victor Mono", monospace;
+}
 :root {
   font-family: Inter, system-ui, sans-serif;
   color: #111;
@@ -8,4 +16,13 @@
 
 button {
   cursor: pointer;
+}
+
+@font-face {
+  font-family: "Victor Mono";
+  src: url("./fonts/fonts/VictorMono-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }

@@ -1,0 +1,22 @@
+﻿{
+    "id":  "control-flow",
+    "title":  "Control Flow",
+    "questions":  [
+                      {
+                          "id":  "loops",
+                          "title":  "What is the difference between for, for...in and for...of?",
+                          "answer":  "A traditional for loop provides explicit control over initialization, condition and update. for...in iterates enumerable string property keys. for...of iterates values produced by an iterable.",
+                          "underTheHood":  "for...of uses the iteration protocol through Symbol.iterator. for...in enumerates property keys, including eligible inherited keys.",
+                          "code":  "const arr = [\u0027a\u0027, \u0027b\u0027];\n\nfor (let i = 0; i \u003c arr.length; i++) {\n  console.log(arr[i]);\n}\n\nfor (const key in arr) console.log(key);\nfor (const value of arr) console.log(value);",
+                          "pitfalls":  [
+                                           "for...in is usually not recommended for array iteration.",
+                                           "Ordinary objects are not iterable by default.",
+                                           "for...of works with arrays, strings, Maps and Sets."
+                                       ],
+                          "followUps":  [
+                                            "What is Symbol.iterator?",
+                                            "What is an iterable?"
+                                        ]
+                      }
+                  ]
+}

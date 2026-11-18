@@ -1,0 +1,18 @@
+﻿{
+    "id":  "weak-collections",
+    "title":  "Weak Collections",
+    "questions":  [
+                      {
+                          "id":  "weakmap",
+                          "title":  "What is WeakMap?"
+                      },
+                      {
+                          "id":  "weakset",
+                          "title":  "What is WeakSet?"
+                      },
+                      {
+                          "id":  "weak-vs-strong",
+                          "title":  "How do WeakMap and Map differ in garbage collection?"
+                      }
+                  ]
+}

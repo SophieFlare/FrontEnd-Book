@@ -1,0 +1,22 @@
+﻿{
+    "id":  "dynamic-modules",
+    "title":  "Dynamic Imports",
+    "questions":  [
+                      {
+                          "id":  "dynamic-import",
+                          "title":  "How does import() work?"
+                      },
+                      {
+                          "id":  "code-splitting",
+                          "title":  "What is code splitting?"
+                      },
+                      {
+                          "id":  "tree-shaking",
+                          "title":  "What is tree shaking?"
+                      },
+                      {
+                          "id":  "circular-dependencies",
+                          "title":  "What are circular dependencies?"
+                      }
+                  ]
+}

@@ -1,0 +1,21 @@
+﻿{
+    "id":  "higher-order-functions",
+    "title":  "Higher-Order Functions \u0026 Callbacks",
+    "questions":  [
+                      {
+                          "id":  "higher-order",
+                          "title":  "What is a higher-order function?",
+                          "answer":  "A higher-order function accepts another function as an argument, returns a function, or both.",
+                          "underTheHood":  "JavaScript treats functions as first-class values, allowing them to be stored, passed and returned.",
+                          "code":  "function multiplyBy(factor) {\n  return (number) =\u003e number * factor;\n}\n\nconst double = multiplyBy(2);\nconsole.log(double(5)); // 10",
+                          "pitfalls":  [
+                                           "A callback is a function passed to another function.",
+                                           "Higher-order functions do not have to be asynchronous."
+                                       ],
+                          "followUps":  [
+                                            "What is a callback?",
+                                            "How do closures support higher-order functions?"
+                                        ]
+                      }
+                  ]
+}

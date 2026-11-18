@@ -1,0 +1,38 @@
+﻿{
+    "id":  "storage",
+    "title":  "Browser Storage",
+    "questions":  [
+                      {
+                          "id":  "local-session-storage",
+                          "title":  "What is the difference between localStorage and sessionStorage?",
+                          "answer":  "localStorage persists data across browser sessions until it is removed. sessionStorage stores data for a particular origin and browser tab session. Both expose synchronous key-value APIs and store strings.",
+                          "underTheHood":  "The browser maintains storage areas associated with origins. sessionStorage is additionally partitioned by top-level browsing context.",
+                          "code":  "localStorage.setItem(\u0027theme\u0027, \u0027dark\u0027);\nconsole.log(localStorage.getItem(\u0027theme\u0027));\n\nsessionStorage.setItem(\u0027step\u0027, \u00272\u0027);",
+                          "pitfalls":  [
+                                           "Storage values are strings.",
+                                           "Web Storage APIs are synchronous.",
+                                           "Sensitive credentials should not be placed in Web Storage."
+                                       ],
+                          "followUps":  [
+                                            "What is IndexedDB?",
+                                            "How do cookies differ from localStorage?"
+                                        ]
+                      },
+                      {
+                          "id":  "cookies",
+                          "title":  "What are cookies?",
+                          "answer":  "Cookies are small pieces of data associated with websites. They are commonly used for sessions and preferences and can be automatically included in HTTP requests according to their attributes.",
+                          "underTheHood":  "Browsers store cookies with attributes controlling scope, expiration and transmission. Attributes such as Secure, HttpOnly and SameSite affect security and request behavior.",
+                          "code":  "document.cookie = \u0027theme=dark; Path=/; SameSite=Lax\u0027;",
+                          "pitfalls":  [
+                                           "HttpOnly cookies cannot be read through document.cookie.",
+                                           "Cookies can be included in network requests.",
+                                           "Cookie security depends on appropriate attributes."
+                                       ],
+                          "followUps":  [
+                                            "What is SameSite?",
+                                            "What is the difference between cookies and localStorage?"
+                                        ]
+                      }
+                  ]
+}
