@@ -1,0 +1,433 @@
+{
+    "id":  "advanced-overview",
+    "title":  "advanced",
+    "introduction":  "",
+    "keywords":  [
+
+                 ],
+    "sections":  [
+                     {
+                         "id":  "advanced-objects",
+                         "title":  "Advanced Object Behavior",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "property-descriptors",
+                                               "title":  "What are property descriptors?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "getters-setters",
+                                               "title":  "How do getters and setters work?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "freeze-seal",
+                                               "title":  "What is the difference between Object.freeze() and Object.seal()?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "object-keys",
+                                               "title":  "How do Object.keys(), values() and entries() work?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "design-patterns",
+                         "title":  "Design Patterns",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "singleton",
+                                               "title":  "What is the Singleton pattern?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "factory",
+                                               "title":  "What is the Factory pattern?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "observer",
+                                               "title":  "What is the Observer pattern?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "module-pattern",
+                                               "title":  "What is the Module pattern?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "decorator",
+                                               "title":  "What is the Decorator pattern?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "metaprogramming",
+                         "title":  "Metaprogramming",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "proxy",
+                                               "title":  "What is Proxy?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "reflect",
+                                               "title":  "What is Reflect?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "proxy-reflect",
+                                               "title":  "How do Proxy and Reflect work together?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "symbols",
+                                               "title":  "What are Symbols?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "well-known-symbols",
+                                               "title":  "What are well-known Symbols?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "solid",
+                         "title":  "SOLID Principles",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "srp",
+                                               "title":  "What is the Single Responsibility Principle?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "ocp",
+                                               "title":  "What is the Open/Closed Principle?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "lsp",
+                                               "title":  "What is the Liskov Substitution Principle?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "isp",
+                                               "title":  "What is the Interface Segregation Principle?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "dip",
+                                               "title":  "What is the Dependency Inversion Principle?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     }
+                 ],
+    "cheatSheet":  [
+
+                   ]
+}

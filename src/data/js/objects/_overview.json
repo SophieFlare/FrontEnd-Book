@@ -1,0 +1,156 @@
+{
+    "id":  "objects-overview",
+    "title":  "objects",
+    "introduction":  "",
+    "keywords":  [
+
+                 ],
+    "sections":  [
+                     {
+                         "id":  "object-fundamentals",
+                         "title":  "Object Fundamentals",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "what-is-object",
+                                               "title":  "What is an object in JavaScript?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  "Objects have an internal [[Prototype]] link used during inherited property lookup. Property values may be primitives, objects, or functions.",
+                                               "interviewAnswer":  "An object is a collection of keyed properties. Objects are non-primitive values, and variables can hold references to the same object.",
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                "Objects are compared by identity.",
+                                                                "const prevents reassignment, not property mutation."
+                                                            ],
+                                               "followUps":  [
+                                                                 "What is an object\u0027s prototype?",
+                                                                 "How are objects compared?"
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "object-creation",
+                                               "title":  "What are the different ways to create objects?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  "Object literals usually inherit from Object.prototype. Object.create() allows explicit prototype selection. Constructors and classes create objects through new.",
+                                               "interviewAnswer":  "Objects can be created using literals, Object.create(), constructor functions, classes, and factory functions.",
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                "Object.create(null) has no Object.prototype methods.",
+                                                                "Classes still use prototype-based inheritance."
+                                                            ],
+                                               "followUps":  [
+                                                                 "How does new work?",
+                                                                 "What is the difference between a factory function and a constructor?"
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "property-access",
+                                               "title":  "What is the difference between dot notation and bracket notation?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  "Both access mechanisms use JavaScript property lookup. If a property is not found directly, lookup can continue through the prototype chain.",
+                                               "interviewAnswer":  "Dot notation accesses properties using identifier-like names. Bracket notation evaluates an expression to determine the property key and supports dynamic keys.",
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                "user.key accesses the literal property named key.",
+                                                                "user[key] evaluates the variable key."
+                                                            ],
+                                               "followUps":  [
+                                                                 "How do computed property names work?",
+                                                                 "What is optional chaining?"
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "property-mutation",
+                                               "title":  "How do you add, update and delete object properties?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  "Property operations follow property descriptor rules. An inherited property may be shadowed by a newly created own property.",
+                                               "interviewAnswer":  "Assign a value to create or update a writable property. Use the delete operator to remove a configurable own property.",
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                "delete does not remove non-configurable properties.",
+                                                                "Deleting an inherited property from a child does not remove it from the prototype."
+                                                            ],
+                                               "followUps":  [
+                                                                 "What are property descriptors?",
+                                                                 "What does configurable mean?"
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "object-iteration",
+                                               "title":  "How do Object.keys(), Object.values() and Object.entries() differ?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  "These methods enumerate an object\u0027s own enumerable string-keyed properties, excluding symbol keys.",
+                                               "interviewAnswer":  "Object.keys() returns enumerable own string keys. Object.values() returns their values. Object.entries() returns key-value pairs.",
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                "Inherited properties are excluded.",
+                                                                "Symbol-keyed properties are excluded.",
+                                                                "The returned values are arrays."
+                                                            ],
+                                               "followUps":  [
+                                                                 "How does for...in differ?",
+                                                                 "What is Reflect.ownKeys()?"
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "object-comparison",
+                                               "title":  "How does JavaScript compare objects?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  "Strict equality checks whether both operands refer to the same object.",
+                                               "interviewAnswer":  "Objects are compared by identity rather than structural equality. Two distinct objects are unequal even when their properties contain identical values.",
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                "Identical object structures do not imply equality.",
+                                                                "JSON.stringify() is not a reliable general-purpose deep equality solution."
+                                                            ],
+                                               "followUps":  [
+                                                                 "What is referential equality?",
+                                                                 "How would you implement deep equality?"
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     }
+                 ],
+    "cheatSheet":  [
+
+                   ]
+}

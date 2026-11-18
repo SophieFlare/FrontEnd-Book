@@ -6,15 +6,18 @@ const files = import.meta.glob("../data/js/*/*.json", {
   import: "default",
 });
 
-
-
 const content = Object.fromEntries(
   categories.categories.map((category) => {
+    const prefix = `../data/js/${category.id}/`;
+
     const concepts = Object.entries(files)
-      .filter(([path]) =>
-        path.startsWith(`../data/js/${category.id}/`),
+      .filter(
+        ([path]) =>
+          path.startsWith(prefix) && !path.endsWith("/_overview.json"),
       )
       .map(([, concept]) => concept);
+
+    const overview = files[`${prefix}_overview.json`] ?? null;
 
     return [
       category.id,
@@ -22,6 +25,7 @@ const content = Object.fromEntries(
         id: category.id,
         title: category.title,
         concepts,
+        overview,
       },
     ];
   }),

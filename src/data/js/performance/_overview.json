@@ -1,0 +1,303 @@
+{
+    "id":  "performance-overview",
+    "title":  "performance",
+    "introduction":  "",
+    "keywords":  [
+
+                 ],
+    "sections":  [
+                     {
+                         "id":  "browser-performance",
+                         "title":  "Browser Performance",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "rendering-pipeline",
+                                               "title":  "How does the browser rendering pipeline work?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "layout-thrashing",
+                                               "title":  "What is layout thrashing?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "performance-api",
+                                               "title":  "How do you measure JavaScript performance?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "long-tasks",
+                                               "title":  "How do long JavaScript tasks affect responsiveness?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "complexity",
+                         "title":  "Time \u0026 Space Complexity",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "big-o",
+                                               "title":  "What is Big O notation?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "time-complexity",
+                                               "title":  "How do you calculate time complexity?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "space-complexity",
+                                               "title":  "How do you calculate space complexity?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "complexity-examples",
+                                               "title":  "What are common O(1), O(log n), O(n) and O(n²) examples?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "optimization-techniques",
+                         "title":  "Optimization Techniques",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "debounce",
+                                               "title":  "What is debouncing?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "throttle",
+                                               "title":  "What is throttling?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "debounce-vs-throttle",
+                                               "title":  "When should you use debounce instead of throttle?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "memoization",
+                                               "title":  "What is memoization?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "lazy-loading",
+                                               "title":  "What is lazy loading?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     }
+                 ],
+    "cheatSheet":  [
+
+                   ]
+}

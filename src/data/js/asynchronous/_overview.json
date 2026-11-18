@@ -1,0 +1,67 @@
+{
+  "id": "asynchronous-overview",
+  "title": "Asynchronous Programming",
+  "introduction": "Asynchronous programming allows JavaScript to handle operations that complete later without blocking execution while waiting.",
+  "keywords": [
+    "single-threaded",
+    "non-blocking",
+    "call stack",
+    "event loop",
+    "microtask queue",
+    "Promise",
+    "async/await"
+  ],
+  "sections": [
+    {
+      "id": "async-await",
+      "title": "async / await",
+      "definition": "Promise-based syntax for writing asynchronous operations.",
+      "keywords": [
+        "async",
+        "await",
+        "Promise",
+        "microtask",
+        "try/catch"
+      ],
+      "questions": [
+        {
+          "id": "async-functions",
+          "title": "How do async functions work?",
+          "what": "An async function always returns a Promise.",
+          "how": "Execution proceeds synchronously until await suspends the function. Its continuation runs asynchronously when the awaited Promise settles.",
+          "why": "Makes Promise-based asynchronous control flow easier to express.",
+          "when": "API requests, asynchronous workflows, and sequential operations.",
+          "underTheHood": "Promise resolution, fulfillment or rejection, and microtask scheduling coordinate continuation.",
+          "interviewAnswer": "An async function returns a Promise. Await pauses that function's execution without blocking the JavaScript thread, and its continuation is scheduled asynchronously.",
+          "keywords": [
+            "async F()",
+            "Promise",
+            "await",
+            "suspend",
+            "resume",
+            "microtask"
+          ],
+          "pitfalls": [
+            "Await does not block the entire JavaScript thread.",
+            "Async functions always return Promises."
+          ],
+          "followUps": [
+            "What happens when an awaited Promise rejects?",
+            "Does await always introduce an asynchronous continuation?"
+          ],
+          "recall": "async F() → Promise → await → suspend F() → settle → microtask → resume"
+        }
+      ]
+    }
+  ],
+  "cheatSheet": [
+    "async F() → always Promise",
+    "await → suspend F(), not JS thread",
+    "Promise → pending → fulfilled | rejected",
+    "microtasks → before next task",
+    "all → all fulfill | first rejection",
+    "allSettled → every outcome",
+    "race → first settled",
+    "any → first fulfilled"
+  ]
+}

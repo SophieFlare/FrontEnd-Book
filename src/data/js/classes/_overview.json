@@ -1,0 +1,200 @@
+{
+    "id":  "classes-overview",
+    "title":  "classes",
+    "introduction":  "",
+    "keywords":  [
+
+                 ],
+    "sections":  [
+                     {
+                         "id":  "classes",
+                         "title":  "ES6 Classes",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "class-definition",
+                                               "title":  "What is a JavaScript class?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  "Class methods are generally placed on the class prototype. JavaScript classes still use prototypal inheritance rather than a separate classical inheritance system.",
+                                               "interviewAnswer":  "A JavaScript class is syntax for defining constructors, methods, inheritance relationships and related behavior using JavaScript\u0027s prototype-based object model.",
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                "Classes use prototype-based inheritance.",
+                                                                "Class constructors must be invoked with new.",
+                                                                "Class methods are non-enumerable by default."
+                                                            ],
+                                               "followUps":  [
+                                                                 "What is syntactic sugar?",
+                                                                 "How do classes differ from constructor functions?"
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "static-methods",
+                                               "title":  "What are static methods?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  "Static methods are properties of the constructor, not of its prototype used by ordinary instances.",
+                                               "interviewAnswer":  "Static methods belong to the class constructor itself rather than its instances. They are useful for utilities and factory methods related to the class.",
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                "Static methods are not directly available on ordinary instances.",
+                                                                "Static methods can be inherited by subclasses."
+                                                            ],
+                                               "followUps":  [
+                                                                 "What are static fields?",
+                                                                 "How do static methods differ from instance methods?"
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "constructors",
+                         "title":  "Constructors",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "constructor-functions",
+                                               "title":  "What is a constructor function?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  "For an ordinary constructible function, new creates an object linked to the constructor\u0027s prototype, binds this to the new object, executes the function and returns the appropriate result.",
+                                               "interviewAnswer":  "A constructor function is an ordinary function intended to initialize objects created using new.",
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                "Arrow functions cannot be constructors.",
+                                                                "Constructor functions should not be confused with class declarations.",
+                                                                "Methods placed on the prototype can be shared between instances."
+                                                            ],
+                                               "followUps":  [
+                                                                 "What happens when new is used?",
+                                                                 "What is the prototype property?"
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "encapsulation",
+                         "title":  "Encapsulation",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "private-fields",
+                                               "title":  "What are private class fields?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  "Private fields are enforced by the JavaScript language and are not ordinary string-keyed object properties.",
+                                               "interviewAnswer":  "Private class fields use the # syntax to restrict access to the class body that declares them. They support encapsulation by hiding internal implementation details.",
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                "Private fields cannot be accessed using ordinary bracket notation.",
+                                                                "Private fields are different from naming conventions such as _count."
+                                                            ],
+                                               "followUps":  [
+                                                                 "What is encapsulation?",
+                                                                 "How do closures provide privacy?"
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "inheritance",
+                         "title":  "Inheritance",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "extends-super",
+                                               "title":  "How do extends and super work?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  "Class inheritance establishes prototype relationships for both instance methods and constructor-level properties.",
+                                               "interviewAnswer":  "extends establishes inheritance between classes. super() invokes the parent constructor, while super.method() allows a subclass method to access a parent method.",
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                "Derived constructors must call super() before accessing this.",
+                                                                "super is not a reference to a separate parent instance.",
+                                                                "Inheritance does not copy all methods onto each instance."
+                                                            ],
+                                               "followUps":  [
+                                                                 "What is the prototype chain?",
+                                                                 "How does method overriding work?"
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "oop-principles",
+                         "title":  "OOP Principles",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "oop-pillars",
+                                               "title":  "What are the four main OOP principles?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  "JavaScript supports these patterns through objects, functions, classes, prototypes and private fields.",
+                                               "interviewAnswer":  "The four commonly taught OOP principles are encapsulation, abstraction, inheritance and polymorphism. Encapsulation controls access to internal state, abstraction hides unnecessary implementation details, inheritance supports reuse through relationships, and polymorphism allows different objects to respond to a common interface.",
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                "JavaScript does not have built-in abstract class declarations.",
+                                                                "Inheritance is not always preferable to composition.",
+                                                                "Polymorphism does not require class inheritance."
+                                                            ],
+                                               "followUps":  [
+                                                                 "What is composition over inheritance?",
+                                                                 "What is method overriding?",
+                                                                 "What is abstraction?"
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     }
+                 ],
+    "cheatSheet":  [
+
+                   ]
+}

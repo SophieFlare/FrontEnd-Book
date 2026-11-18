@@ -1,0 +1,233 @@
+{
+    "id":  "functional-overview",
+    "title":  "functional",
+    "introduction":  "",
+    "keywords":  [
+
+                 ],
+    "sections":  [
+                     {
+                         "id":  "functional-fundamentals",
+                         "title":  "Functional Fundamentals",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "functional-programming",
+                                               "title":  "What is functional programming?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "pure-functions",
+                                               "title":  "What is a pure function?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "side-effects",
+                                               "title":  "What are side effects?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "immutability",
+                                               "title":  "What is immutability?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "referential-transparency",
+                                               "title":  "What is referential transparency?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "functional-techniques",
+                         "title":  "Functional Techniques",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "higher-order-functions",
+                                               "title":  "What is a higher-order function?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "function-composition",
+                                               "title":  "What is function composition?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "currying",
+                                               "title":  "What is currying?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "partial-application",
+                                               "title":  "What is partial application?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "currying-vs-partial",
+                                               "title":  "How does currying differ from partial application?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     }
+                 ],
+    "cheatSheet":  [
+
+                   ]
+}

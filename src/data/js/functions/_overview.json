@@ -1,0 +1,243 @@
+{
+    "id":  "functions-overview",
+    "title":  "functions",
+    "introduction":  "",
+    "keywords":  [
+
+                 ],
+    "sections":  [
+                     {
+                         "id":  "function-types",
+                         "title":  "Function Types",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "declaration-expression",
+                                               "title":  "What is the difference between function declarations and expressions?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  "Function declarations are initialized during environment setup. Function expressions are evaluated when execution reaches their expression.",
+                                               "interviewAnswer":  "A function declaration defines a named function and can generally be called before its declaration in the same scope. A function expression creates a function as part of an expression and follows the initialization rules of its variable binding.",
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                "Function expressions assigned to const cannot be accessed before initialization.",
+                                                                "Function declarations and expressions have different initialization behavior."
+                                                            ],
+                                               "followUps":  [
+                                                                 "What is hoisting?",
+                                                                 "What is an anonymous function?"
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "arrow-functions",
+                                               "title":  "How do arrow functions differ from regular functions?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  "An arrow function captures this from its surrounding lexical environment rather than creating a new this binding during invocation.",
+                                               "interviewAnswer":  "Arrow functions use lexical this, do not have their own arguments object, and cannot be used as constructors. Regular functions have their own this binding determined by how they are called.",
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                "Arrow functions are usually unsuitable as object methods that need dynamic this.",
+                                                                "Arrow functions cannot be called with new.",
+                                                                "call(), apply() and bind() cannot change an arrow function\u0027s lexical this."
+                                                            ],
+                                               "followUps":  [
+                                                                 "What is lexical this?",
+                                                                 "Why can arrow functions not be constructors?"
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "higher-order-functions",
+                         "title":  "Higher-Order Functions \u0026 Callbacks",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "higher-order",
+                                               "title":  "What is a higher-order function?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  "JavaScript treats functions as first-class values, allowing them to be stored, passed and returned.",
+                                               "interviewAnswer":  "A higher-order function accepts another function as an argument, returns a function, or both.",
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                "A callback is a function passed to another function.",
+                                                                "Higher-order functions do not have to be asynchronous."
+                                                            ],
+                                               "followUps":  [
+                                                                 "What is a callback?",
+                                                                 "How do closures support higher-order functions?"
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "parameters",
+                         "title":  "Parameters \u0026 Arguments",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "rest-parameters",
+                                               "title":  "What are rest parameters?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  "The rest parameter collects arguments not assigned to earlier parameters.",
+                                               "interviewAnswer":  "Rest parameters collect remaining arguments into a real array. They allow functions to accept a variable number of arguments.",
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                "Rest parameters must be the final parameter.",
+                                                                "Rest parameters and spread syntax have different purposes."
+                                                            ],
+                                               "followUps":  [
+                                                                 "What is the arguments object?",
+                                                                 "How does rest differ from spread?"
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "default-parameters",
+                                               "title":  "How do default parameters work?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  "Default parameter expressions are evaluated when the corresponding argument is undefined.",
+                                               "interviewAnswer":  "Default parameters provide fallback values when an argument is missing or explicitly undefined.",
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                "null does not activate a default parameter.",
+                                                                "Default expressions can reference earlier parameters."
+                                                            ],
+                                               "followUps":  [
+                                                                 "How are parameters initialized?",
+                                                                 "What happens when undefined is passed explicitly?"
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "recursion",
+                         "title":  "Recursion",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "recursion-definition",
+                                               "title":  "What is recursion?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  "Recursive calls create additional active function executions. Without an appropriate stopping condition, recursion can exhaust the call stack.",
+                                               "interviewAnswer":  "Recursion occurs when a function calls itself, directly or indirectly, to solve smaller instances of a problem.",
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                "Recursion requires a base case.",
+                                                                "Deep recursion may cause stack overflow.",
+                                                                "Recursive solutions can have additional stack-space costs."
+                                                            ],
+                                               "followUps":  [
+                                                                 "What is tail recursion?",
+                                                                 "How does recursion compare with iteration?"
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "this-binding",
+                         "title":  "this Binding",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "this-keyword",
+                                               "title":  "What is the this keyword?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  "Ordinary function calls establish a this binding according to the call form and strict-mode rules.",
+                                               "interviewAnswer":  "this is a value available during function execution. In ordinary functions, its value depends on how the function is called. Arrow functions inherit this lexically.",
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                "this does not necessarily refer to the function\u0027s lexical scope.",
+                                                                "Extracting a method can lose its original receiver.",
+                                                                "Arrow functions do not create their own this binding."
+                                                            ],
+                                               "followUps":  [
+                                                                 "What are the this binding rules?",
+                                                                 "How does strict mode affect this?"
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "call-apply-bind",
+                                               "title":  "What is the difference between call(), apply() and bind()?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  "call() and apply() invoke immediately. bind() returns a bound function that can be invoked later.",
+                                               "interviewAnswer":  "call() invokes a function with an explicit this value and individual arguments. apply() invokes it with arguments supplied as an array-like object. bind() creates a new function with a bound this value and optional preset arguments.",
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                "bind() does not immediately invoke the function.",
+                                                                "call() and apply() differ in argument passing.",
+                                                                "Arrow functions ignore attempts to rebind lexical this."
+                                                            ],
+                                               "followUps":  [
+                                                                 "What is explicit binding?",
+                                                                 "What happens when a bound function is used with new?"
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     }
+                 ],
+    "cheatSheet":  [
+
+                   ]
+}

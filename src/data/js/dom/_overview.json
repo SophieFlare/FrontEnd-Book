@@ -1,0 +1,343 @@
+{
+    "id":  "dom-overview",
+    "title":  "dom",
+    "introduction":  "",
+    "keywords":  [
+
+                 ],
+    "sections":  [
+                     {
+                         "id":  "dom-fundamentals",
+                         "title":  "DOM Fundamentals",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "dom-definition",
+                                               "title":  "What is the DOM?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "dom-vs-html",
+                                               "title":  "What is the difference between HTML and the DOM?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "dom-selection",
+                                               "title":  "How do you select DOM elements?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "dom-manipulation",
+                                               "title":  "How do you create, update and remove DOM nodes?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "nodelist-htmlcollection",
+                                               "title":  "What is the difference between NodeList and HTMLCollection?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "dom-performance",
+                         "title":  "DOM Performance",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "reflow-repaint",
+                                               "title":  "What are layout, paint and compositing?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "dom-batching",
+                                               "title":  "How can DOM updates be optimized?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "mutation-observer",
+                                               "title":  "What is MutationObserver?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "events",
+                         "title":  "Events",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "event-listeners",
+                                               "title":  "How does addEventListener() work?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "event-object",
+                                               "title":  "What information does the Event object provide?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "bubbling",
+                                               "title":  "What is event bubbling?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "capturing",
+                                               "title":  "What is event capturing?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "delegation",
+                                               "title":  "What is event delegation?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "stop-propagation",
+                                               "title":  "How do stopPropagation() and preventDefault() differ?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "event-target",
+                                               "title":  "What is the difference between target and currentTarget?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     }
+                 ],
+    "cheatSheet":  [
+
+                   ]
+}

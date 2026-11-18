@@ -1,0 +1,543 @@
+{
+    "id":  "collections-overview",
+    "title":  "collections",
+    "introduction":  "",
+    "keywords":  [
+
+                 ],
+    "sections":  [
+                     {
+                         "id":  "array-basics",
+                         "title":  "Array Fundamentals",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "array-definition",
+                                               "title":  "What is an array in JavaScript?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "array-creation",
+                                               "title":  "How can arrays be created?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "array-reference",
+                                               "title":  "How are arrays compared and copied?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "array-destructuring",
+                                               "title":  "How does array destructuring work?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "array-methods",
+                         "title":  "Array Methods",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "map",
+                                               "title":  "How does map() work?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "filter",
+                                               "title":  "How does filter() work?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "reduce",
+                                               "title":  "How does reduce() work?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "foreach",
+                                               "title":  "What is the difference between forEach() and map()?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "find",
+                                               "title":  "How do find() and findIndex() differ?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "some-every",
+                                               "title":  "How do some() and every() work?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "slice-splice",
+                                               "title":  "What is the difference between slice() and splice()?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "sort",
+                                               "title":  "How does sort() work?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "flat-flatmap",
+                                               "title":  "How do flat() and flatMap() work?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "immutable-array-methods",
+                                               "title":  "How do toSorted(), toReversed(), toSpliced() and with() work?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "maps-sets",
+                         "title":  "Map \u0026 Set",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "map-object",
+                                               "title":  "What is the difference between Map and Object?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "set-array",
+                                               "title":  "What is the difference between Set and Array?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "map-iteration",
+                                               "title":  "How do you iterate over Map and Set?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "set-operations",
+                                               "title":  "How do Set operations work?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "typed-arrays",
+                         "title":  "Typed Arrays",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "arraybuffer",
+                                               "title":  "What is ArrayBuffer?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "typedarray",
+                                               "title":  "What are typed arrays?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "dataview",
+                                               "title":  "What is DataView?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "weak-collections",
+                         "title":  "Weak Collections",
+                         "definition":  "",
+                         "keywords":  [
+
+                                      ],
+                         "questions":  [
+                                           {
+                                               "id":  "weakmap",
+                                               "title":  "What is WeakMap?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "weakset",
+                                               "title":  "What is WeakSet?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           },
+                                           {
+                                               "id":  "weak-vs-strong",
+                                               "title":  "How do WeakMap and Map differ in garbage collection?",
+                                               "what":  "",
+                                               "how":  "",
+                                               "why":  "",
+                                               "when":  "",
+                                               "underTheHood":  null,
+                                               "interviewAnswer":  null,
+                                               "keywords":  [
+
+                                                            ],
+                                               "pitfalls":  [
+                                                                null
+                                                            ],
+                                               "followUps":  [
+                                                                 null
+                                                             ],
+                                               "recall":  ""
+                                           }
+                                       ]
+                     }
+                 ],
+    "cheatSheet":  [
+
+                   ]
+}

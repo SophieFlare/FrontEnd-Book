@@ -1,7 +1,9 @@
 ﻿import { useState } from "react";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+
 import InterviewAnswer from "./InterviewAnswer.jsx";
 import CategoryOverview from "./CategoryOverview.jsx";
-import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import useOverviewNavigation from "./useOverviewNavigation.js";
 
 export default function InterviewExplorer({ subject, content }) {
   const [category, setCategory] = useState(null);
@@ -10,6 +12,12 @@ export default function InterviewExplorer({ subject, content }) {
 
   const concepts = category ? (content?.[category.id]?.concepts ?? []) : [];
   const questions = concept?.questions ?? [];
+
+  const { openQuestion } = useOverviewNavigation(
+    concepts,
+    setConcept,
+    setQuestion,
+  );
 
   function goBack() {
     if (question) setQuestion(null);
@@ -23,14 +31,6 @@ export default function InterviewExplorer({ subject, content }) {
     setQuestion(null);
   }
 
-  const items = question
-    ? []
-    : concept
-      ? questions
-      : category
-        ? concepts
-        : (subject.categories ?? []);
-
   function selectItem(item) {
     if (!category) {
       setCategory(item);
@@ -43,6 +43,14 @@ export default function InterviewExplorer({ subject, content }) {
       setQuestion(item);
     }
   }
+
+  const items = question
+    ? []
+    : concept
+      ? questions
+      : category
+        ? concepts
+        : (subject.categories ?? []);
 
   const title =
     question?.title ||
@@ -84,11 +92,8 @@ export default function InterviewExplorer({ subject, content }) {
         )}
       </header>
 
-      {/* CATEGORY OVERVIEW */}
-      {showOverview && <CategoryOverview concepts={concepts} />}
-
-      {/* FLEXIBLE QUESTION EXPLORER */}
-      <div className="min-h-0 min-w-0 flex-1">
+      {/* QUESTION EXPLORER */}
+      <div className="min-w-0">
         {!question && (
           <div className="space-y-0.5">
             {items.map((item, index) => (
@@ -134,6 +139,17 @@ export default function InterviewExplorer({ subject, content }) {
           </div>
         )}
       </div>
+
+      {/* GLOBAL OVERVIEW */}
+      {showOverview && (
+        <div className="mt-4 min-w-0">
+          <CategoryOverview
+            concepts={concepts}
+            overview={content?.[category.id]?.overview}
+            onQuestionClick={openQuestion}
+          />
+        </div>
+      )}
     </section>
   );
 }
